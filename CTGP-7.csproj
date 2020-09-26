@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FBF1CF8A-C8BF-4C27-A6E4-EA360BBDCC89}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CTGP7</RootNamespace>
+    <AssemblyName>CTGP-7</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FileFormats\CMSN.cs" />
+    <Compile Include="MenuImages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuImages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CMSNViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CMSNViewer.Designer.cs">
+      <DependentUpon>CMSNViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PartPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PartPreview.Designer.cs">
+      <DependentUpon>PartPreview.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibEveryFileExplorer\LibEveryFileExplorer.csproj">
+      <Project>{39DBD12F-F7E3-4E9A-97A2-0722A4BA2A26}</Project>
+      <Name>LibEveryFileExplorer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MenuImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CMSNViewer.resx">
+      <DependentUpon>CMSNViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PartPreview.resx">
+      <DependentUpon>PartPreview.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\missionIcon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\missionIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_daisy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_donkey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_hatena.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_honeyQueen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_koopaTroopa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_lakitu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_luigi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_mario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_metal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_peach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_rosalina.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_sh_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_sh_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_sh_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_sh_lightblue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_sh_pink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_sh_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_sh_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_sh_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_toad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_wario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_wiggler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_yoshi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers\select_bowser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_rac.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_rally.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_rib.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_sab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_std.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_trn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_bot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_cld.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_cuc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_egg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_gld.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_gng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_hny.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_jet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_kpc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_pip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tire\t_cls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tire\t_gld.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tire\t_mus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tire\t_q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tire\t_rac.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tire\t_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tire\t_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tire\t_spg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tire\t_std.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tire\t_wod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tire\t_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wing\g_bas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wing\g_flw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wing\g_gld.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wing\g_met.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wing\g_par.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wing\g_q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wing\g_std.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wing\g_umb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Body\b_dsh.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)\EveryFileExplorer\bin\Debug\Plugins\$(TargetFileName)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
