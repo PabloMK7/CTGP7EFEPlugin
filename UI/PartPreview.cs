@@ -101,9 +101,13 @@ namespace CTGP7.UI
         }
         private Tuple<int, string, Bitmap>[] UseData;
         private int UseIndex;
+        private bool HasLoaded;
+        private int SetIndex;
         public PartPreviewMode PreviewMode { get; set; }
         public PartPreview()
         {
+            HasLoaded = false;
+            SetIndex = int.MinValue;
             InitializeComponent();
         }
         private void UpdateGraphic(bool updateText)
@@ -123,6 +127,20 @@ namespace CTGP7.UI
         {
             if (UseIndex < 0) return -1;
             return UseData[UseIndex].Item1;
+        }
+        public void SetSelection(int value)
+        {
+            if (HasLoaded) SetSelectionImpl(value);
+            else SetIndex = value;
+        }
+
+        private void SetSelectionImpl(int value)
+        {
+            for (int i = 0; i < UseData.Length; i++)
+            {
+                if (value == UseData[i].Item1) { UseIndex = i; return; }
+                else if (UseData[i].Item1 == -1) UseIndex = i;
+            }
         }
 
         private void PartPreview_Load(object sender, EventArgs e)
@@ -150,6 +168,8 @@ namespace CTGP7.UI
             {
                 comboBox.Items.Add(item.Item2);
             }
+            if (SetIndex != int.MinValue) SetSelectionImpl(SetIndex);
+            HasLoaded = true;
             UpdateGraphic(true);
         }
     }

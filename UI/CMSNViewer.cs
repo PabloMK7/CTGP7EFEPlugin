@@ -29,15 +29,65 @@ namespace CTGP7.UI
                 new PartPreview[] {cpu7Driver, cpu7Body, cpu7Tire, cpu7Glider},
             };
         }
+        public void LoadData()
+        {
+            CMSN.DriverOptionsSection driverOpts = (CMSN.DriverOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.DriverOptions);
+            if (driverOpts != null)
+            {
+                DriverAmount = driverOpts.DriverAmount;
+                for (uint i = 0; i < DriverAmount; i++)
+                {
+                    for (uint j = 0; j < 4; j++)
+                    {
+                        SetPartsSelection(i, j, driverOpts.DriverChoices[i][j]);
+                    }
+                }
+            }
+        }
+        public void SaveData()
+        {
+            CMSN.DriverOptionsSection driverOpts = (CMSN.DriverOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.DriverOptions);
+            if (driverOpts != null)
+            {
+                driverOpts.DriverAmount = DriverAmount;
+                for (uint i = 0; i < DriverAmount; i++)
+                {
+                    for (uint j = 0; j < 4; j++)
+                    {
+                        driverOpts.DriverChoices[i][j] = GetPartsSelection(i, j);
+                    }
+                }
+            }
+        }
+        public int DriverAmount
+        {
+            get
+            {
+                return (int)driverAmount.Value;
+            }
+            set
+            {
+                driverAmount.Value = value;
+            }
+        }
+        public int GetPartsSelection(uint slot, uint option)
+        {
+            if (slot >= DriverAmount || option > 3) throw new ArgumentOutOfRangeException();
+            return DriverPartPreviews[slot][option].GetSelection();
+        }
+        public void SetPartsSelection(uint slot, uint option, int value)
+        {
+            if (slot >= DriverAmount || option > 3) throw new ArgumentOutOfRangeException();
+            DriverPartPreviews[slot][option].SetSelection(value);
+        }
         private void UpdateDriverEnable()
         {
-            int amount = (int)driverAmount.Value;
             for (int i = 0; i < DriverPartPreviews.Length; i++)
             {
                 for (int j = 0; j < DriverPartPreviews[i].Length; j++)
                 {
-                    DriverPartPreviews[i][j].Enabled = i < amount;
-                    DriverPartPreviews[i][j].Visible = i < amount;
+                    DriverPartPreviews[i][j].Enabled = i < DriverAmount;
+                    DriverPartPreviews[i][j].Visible = i < DriverAmount;
                 }
             }
         }
