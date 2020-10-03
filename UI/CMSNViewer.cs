@@ -14,9 +14,11 @@ namespace CTGP7.UI
     {
         public CMSN MissionData;
         private PartPreview[][] DriverPartPreviews;
+        CTGP7CourseList TranslateTable;
         public CMSNViewer(CMSN cmsn)
         {
             MissionData = cmsn;
+            TranslateTable = CTGP7CourseList.Instance;
             InitializeComponent();
             DriverPartPreviews = new PartPreview[][] {
                 new PartPreview[] {playerDriver, playerBody, playerTire, playerGlider},
@@ -31,32 +33,51 @@ namespace CTGP7.UI
         }
         public void LoadData()
         {
-            CMSN.DriverOptionsSection driverOpts = (CMSN.DriverOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.DriverOptions);
-            if (driverOpts != null)
-            {
-                DriverAmount = driverOpts.DriverAmount;
-                for (uint i = 0; i < DriverAmount; i++)
+
+            { // Driver options
+                CMSN.DriverOptionsSection driverOpts = (CMSN.DriverOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.DriverOptions);
+                if (driverOpts != null)
                 {
-                    for (uint j = 0; j < 4; j++)
+                    DriverAmount = driverOpts.DriverAmount;
+                    for (uint i = 0; i < DriverAmount; i++)
                     {
-                        SetPartsSelection(i, j, driverOpts.DriverChoices[i][j]);
+                        for (uint j = 0; j < 4; j++)
+                        {
+                            SetPartsSelection(i, j, driverOpts.DriverChoices[i][j]);
+                        }
                     }
                 }
+            }
+            { // Mission Flags
+
+                CMSN.MissionFlagsSection missionFlags = (CMSN.MissionFlagsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.MissionFlags);
+                CTGP7CourseList.NameEntry nameEntry = TranslateTable.NameEntryFromID(missionFlags.CourseID);
+                if (nameEntry == null) nameEntry = TranslateTable.NameEntryFromID(0);
+                if (nameEntry == null) throw new InvalidOperationException("CTGP-7 course name data needs to be downloaded.");
+                courseSelector.SelectedCourseNameEntry = nameEntry;
             }
         }
         public void SaveData()
         {
-            CMSN.DriverOptionsSection driverOpts = (CMSN.DriverOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.DriverOptions);
-            if (driverOpts != null)
-            {
-                driverOpts.DriverAmount = DriverAmount;
-                for (uint i = 0; i < DriverAmount; i++)
+            { // Driver options
+                CMSN.DriverOptionsSection driverOpts = (CMSN.DriverOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.DriverOptions);
+                if (driverOpts != null)
                 {
-                    for (uint j = 0; j < 4; j++)
+                    driverOpts.DriverAmount = DriverAmount;
+                    for (uint i = 0; i < DriverAmount; i++)
                     {
-                        driverOpts.DriverChoices[i][j] = GetPartsSelection(i, j);
+                        for (uint j = 0; j < 4; j++)
+                        {
+                            driverOpts.DriverChoices[i][j] = GetPartsSelection(i, j);
+                        }
                     }
                 }
+            }
+            { // Mission Flags
+                CMSN.MissionFlagsSection missionFlags = (CMSN.MissionFlagsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.MissionFlags);
+                CTGP7CourseList.NameEntry nameEntry = courseSelector.SelectedCourseNameEntry;
+                if (nameEntry == null) missionFlags.CourseID = 0;
+                else missionFlags.CourseID = nameEntry.courseID;
             }
         }
         public int DriverAmount
@@ -73,21 +94,21 @@ namespace CTGP7.UI
         public int GetPartsSelection(uint slot, uint option)
         {
             if (slot >= DriverAmount || option > 3) throw new ArgumentOutOfRangeException();
-            return DriverPartPreviews[slot][option].GetSelection();
+            return DriverPartPreviews[slot][option].Selection;
         }
         public void SetPartsSelection(uint slot, uint option, int value)
         {
             if (slot >= DriverAmount || option > 3) throw new ArgumentOutOfRangeException();
-            DriverPartPreviews[slot][option].SetSelection(value);
+            DriverPartPreviews[slot][option].Selection = value;
         }
-        private void UpdateDriverEnable()
+        public void UpdateDriverEnable()
         {
             for (int i = 0; i < DriverPartPreviews.Length; i++)
             {
                 for (int j = 0; j < DriverPartPreviews[i].Length; j++)
                 {
-                    DriverPartPreviews[i][j].Enabled = i < DriverAmount;
-                    DriverPartPreviews[i][j].Visible = i < DriverAmount;
+                    DriverPartPreviews[i][j].Enabled = (i < DriverAmount) && (j == 0 || DriverPartPreviews[i][0].Selection != -2);
+                    DriverPartPreviews[i][j].Visible = (i < DriverAmount) && (j == 0 || DriverPartPreviews[i][0].Selection != -2);
                 }
             }
         }
@@ -98,7 +119,15 @@ namespace CTGP7.UI
 
         private void CMSNViewer_Load(object sender, EventArgs e)
         {
+            LoadData();
             UpdateDriverEnable();
+            for (int i = 0; i < DriverPartPreviews.Length; i++)
+            {
+                for (int j = 0; j < DriverPartPreviews[i].Length; j++)
+                {
+                    DriverPartPreviews[i][j].ParentViewer = this;
+                }
+            }
         }
     }
 }

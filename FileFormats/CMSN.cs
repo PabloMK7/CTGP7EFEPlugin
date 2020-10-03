@@ -23,6 +23,7 @@ namespace CTGP7
 			Header = new CMSNHeader();
 			Sections = new List<BaseSection>();
 			Sections.Add(new DriverOptionsSection());
+			Sections.Add(new MissionFlagsSection());
 		}
 		public CMSN(byte[] Data)
 		{
@@ -41,6 +42,9 @@ namespace CTGP7
                 {
 					case BaseSection.SectionType.DriverOptions:
 						Sections.Add(new DriverOptionsSection(er));
+						break;
+					case BaseSection.SectionType.MissionFlags:
+						Sections.Add(new MissionFlagsSection(er));
 						break;
 					default:
 						throw new NotImplementedException("Section " + sectionType + " not implemented!");
@@ -121,6 +125,8 @@ namespace CTGP7
 			public enum SectionType
             {
 				DriverOptions = 0,
+				TimingOptions = 1,
+				MissionFlags = 2,
             }
 			public abstract SectionType GetSectionType();
 			public abstract void Write(EndianBinaryWriterEx ew);
@@ -167,10 +173,50 @@ namespace CTGP7
 			}
         }
 
+		public class TimingsSection : BaseSection
+		{
+			public override SectionType GetSectionType()
+			{
+				return SectionType.TimingOptions;
+			}
+			public TimingsSection()
+			{
+				
+			}
+			public TimingsSection(EndianBinaryReaderEx er) : this()
+			{
+				
+			}
+			public override void Write(EndianBinaryWriterEx ew)
+			{
+				
+			}
+		}
+
+		public class MissionFlagsSection : BaseSection
+		{
+			public override SectionType GetSectionType()
+			{
+				return SectionType.MissionFlags;
+			}
+			public UInt32 CourseID;
+			public MissionFlagsSection()
+			{
+				CourseID = 0;
+			}
+			public MissionFlagsSection(EndianBinaryReaderEx er) : this()
+			{
+				CourseID = er.ReadUInt32();
+			}
+			public override void Write(EndianBinaryWriterEx ew)
+			{
+				ew.Write(CourseID);
+			}
+		}
+
 		public Form GetDialog()
         {
 			Viewer = new UI.CMSNViewer(this);
-			Viewer.LoadData();
 			return Viewer;
         }
 

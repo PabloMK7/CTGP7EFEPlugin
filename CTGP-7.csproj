@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\CourseTranslateNames.cs" />
     <Compile Include="FileFormats\CMSN.cs" />
+    <Compile Include="FileFormats\MusicConfig.cs" />
     <Compile Include="MenuImages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,6 +65,18 @@
     </Compile>
     <Compile Include="UI\CMSNViewer.Designer.cs">
       <DependentUpon>CMSNViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CourseSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CourseSelect.Designer.cs">
+      <DependentUpon>CourseSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MusicSlotEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MusicSlotEditor.Designer.cs">
+      <DependentUpon>MusicSlotEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\PartPreview.cs">
       <SubType>UserControl</SubType>
@@ -88,6 +102,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CMSNViewer.resx">
       <DependentUpon>CMSNViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CourseSelect.resx">
+      <DependentUpon>CourseSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MusicSlotEditor.resx">
+      <DependentUpon>MusicSlotEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PartPreview.resx">
       <DependentUpon>PartPreview.cs</DependentUpon>

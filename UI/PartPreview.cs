@@ -63,7 +63,6 @@ namespace CTGP7.UI
             Tuple.Create(15, "Soda Jet", MenuImages.b_jet),
             Tuple.Create(16, "Gold Standard", MenuImages.b_gld),
             Tuple.Create(-1, "Random", MenuImages.b_q),
-            Tuple.Create(-2, "Recommended", MenuImages.b_q)
         };
         private readonly Tuple<int, string, Bitmap>[] TireData =
         {
@@ -78,7 +77,6 @@ namespace CTGP7.UI
             Tuple.Create(8, "Red Monster", MenuImages.t_red),
             Tuple.Create(9, "Mushroom", MenuImages.t_mus),
             Tuple.Create(-1, "Random", MenuImages.t_q),
-            Tuple.Create(-2, "Recommended", MenuImages.t_q)
         };
         private readonly Tuple<int, string, Bitmap>[] WingData =
         {
@@ -90,7 +88,6 @@ namespace CTGP7.UI
             Tuple.Create(5, "Beast", MenuImages.g_met),
             Tuple.Create(6, "Gold", MenuImages.g_gld),
             Tuple.Create(-1, "Random", MenuImages.g_q),
-            Tuple.Create(-2, "Recommended", MenuImages.g_q)
         };
         public enum PartPreviewMode
         {
@@ -103,6 +100,21 @@ namespace CTGP7.UI
         private int UseIndex;
         private bool HasLoaded;
         private int SetIndex;
+        public CMSNViewer ParentViewer;
+        public int Selection
+        {
+            get
+            {
+                if (UseIndex < 0 || UseData == null) return -1;
+                return UseData[UseIndex].Item1;
+            }
+            set
+            {
+                if (HasLoaded) SetSelectionImpl(value);
+                else SetIndex = value;
+            }
+        }
+        public bool MainPlayer { get; set; }
         public PartPreviewMode PreviewMode { get; set; }
         public PartPreview()
         {
@@ -121,19 +133,8 @@ namespace CTGP7.UI
         {
             UseIndex = (sender as ComboBox).SelectedIndex;
             UpdateGraphic(false);
+            if (ParentViewer != null && PreviewMode == PartPreviewMode.Driver) ParentViewer.UpdateDriverEnable();
         }
-
-        public int GetSelection()
-        {
-            if (UseIndex < 0) return -1;
-            return UseData[UseIndex].Item1;
-        }
-        public void SetSelection(int value)
-        {
-            if (HasLoaded) SetSelectionImpl(value);
-            else SetIndex = value;
-        }
-
         private void SetSelectionImpl(int value)
         {
             for (int i = 0; i < UseData.Length; i++)
@@ -166,6 +167,7 @@ namespace CTGP7.UI
             };
             foreach (var item in UseData)
             {
+                if (PreviewMode == PartPreviewMode.Driver && MainPlayer && item.Item1 == -2) continue;
                 comboBox.Items.Add(item.Item2);
             }
             if (SetIndex != int.MinValue) SetSelectionImpl(SetIndex);

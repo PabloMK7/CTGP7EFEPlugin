@@ -39,28 +39,21 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.driverAmount = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             this.cpu7Glider = new CTGP7.UI.PartPreview();
             this.cpu7Tire = new CTGP7.UI.PartPreview();
             this.cpu7Body = new CTGP7.UI.PartPreview();
             this.cpu7Driver = new CTGP7.UI.PartPreview();
+            this.label9 = new System.Windows.Forms.Label();
             this.cpu6Glider = new CTGP7.UI.PartPreview();
             this.cpu6Tire = new CTGP7.UI.PartPreview();
             this.cpu6Body = new CTGP7.UI.PartPreview();
             this.cpu6Driver = new CTGP7.UI.PartPreview();
+            this.label8 = new System.Windows.Forms.Label();
             this.cpu5Glider = new CTGP7.UI.PartPreview();
             this.cpu5Tire = new CTGP7.UI.PartPreview();
             this.cpu5Body = new CTGP7.UI.PartPreview();
             this.cpu5Driver = new CTGP7.UI.PartPreview();
+            this.label7 = new System.Windows.Forms.Label();
             this.cpu4Glider = new CTGP7.UI.PartPreview();
             this.cpu3Glider = new CTGP7.UI.PartPreview();
             this.cpu4Tire = new CTGP7.UI.PartPreview();
@@ -68,20 +61,29 @@
             this.cpu3Tire = new CTGP7.UI.PartPreview();
             this.cpu4Driver = new CTGP7.UI.PartPreview();
             this.cpu3Body = new CTGP7.UI.PartPreview();
+            this.label6 = new System.Windows.Forms.Label();
             this.cpu3Driver = new CTGP7.UI.PartPreview();
+            this.label5 = new System.Windows.Forms.Label();
             this.cpu2Glider = new CTGP7.UI.PartPreview();
             this.cpu2Tire = new CTGP7.UI.PartPreview();
             this.cpu2Body = new CTGP7.UI.PartPreview();
             this.cpu2Driver = new CTGP7.UI.PartPreview();
+            this.label4 = new System.Windows.Forms.Label();
             this.cpu1Glider = new CTGP7.UI.PartPreview();
             this.cpu1Tire = new CTGP7.UI.PartPreview();
             this.cpu1Body = new CTGP7.UI.PartPreview();
             this.cpu1Driver = new CTGP7.UI.PartPreview();
+            this.label3 = new System.Windows.Forms.Label();
             this.playerGlider = new CTGP7.UI.PartPreview();
             this.playerTire = new CTGP7.UI.PartPreview();
             this.playerBody = new CTGP7.UI.PartPreview();
             this.playerDriver = new CTGP7.UI.PartPreview();
+            this.label2 = new System.Windows.Forms.Label();
+            this.driverAmount = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.courseSelector = new CTGP7.UI.CourseSelect();
             this.tabContainer.SuspendLayout();
+            this.settingsTab.SuspendLayout();
             this.driverTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.driverAmount)).BeginInit();
             this.SuspendLayout();
@@ -101,6 +103,7 @@
             // 
             // settingsTab
             // 
+            this.settingsTab.Controls.Add(this.courseSelector);
             this.settingsTab.Location = new System.Drawing.Point(4, 22);
             this.settingsTab.Name = "settingsTab";
             this.settingsTab.Padding = new System.Windows.Forms.Padding(3);
@@ -224,6 +227,46 @@
             this.label10.Size = new System.Drawing.Size(889, 2);
             this.label10.TabIndex = 36;
             // 
+            // cpu7Glider
+            // 
+            this.cpu7Glider.Location = new System.Drawing.Point(689, 382);
+            this.cpu7Glider.MainPlayer = false;
+            this.cpu7Glider.Name = "cpu7Glider";
+            this.cpu7Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
+            this.cpu7Glider.Selection = -1;
+            this.cpu7Glider.Size = new System.Drawing.Size(206, 44);
+            this.cpu7Glider.TabIndex = 33;
+            // 
+            // cpu7Tire
+            // 
+            this.cpu7Tire.Location = new System.Drawing.Point(477, 382);
+            this.cpu7Tire.MainPlayer = false;
+            this.cpu7Tire.Name = "cpu7Tire";
+            this.cpu7Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
+            this.cpu7Tire.Selection = -1;
+            this.cpu7Tire.Size = new System.Drawing.Size(206, 44);
+            this.cpu7Tire.TabIndex = 35;
+            // 
+            // cpu7Body
+            // 
+            this.cpu7Body.Location = new System.Drawing.Point(265, 382);
+            this.cpu7Body.MainPlayer = false;
+            this.cpu7Body.Name = "cpu7Body";
+            this.cpu7Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
+            this.cpu7Body.Selection = -1;
+            this.cpu7Body.Size = new System.Drawing.Size(206, 44);
+            this.cpu7Body.TabIndex = 34;
+            // 
+            // cpu7Driver
+            // 
+            this.cpu7Driver.Location = new System.Drawing.Point(53, 382);
+            this.cpu7Driver.MainPlayer = false;
+            this.cpu7Driver.Name = "cpu7Driver";
+            this.cpu7Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
+            this.cpu7Driver.Selection = -1;
+            this.cpu7Driver.Size = new System.Drawing.Size(206, 44);
+            this.cpu7Driver.TabIndex = 32;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -232,6 +275,46 @@
             this.label9.Size = new System.Drawing.Size(38, 13);
             this.label9.TabIndex = 31;
             this.label9.Text = "CPU 7";
+            // 
+            // cpu6Glider
+            // 
+            this.cpu6Glider.Location = new System.Drawing.Point(689, 332);
+            this.cpu6Glider.MainPlayer = false;
+            this.cpu6Glider.Name = "cpu6Glider";
+            this.cpu6Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
+            this.cpu6Glider.Selection = -1;
+            this.cpu6Glider.Size = new System.Drawing.Size(206, 44);
+            this.cpu6Glider.TabIndex = 28;
+            // 
+            // cpu6Tire
+            // 
+            this.cpu6Tire.Location = new System.Drawing.Point(477, 332);
+            this.cpu6Tire.MainPlayer = false;
+            this.cpu6Tire.Name = "cpu6Tire";
+            this.cpu6Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
+            this.cpu6Tire.Selection = -1;
+            this.cpu6Tire.Size = new System.Drawing.Size(206, 44);
+            this.cpu6Tire.TabIndex = 30;
+            // 
+            // cpu6Body
+            // 
+            this.cpu6Body.Location = new System.Drawing.Point(265, 332);
+            this.cpu6Body.MainPlayer = false;
+            this.cpu6Body.Name = "cpu6Body";
+            this.cpu6Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
+            this.cpu6Body.Selection = -1;
+            this.cpu6Body.Size = new System.Drawing.Size(206, 44);
+            this.cpu6Body.TabIndex = 29;
+            // 
+            // cpu6Driver
+            // 
+            this.cpu6Driver.Location = new System.Drawing.Point(53, 332);
+            this.cpu6Driver.MainPlayer = false;
+            this.cpu6Driver.Name = "cpu6Driver";
+            this.cpu6Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
+            this.cpu6Driver.Selection = -1;
+            this.cpu6Driver.Size = new System.Drawing.Size(206, 44);
+            this.cpu6Driver.TabIndex = 27;
             // 
             // label8
             // 
@@ -242,6 +325,46 @@
             this.label8.TabIndex = 26;
             this.label8.Text = "CPU 6";
             // 
+            // cpu5Glider
+            // 
+            this.cpu5Glider.Location = new System.Drawing.Point(689, 282);
+            this.cpu5Glider.MainPlayer = false;
+            this.cpu5Glider.Name = "cpu5Glider";
+            this.cpu5Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
+            this.cpu5Glider.Selection = -1;
+            this.cpu5Glider.Size = new System.Drawing.Size(206, 44);
+            this.cpu5Glider.TabIndex = 23;
+            // 
+            // cpu5Tire
+            // 
+            this.cpu5Tire.Location = new System.Drawing.Point(477, 282);
+            this.cpu5Tire.MainPlayer = false;
+            this.cpu5Tire.Name = "cpu5Tire";
+            this.cpu5Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
+            this.cpu5Tire.Selection = -1;
+            this.cpu5Tire.Size = new System.Drawing.Size(206, 44);
+            this.cpu5Tire.TabIndex = 25;
+            // 
+            // cpu5Body
+            // 
+            this.cpu5Body.Location = new System.Drawing.Point(265, 282);
+            this.cpu5Body.MainPlayer = false;
+            this.cpu5Body.Name = "cpu5Body";
+            this.cpu5Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
+            this.cpu5Body.Selection = -1;
+            this.cpu5Body.Size = new System.Drawing.Size(206, 44);
+            this.cpu5Body.TabIndex = 24;
+            // 
+            // cpu5Driver
+            // 
+            this.cpu5Driver.Location = new System.Drawing.Point(53, 282);
+            this.cpu5Driver.MainPlayer = false;
+            this.cpu5Driver.Name = "cpu5Driver";
+            this.cpu5Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
+            this.cpu5Driver.Selection = -1;
+            this.cpu5Driver.Size = new System.Drawing.Size(206, 44);
+            this.cpu5Driver.TabIndex = 22;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -250,6 +373,76 @@
             this.label7.Size = new System.Drawing.Size(38, 13);
             this.label7.TabIndex = 21;
             this.label7.Text = "CPU 5";
+            // 
+            // cpu4Glider
+            // 
+            this.cpu4Glider.Location = new System.Drawing.Point(689, 232);
+            this.cpu4Glider.MainPlayer = false;
+            this.cpu4Glider.Name = "cpu4Glider";
+            this.cpu4Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
+            this.cpu4Glider.Selection = -1;
+            this.cpu4Glider.Size = new System.Drawing.Size(206, 44);
+            this.cpu4Glider.TabIndex = 8;
+            // 
+            // cpu3Glider
+            // 
+            this.cpu3Glider.Location = new System.Drawing.Point(689, 182);
+            this.cpu3Glider.MainPlayer = false;
+            this.cpu3Glider.Name = "cpu3Glider";
+            this.cpu3Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
+            this.cpu3Glider.Selection = -1;
+            this.cpu3Glider.Size = new System.Drawing.Size(206, 44);
+            this.cpu3Glider.TabIndex = 18;
+            // 
+            // cpu4Tire
+            // 
+            this.cpu4Tire.Location = new System.Drawing.Point(477, 232);
+            this.cpu4Tire.MainPlayer = false;
+            this.cpu4Tire.Name = "cpu4Tire";
+            this.cpu4Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
+            this.cpu4Tire.Selection = -1;
+            this.cpu4Tire.Size = new System.Drawing.Size(206, 44);
+            this.cpu4Tire.TabIndex = 10;
+            // 
+            // cpu4Body
+            // 
+            this.cpu4Body.Location = new System.Drawing.Point(265, 232);
+            this.cpu4Body.MainPlayer = false;
+            this.cpu4Body.Name = "cpu4Body";
+            this.cpu4Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
+            this.cpu4Body.Selection = -1;
+            this.cpu4Body.Size = new System.Drawing.Size(206, 44);
+            this.cpu4Body.TabIndex = 9;
+            // 
+            // cpu3Tire
+            // 
+            this.cpu3Tire.Location = new System.Drawing.Point(477, 182);
+            this.cpu3Tire.MainPlayer = false;
+            this.cpu3Tire.Name = "cpu3Tire";
+            this.cpu3Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
+            this.cpu3Tire.Selection = -1;
+            this.cpu3Tire.Size = new System.Drawing.Size(206, 44);
+            this.cpu3Tire.TabIndex = 20;
+            // 
+            // cpu4Driver
+            // 
+            this.cpu4Driver.Location = new System.Drawing.Point(53, 232);
+            this.cpu4Driver.MainPlayer = false;
+            this.cpu4Driver.Name = "cpu4Driver";
+            this.cpu4Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
+            this.cpu4Driver.Selection = -1;
+            this.cpu4Driver.Size = new System.Drawing.Size(206, 44);
+            this.cpu4Driver.TabIndex = 7;
+            // 
+            // cpu3Body
+            // 
+            this.cpu3Body.Location = new System.Drawing.Point(265, 182);
+            this.cpu3Body.MainPlayer = false;
+            this.cpu3Body.Name = "cpu3Body";
+            this.cpu3Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
+            this.cpu3Body.Selection = -1;
+            this.cpu3Body.Size = new System.Drawing.Size(206, 44);
+            this.cpu3Body.TabIndex = 19;
             // 
             // label6
             // 
@@ -260,6 +453,16 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "CPU 4";
             // 
+            // cpu3Driver
+            // 
+            this.cpu3Driver.Location = new System.Drawing.Point(53, 182);
+            this.cpu3Driver.MainPlayer = false;
+            this.cpu3Driver.Name = "cpu3Driver";
+            this.cpu3Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
+            this.cpu3Driver.Selection = -1;
+            this.cpu3Driver.Size = new System.Drawing.Size(206, 44);
+            this.cpu3Driver.TabIndex = 17;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -268,6 +471,46 @@
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 16;
             this.label5.Text = "CPU 3";
+            // 
+            // cpu2Glider
+            // 
+            this.cpu2Glider.Location = new System.Drawing.Point(689, 132);
+            this.cpu2Glider.MainPlayer = false;
+            this.cpu2Glider.Name = "cpu2Glider";
+            this.cpu2Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
+            this.cpu2Glider.Selection = -1;
+            this.cpu2Glider.Size = new System.Drawing.Size(206, 44);
+            this.cpu2Glider.TabIndex = 13;
+            // 
+            // cpu2Tire
+            // 
+            this.cpu2Tire.Location = new System.Drawing.Point(477, 132);
+            this.cpu2Tire.MainPlayer = false;
+            this.cpu2Tire.Name = "cpu2Tire";
+            this.cpu2Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
+            this.cpu2Tire.Selection = -1;
+            this.cpu2Tire.Size = new System.Drawing.Size(206, 44);
+            this.cpu2Tire.TabIndex = 15;
+            // 
+            // cpu2Body
+            // 
+            this.cpu2Body.Location = new System.Drawing.Point(265, 132);
+            this.cpu2Body.MainPlayer = false;
+            this.cpu2Body.Name = "cpu2Body";
+            this.cpu2Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
+            this.cpu2Body.Selection = -1;
+            this.cpu2Body.Size = new System.Drawing.Size(206, 44);
+            this.cpu2Body.TabIndex = 14;
+            // 
+            // cpu2Driver
+            // 
+            this.cpu2Driver.Location = new System.Drawing.Point(53, 132);
+            this.cpu2Driver.MainPlayer = false;
+            this.cpu2Driver.Name = "cpu2Driver";
+            this.cpu2Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
+            this.cpu2Driver.Selection = -1;
+            this.cpu2Driver.Size = new System.Drawing.Size(206, 44);
+            this.cpu2Driver.TabIndex = 12;
             // 
             // label4
             // 
@@ -278,6 +521,46 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "CPU 2";
             // 
+            // cpu1Glider
+            // 
+            this.cpu1Glider.Location = new System.Drawing.Point(689, 82);
+            this.cpu1Glider.MainPlayer = false;
+            this.cpu1Glider.Name = "cpu1Glider";
+            this.cpu1Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
+            this.cpu1Glider.Selection = -1;
+            this.cpu1Glider.Size = new System.Drawing.Size(206, 44);
+            this.cpu1Glider.TabIndex = 8;
+            // 
+            // cpu1Tire
+            // 
+            this.cpu1Tire.Location = new System.Drawing.Point(477, 82);
+            this.cpu1Tire.MainPlayer = false;
+            this.cpu1Tire.Name = "cpu1Tire";
+            this.cpu1Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
+            this.cpu1Tire.Selection = -1;
+            this.cpu1Tire.Size = new System.Drawing.Size(206, 44);
+            this.cpu1Tire.TabIndex = 10;
+            // 
+            // cpu1Body
+            // 
+            this.cpu1Body.Location = new System.Drawing.Point(265, 82);
+            this.cpu1Body.MainPlayer = false;
+            this.cpu1Body.Name = "cpu1Body";
+            this.cpu1Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
+            this.cpu1Body.Selection = -1;
+            this.cpu1Body.Size = new System.Drawing.Size(206, 44);
+            this.cpu1Body.TabIndex = 9;
+            // 
+            // cpu1Driver
+            // 
+            this.cpu1Driver.Location = new System.Drawing.Point(53, 82);
+            this.cpu1Driver.MainPlayer = false;
+            this.cpu1Driver.Name = "cpu1Driver";
+            this.cpu1Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
+            this.cpu1Driver.Selection = -1;
+            this.cpu1Driver.Size = new System.Drawing.Size(206, 44);
+            this.cpu1Driver.TabIndex = 7;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -286,6 +569,46 @@
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "CPU 1";
+            // 
+            // playerGlider
+            // 
+            this.playerGlider.Location = new System.Drawing.Point(689, 32);
+            this.playerGlider.MainPlayer = true;
+            this.playerGlider.Name = "playerGlider";
+            this.playerGlider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
+            this.playerGlider.Selection = -1;
+            this.playerGlider.Size = new System.Drawing.Size(206, 44);
+            this.playerGlider.TabIndex = 4;
+            // 
+            // playerTire
+            // 
+            this.playerTire.Location = new System.Drawing.Point(477, 32);
+            this.playerTire.MainPlayer = true;
+            this.playerTire.Name = "playerTire";
+            this.playerTire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
+            this.playerTire.Selection = -1;
+            this.playerTire.Size = new System.Drawing.Size(206, 44);
+            this.playerTire.TabIndex = 5;
+            // 
+            // playerBody
+            // 
+            this.playerBody.Location = new System.Drawing.Point(265, 32);
+            this.playerBody.MainPlayer = true;
+            this.playerBody.Name = "playerBody";
+            this.playerBody.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
+            this.playerBody.Selection = -1;
+            this.playerBody.Size = new System.Drawing.Size(206, 44);
+            this.playerBody.TabIndex = 4;
+            // 
+            // playerDriver
+            // 
+            this.playerDriver.Location = new System.Drawing.Point(53, 32);
+            this.playerDriver.MainPlayer = true;
+            this.playerDriver.Name = "playerDriver";
+            this.playerDriver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
+            this.playerDriver.Selection = -1;
+            this.playerDriver.Size = new System.Drawing.Size(206, 44);
+            this.playerDriver.TabIndex = 3;
             // 
             // label2
             // 
@@ -329,261 +652,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Drivers";
             // 
-            // cpu7Glider
+            // courseSelector
             // 
-            this.cpu7Glider.Location = new System.Drawing.Point(689, 382);
-            this.cpu7Glider.Name = "cpu7Glider";
-            this.cpu7Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
-            this.cpu7Glider.Size = new System.Drawing.Size(206, 44);
-            this.cpu7Glider.TabIndex = 33;
-            // 
-            // cpu7Tire
-            // 
-            this.cpu7Tire.Location = new System.Drawing.Point(477, 382);
-            this.cpu7Tire.Name = "cpu7Tire";
-            this.cpu7Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
-            this.cpu7Tire.Size = new System.Drawing.Size(206, 44);
-            this.cpu7Tire.TabIndex = 35;
-            // 
-            // cpu7Body
-            // 
-            this.cpu7Body.Location = new System.Drawing.Point(265, 382);
-            this.cpu7Body.Name = "cpu7Body";
-            this.cpu7Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
-            this.cpu7Body.Size = new System.Drawing.Size(206, 44);
-            this.cpu7Body.TabIndex = 34;
-            // 
-            // cpu7Driver
-            // 
-            this.cpu7Driver.Location = new System.Drawing.Point(53, 382);
-            this.cpu7Driver.Name = "cpu7Driver";
-            this.cpu7Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
-            this.cpu7Driver.Size = new System.Drawing.Size(206, 44);
-            this.cpu7Driver.TabIndex = 32;
-            // 
-            // cpu6Glider
-            // 
-            this.cpu6Glider.Location = new System.Drawing.Point(689, 332);
-            this.cpu6Glider.Name = "cpu6Glider";
-            this.cpu6Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
-            this.cpu6Glider.Size = new System.Drawing.Size(206, 44);
-            this.cpu6Glider.TabIndex = 28;
-            // 
-            // cpu6Tire
-            // 
-            this.cpu6Tire.Location = new System.Drawing.Point(477, 332);
-            this.cpu6Tire.Name = "cpu6Tire";
-            this.cpu6Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
-            this.cpu6Tire.Size = new System.Drawing.Size(206, 44);
-            this.cpu6Tire.TabIndex = 30;
-            // 
-            // cpu6Body
-            // 
-            this.cpu6Body.Location = new System.Drawing.Point(265, 332);
-            this.cpu6Body.Name = "cpu6Body";
-            this.cpu6Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
-            this.cpu6Body.Size = new System.Drawing.Size(206, 44);
-            this.cpu6Body.TabIndex = 29;
-            // 
-            // cpu6Driver
-            // 
-            this.cpu6Driver.Location = new System.Drawing.Point(53, 332);
-            this.cpu6Driver.Name = "cpu6Driver";
-            this.cpu6Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
-            this.cpu6Driver.Size = new System.Drawing.Size(206, 44);
-            this.cpu6Driver.TabIndex = 27;
-            // 
-            // cpu5Glider
-            // 
-            this.cpu5Glider.Location = new System.Drawing.Point(689, 282);
-            this.cpu5Glider.Name = "cpu5Glider";
-            this.cpu5Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
-            this.cpu5Glider.Size = new System.Drawing.Size(206, 44);
-            this.cpu5Glider.TabIndex = 23;
-            // 
-            // cpu5Tire
-            // 
-            this.cpu5Tire.Location = new System.Drawing.Point(477, 282);
-            this.cpu5Tire.Name = "cpu5Tire";
-            this.cpu5Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
-            this.cpu5Tire.Size = new System.Drawing.Size(206, 44);
-            this.cpu5Tire.TabIndex = 25;
-            // 
-            // cpu5Body
-            // 
-            this.cpu5Body.Location = new System.Drawing.Point(265, 282);
-            this.cpu5Body.Name = "cpu5Body";
-            this.cpu5Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
-            this.cpu5Body.Size = new System.Drawing.Size(206, 44);
-            this.cpu5Body.TabIndex = 24;
-            // 
-            // cpu5Driver
-            // 
-            this.cpu5Driver.Location = new System.Drawing.Point(53, 282);
-            this.cpu5Driver.Name = "cpu5Driver";
-            this.cpu5Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
-            this.cpu5Driver.Size = new System.Drawing.Size(206, 44);
-            this.cpu5Driver.TabIndex = 22;
-            // 
-            // cpu4Glider
-            // 
-            this.cpu4Glider.Location = new System.Drawing.Point(689, 232);
-            this.cpu4Glider.Name = "cpu4Glider";
-            this.cpu4Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
-            this.cpu4Glider.Size = new System.Drawing.Size(206, 44);
-            this.cpu4Glider.TabIndex = 8;
-            // 
-            // cpu3Glider
-            // 
-            this.cpu3Glider.Location = new System.Drawing.Point(689, 182);
-            this.cpu3Glider.Name = "cpu3Glider";
-            this.cpu3Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
-            this.cpu3Glider.Size = new System.Drawing.Size(206, 44);
-            this.cpu3Glider.TabIndex = 18;
-            // 
-            // cpu4Tire
-            // 
-            this.cpu4Tire.Location = new System.Drawing.Point(477, 232);
-            this.cpu4Tire.Name = "cpu4Tire";
-            this.cpu4Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
-            this.cpu4Tire.Size = new System.Drawing.Size(206, 44);
-            this.cpu4Tire.TabIndex = 10;
-            // 
-            // cpu4Body
-            // 
-            this.cpu4Body.Location = new System.Drawing.Point(265, 232);
-            this.cpu4Body.Name = "cpu4Body";
-            this.cpu4Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
-            this.cpu4Body.Size = new System.Drawing.Size(206, 44);
-            this.cpu4Body.TabIndex = 9;
-            // 
-            // cpu3Tire
-            // 
-            this.cpu3Tire.Location = new System.Drawing.Point(477, 182);
-            this.cpu3Tire.Name = "cpu3Tire";
-            this.cpu3Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
-            this.cpu3Tire.Size = new System.Drawing.Size(206, 44);
-            this.cpu3Tire.TabIndex = 20;
-            // 
-            // cpu4Driver
-            // 
-            this.cpu4Driver.Location = new System.Drawing.Point(53, 232);
-            this.cpu4Driver.Name = "cpu4Driver";
-            this.cpu4Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
-            this.cpu4Driver.Size = new System.Drawing.Size(206, 44);
-            this.cpu4Driver.TabIndex = 7;
-            // 
-            // cpu3Body
-            // 
-            this.cpu3Body.Location = new System.Drawing.Point(265, 182);
-            this.cpu3Body.Name = "cpu3Body";
-            this.cpu3Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
-            this.cpu3Body.Size = new System.Drawing.Size(206, 44);
-            this.cpu3Body.TabIndex = 19;
-            // 
-            // cpu3Driver
-            // 
-            this.cpu3Driver.Location = new System.Drawing.Point(53, 182);
-            this.cpu3Driver.Name = "cpu3Driver";
-            this.cpu3Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
-            this.cpu3Driver.Size = new System.Drawing.Size(206, 44);
-            this.cpu3Driver.TabIndex = 17;
-            // 
-            // cpu2Glider
-            // 
-            this.cpu2Glider.Location = new System.Drawing.Point(689, 132);
-            this.cpu2Glider.Name = "cpu2Glider";
-            this.cpu2Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
-            this.cpu2Glider.Size = new System.Drawing.Size(206, 44);
-            this.cpu2Glider.TabIndex = 13;
-            // 
-            // cpu2Tire
-            // 
-            this.cpu2Tire.Location = new System.Drawing.Point(477, 132);
-            this.cpu2Tire.Name = "cpu2Tire";
-            this.cpu2Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
-            this.cpu2Tire.Size = new System.Drawing.Size(206, 44);
-            this.cpu2Tire.TabIndex = 15;
-            // 
-            // cpu2Body
-            // 
-            this.cpu2Body.Location = new System.Drawing.Point(265, 132);
-            this.cpu2Body.Name = "cpu2Body";
-            this.cpu2Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
-            this.cpu2Body.Size = new System.Drawing.Size(206, 44);
-            this.cpu2Body.TabIndex = 14;
-            // 
-            // cpu2Driver
-            // 
-            this.cpu2Driver.Location = new System.Drawing.Point(53, 132);
-            this.cpu2Driver.Name = "cpu2Driver";
-            this.cpu2Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
-            this.cpu2Driver.Size = new System.Drawing.Size(206, 44);
-            this.cpu2Driver.TabIndex = 12;
-            // 
-            // cpu1Glider
-            // 
-            this.cpu1Glider.Location = new System.Drawing.Point(689, 82);
-            this.cpu1Glider.Name = "cpu1Glider";
-            this.cpu1Glider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
-            this.cpu1Glider.Size = new System.Drawing.Size(206, 44);
-            this.cpu1Glider.TabIndex = 8;
-            // 
-            // cpu1Tire
-            // 
-            this.cpu1Tire.Location = new System.Drawing.Point(477, 82);
-            this.cpu1Tire.Name = "cpu1Tire";
-            this.cpu1Tire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
-            this.cpu1Tire.Size = new System.Drawing.Size(206, 44);
-            this.cpu1Tire.TabIndex = 10;
-            // 
-            // cpu1Body
-            // 
-            this.cpu1Body.Location = new System.Drawing.Point(265, 82);
-            this.cpu1Body.Name = "cpu1Body";
-            this.cpu1Body.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
-            this.cpu1Body.Size = new System.Drawing.Size(206, 44);
-            this.cpu1Body.TabIndex = 9;
-            // 
-            // cpu1Driver
-            // 
-            this.cpu1Driver.Location = new System.Drawing.Point(53, 82);
-            this.cpu1Driver.Name = "cpu1Driver";
-            this.cpu1Driver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
-            this.cpu1Driver.Size = new System.Drawing.Size(206, 44);
-            this.cpu1Driver.TabIndex = 7;
-            // 
-            // playerGlider
-            // 
-            this.playerGlider.Location = new System.Drawing.Point(689, 32);
-            this.playerGlider.Name = "playerGlider";
-            this.playerGlider.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Wing;
-            this.playerGlider.Size = new System.Drawing.Size(206, 44);
-            this.playerGlider.TabIndex = 4;
-            // 
-            // playerTire
-            // 
-            this.playerTire.Location = new System.Drawing.Point(477, 32);
-            this.playerTire.Name = "playerTire";
-            this.playerTire.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Tire;
-            this.playerTire.Size = new System.Drawing.Size(206, 44);
-            this.playerTire.TabIndex = 5;
-            // 
-            // playerBody
-            // 
-            this.playerBody.Location = new System.Drawing.Point(265, 32);
-            this.playerBody.Name = "playerBody";
-            this.playerBody.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Body;
-            this.playerBody.Size = new System.Drawing.Size(206, 44);
-            this.playerBody.TabIndex = 4;
-            // 
-            // playerDriver
-            // 
-            this.playerDriver.Location = new System.Drawing.Point(53, 32);
-            this.playerDriver.Name = "playerDriver";
-            this.playerDriver.PreviewMode = CTGP7.UI.PartPreview.PartPreviewMode.Driver;
-            this.playerDriver.Size = new System.Drawing.Size(206, 44);
-            this.playerDriver.TabIndex = 3;
+            this.courseSelector.AllowedTypes = new CTGP7.CTGP7CourseList.NameEntry.CourseType[] {
+        CTGP7.CTGP7CourseList.NameEntry.CourseType.OriginalRace,
+        CTGP7.CTGP7CourseList.NameEntry.CourseType.CustomRace};
+            this.courseSelector.Location = new System.Drawing.Point(6, 6);
+            this.courseSelector.Name = "courseSelector";
+            this.courseSelector.Size = new System.Drawing.Size(378, 21);
+            this.courseSelector.TabIndex = 0;
             // 
             // CMSNViewer
             // 
@@ -597,6 +674,7 @@
             this.Text = "CTGP-7 Custom Mission Editor";
             this.Load += new System.EventHandler(this.CMSNViewer_Load);
             this.tabContainer.ResumeLayout(false);
+            this.settingsTab.ResumeLayout(false);
             this.driverTab.ResumeLayout(false);
             this.driverTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.driverAmount)).EndInit();
@@ -658,5 +736,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown driverAmount;
         private System.Windows.Forms.Label label1;
+        private CourseSelect courseSelector;
     }
 }
