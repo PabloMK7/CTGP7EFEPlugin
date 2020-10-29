@@ -247,7 +247,7 @@ namespace CTGP7
             System.Net.WebClient webClient = new System.Net.WebClient();
             try
             {
-                webClient.DownloadFile("https://raw.githubusercontent.com/mariohackandglitch/CTGP-7_music_slots_manager/master/TranslateName.xml", Application.StartupPath + @"\Plugins\CTGP-7CourseNames.xml");
+                webClient.DownloadFile("https://raw.githubusercontent.com/mariohackandglitch/CTGP7EFEPlugin/master/CTGP-7CourseNames.xml", Application.StartupPath + @"\Plugins\CTGP-7CourseNames.xml");
             } catch (Exception e)
             {
                 MessageBox.Show("Failed to download data:\n\n" + e.Message, "CTGP-7 Course Names", MessageBoxButtons.OK, MessageBoxIcon.Error);
