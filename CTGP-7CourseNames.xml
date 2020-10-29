@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<NameInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Entry szsName="Gctr_MarioCircuit" humanName="Mario Circuit" courseID="0" courseType="OriginalRace" />
+  <Entry szsName="Gctr_RallyCourse" humanName="Rock Rock Mountain" courseID="1" courseType="OriginalRace" />
+  <Entry szsName="Gctr_MarineRoad" humanName="Cheep Cheep Lagoon" courseID="2" courseType="OriginalRace" />
+  <Entry szsName="Gctr_GlideLake" humanName="Daisy Hills" courseID="3" courseType="OriginalRace" />
+  <Entry szsName="Gctr_ToadCircuit" humanName="Toad Circuit" courseID="4" courseType="OriginalRace" />
+  <Entry szsName="Gctr_SandTown" humanName="Shy Guy Bazaar" courseID="5" courseType="OriginalRace" />
+  <Entry szsName="Gctr_AdvancedCircuit" humanName="Neo Bowser City" courseID="6" courseType="OriginalRace" />
+  <Entry szsName="Gctr_DKJungle" humanName="Donkey Kong Jungle" courseID="7" courseType="OriginalRace" />
+  <Entry szsName="Gctr_WuhuIsland1" humanName="Wuhu Loop" courseID="8" courseType="OriginalRace" />
+  <Entry szsName="Gctr_WuhuIsland2" humanName="Maka Wuhu" courseID="9" courseType="OriginalRace" />
+  <Entry szsName="Gctr_IceSlider" humanName="Rosalina Ice World" courseID="A" courseType="OriginalRace" />
+  <Entry szsName="Gctr_BowserCastle" humanName="Bowser Castle" courseID="B" courseType="OriginalRace" />
+  <Entry szsName="Gctr_UnderGround" humanName="Piranha Plant Slide" courseID="C" courseType="OriginalRace" />
+  <Entry szsName="Gctr_RainbowRoad" humanName="Rainbow Road" courseID="D" courseType="OriginalRace" />
+  <Entry szsName="Gctr_WarioShip" humanName="Wario Shipyard" courseID="E" courseType="OriginalRace" />
+  <Entry szsName="Gctr_MusicPark" humanName="Music Park" courseID="F" courseType="OriginalRace" />
+  <Entry szsName="Gwii_CoconutMall" humanName="Wii Coconut Mall" courseID="10" courseType="OriginalRace" />
+  <Entry szsName="Gwii_KoopaCape" humanName="Wii Koopa Cape" courseID="11" courseType="OriginalRace" />
+  <Entry szsName="Gwii_MapleTreeway" humanName="Wii Maple Treeway" courseID="12" courseType="OriginalRace" />
+  <Entry szsName="Gwii_MushroomGorge" humanName="Wii Mushroom Gorge" courseID="13" courseType="OriginalRace" />
+  <Entry szsName="Gds_LuigisMansion" humanName="DS Luigi's Mansion" courseID="14" courseType="OriginalRace" />
+  <Entry szsName="Gds_AirshipFortress" humanName="DS Airship Fortress" courseID="15" courseType="OriginalRace" />
+  <Entry szsName="Gds_DKPass" humanName="DS Donkey Kong Pass" courseID="16" courseType="OriginalRace" />
+  <Entry szsName="Gds_WaluigiPinball" humanName="DS Waluigi Pinball" courseID="17" courseType="OriginalRace" />
+  <Entry szsName="Ggc_DinoDinoJungle" humanName="GCN Dino Dino Jungle" courseID="18" courseType="OriginalRace" />
+  <Entry szsName="Ggc_DaisyCruiser" humanName="GCN Daisy Cruiser" courseID="19" courseType="OriginalRace" />
+  <Entry szsName="Gn64_LuigiCircuit" humanName="N64 Luigi Circuit" courseID="1A" courseType="OriginalRace" />
+  <Entry szsName="Gn64_KalimariDesert" humanName="N64 Kalimari Desert" courseID="1B" courseType="OriginalRace" />
+  <Entry szsName="Gn64_KoopaTroopaBeach" humanName="N64 Koopa Troopa Beach" courseID="1C" courseType="OriginalRace" />
+  <Entry szsName="Gagb_BowserCastle1" humanName="GBA Boweser Castle 1" courseID="1D" courseType="OriginalRace" />
+  <Entry szsName="Gsfc_MarioCircuit2" humanName="SNES Mario Circuit 2" courseID="1E" courseType="OriginalRace" />
+  <Entry szsName="Gsfc_RainbowRoad" humanName="SNES Rainbow Road" courseID="1F" courseType="OriginalRace" />
+  
+  <Entry szsName="Bctr_WuhuIsland3" humanName="Wuhu Town" courseID="20" courseType="OriginalBattle" />
+  <Entry szsName="Bctr_HoneyStage" humanName="Honeybee Hive" courseID="21" courseType="OriginalBattle" />
+  <Entry szsName="Bctr_IceRink" humanName="Sherbet Rink" courseID="22" courseType="OriginalBattle" />
+  <Entry szsName="Bds_PalmShore" humanName="DS Palm Shore" courseID="23" courseType="OriginalBattle" />
+  <Entry szsName="Bn64_BigDonut" humanName="N64 Big Donut" courseID="24" courseType="OriginalBattle" />
+  <Entry szsName="Bagb_BattleCourse1" humanName="GBA Battle Course 1" courseID="25" courseType="OriginalBattle" />
+  
+  <Entry szsName="Ctgp_ConcTown" humanName="Concord Town" courseID="2A" courseType="CustomRace" />
+  <Entry szsName="Ctgp_MarioCircuit1" humanName="SNES Mario Circuit 1" courseID="2B" courseType="CustomRace" />
+  <Entry szsName="Ctgp_GalvarnyFalls" humanName="Galvarny Falls" courseID="2C" courseType="CustomRace" />
+  <Entry szsName="Ctgp_SkaiiGarden" humanName="GBA Sky Garden" courseID="2D" courseType="CustomRace" />
+  <Entry szsName="Ctgp_AutumnForest" humanName="Autumn Forest" courseID="2E" courseType="CustomRace" />
+  <Entry szsName="Gn64_ChocoMountainn" humanName="N64 Choco Mountain" courseID="2F" courseType="CustomRace" />
+  <Entry szsName="Ctgp_DSShroomRidge" humanName="DS Shroom Ridge" courseID="30" courseType="CustomRace" />
+  <Entry szsName="Ctgp_BowserCastle3" humanName="GBA Boweser Castle 3" courseID="31" courseType="CustomRace" />
+  <Entry szsName="Ctgp_EvGre" humanName="Evergreen Crossing" courseID="32" courseType="CustomRace" />
+  <Entry szsName="Ctgp_CrashCov" humanName="CTR Crash Cove" courseID="33" courseType="CustomRace" />
+  <Entry szsName="Ctgp_ArchipAvenue" humanName="Archipelago Avenue" courseID="34" courseType="CustomRace" />
+  <Entry szsName="Ctgp_FrapeSnow" humanName="Frappe Snowland" courseID="35" courseType="CustomRace" />
+  <Entry szsName="Ctgp_MoooMoooFarm" humanName="N64 Moo Moo Farm" courseID="36" courseType="CustomRace" />
+  <Entry szsName="Ctgp_BanshBoardT" humanName="Banshee Boardwalk 2" courseID="37" courseType="CustomRace" />
+  <Entry szsName="Ctgp_CortexCastleeee" humanName="CTR Cortex Castle" courseID="38" courseType="CustomRace" />
+  <Entry szsName="Ctgp_GhostValleyT" humanName="GBA Ghost Valley 2" courseID="39" courseType="CustomRace" />
+  <Entry szsName="Ctgp_MelodSanc" humanName="Melody Sanctuum" courseID="3A" courseType="CustomRace" />
+  <Entry szsName="Ctgp_MarioRacewa" humanName="N64 Mario Raceway" courseID="3B" courseType="CustomRace" />
+  <Entry szsName="Gds_DokkanCourse" humanName="DS Dokan Course" courseID="3C" courseType="CustomRace" />
+  <Entry szsName="Gsfc_ChocoIsland" humanName="SNES Choco Island 2" courseID="3D" courseType="CustomRace" />
+  <Entry szsName="Ctgp_ElementalCave" humanName="Elemental Cave" courseID="3E" courseType="CustomRace" />
+  <Entry szsName="Ctgp_YoshFalls" humanName="DS Yoshi Falls" courseID="3F" courseType="CustomRace" />
+  <Entry szsName="Ctgp_StarSlopeee" humanName="Star Slope" courseID="40" courseType="CustomRace" />
+  <Entry szsName="Ctgp_ChpChpBch" humanName="DS Cheep Cheep Beach" courseID="41" courseType="CustomRace" />
+  <Entry szsName="Ctgp_DeseHill" humanName="DS Desert Hills" courseID="42" courseType="CustomRace" />
+  <Entry szsName="Ctgp_TickTockClock" humanName="DS Tick Tock Clock" courseID="43" courseType="CustomRace" />
+  <Entry szsName="Ctgp_RiversiPark" humanName="GBA Riverside Park" courseID="44" courseType="CustomRace" />
+  <Entry szsName="Ctgp_CastlOfTime" humanName="Castle Of Time" courseID="45" courseType="CustomRace" />
+  <Entry szsName="Ctgp_N64RainbowR" humanName="N64 Rainbow Road" courseID="46" courseType="CustomRace" />
+  <Entry szsName="Gagb_RainbowRoad" humanName="GBA Rainbow Road" courseID="47" courseType="CustomRace" />
+  <Entry szsName="Ctgp_SpeiceRouad" humanName="Space Road" courseID="48" courseType="CustomRace" />
+  <Entry szsName="Ctgp_MikuBirtSpe" humanName="Miku's Birthday Spectacular" courseID="49" courseType="CustomRace" />
+  <Entry szsName="Ctgp_SandCastle" humanName="Sandcastle Park" courseID="4A" courseType="CustomRace" />
+  <Entry szsName="Ctgp_MarioCircuit" humanName="DS Mario Circuit" courseID="4B" courseType="CustomRace" />
+  <Entry szsName="Gcn_LuigiCircuit" humanName="GCN Mario Circuit" courseID="4C" courseType="CustomRace" />
+  <Entry szsName="Ctgp_VolcanoBeachRuins" humanName="Volcano Beach Ruins" courseID="4D" courseType="CustomRace" />
+  <Entry szsName="Gcn_YoshiCircuit" humanName="GCN Yoshi Circuit" courseID="4E" courseType="CustomRace" />
+  <Entry szsName="Gagb_PeachCircuitt" humanName="GBA Peach Circuit" courseID="4F" courseType="CustomRace" />
+  <Entry szsName="Ctgp_MetroMadness" humanName="Metro Madness" courseID="50" courseType="CustomRace" />
+  <Entry szsName="Ctgp_GBALuigiCirc" humanName="GBA Luigi Circuit" courseID="51" courseType="CustomRace" />
+  <Entry szsName="Ctgp_SMORCChallen" humanName="SMO RC Challenge" courseID="52" courseType="CustomRace" />
+  <Entry szsName="Gagb_BowserCastle4" humanName="GBA Bowser Castle 4" courseID="53" courseType="CustomRace" />
+  <Entry szsName="Gsfc_DonutPlainsThree" humanName="SNES Donut Plains 3" courseID="54" courseType="CustomRace" />
+  <Entry szsName="Gn64_SecretSl" humanName="N64 Secret Slide" courseID="55" courseType="CustomRace" />
+  <Entry szsName="Gds_WarioStad" humanName="DS Wario Stadium" courseID="56" courseType="CustomRace" />
+  <Entry szsName="Ctgp_ErmiiCir" humanName="Ermii Circuit" courseID="57" courseType="CustomRace" />
+  <Entry szsName="Ggcn_BabyParkNin" humanName="GCN Baby Park" courseID="58" courseType="CustomRace" />
+  <Entry szsName="Ctgp_RevoCircuit" humanName="Revo Circuit" courseID="59" courseType="CustomRace" />
+  <Entry szsName="Gsfc_MarioCircTh" humanName="SNES Mario Circuit 3" courseID="5A" courseType="CustomRace" />
+  <Entry szsName="Ctgp_BigBlueFZero1" humanName="Big Blue" courseID="5B" courseType="CustomRace" />
+  <Entry szsName="Ggba_ShyGuyBeach" humanName="GBA Shy Guy Beach" courseID="5C" courseType="CustomRace" />
+  <Entry szsName="Ctgp_BingoPartyyyy" humanName="Bingo Party" courseID="5D" courseType="CustomRace" />
+  <Entry szsName="Ctgp_DogeDesert" humanName="Doge Desert" courseID="5E" courseType="CustomRace" />
+  <Entry szsName="Gn64_BansheeBoard" humanName="N64 Banshee Boardwalk" courseID="5F" courseType="CustomRace" />
+  <Entry szsName="Ctgp_GCNMarioCirc" humanName="GCN Mario Circuit" courseID="60" courseType="CustomRace" />
+  <Entry szsName="Ctgp_RainbowRdDX" humanName="Rainbow Road DX" courseID="61" courseType="CustomRace" />
+</NameInfo>
