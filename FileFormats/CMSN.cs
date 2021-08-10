@@ -13,7 +13,7 @@ using LibEveryFileExplorer.IO.Serialization;
 
 namespace CTGP7
 {
-	public class CMSN //: FileFormat<CMSN.CMSNIdentifier>, IViewable, IEmptyCreatable, IWriteable
+	public class CMSN : FileFormat<CMSN.CMSNIdentifier>, IViewable, IEmptyCreatable, IWriteable
 	{
 		static private readonly UInt16 FILE_VERSION = 1;
 		public CMSNHeader Header;
@@ -26,6 +26,7 @@ namespace CTGP7
 			Sections.Add(new DriverOptionsSection());
 			Sections.Add(new MissionFlagsSection());
 			Sections.Add(new ItemOptionsSection());
+			Sections.Add(new TextSection());
 		}
 		public CMSN(byte[] Data)
 		{
@@ -50,6 +51,9 @@ namespace CTGP7
 						break;
 					case BaseSection.SectionType.ItemOptions:
 						Sections.Add(new ItemOptionsSection(er));
+						break;
+					case BaseSection.SectionType.TextStrings:
+						Sections.Add(new TextSection(er));
 						break;
 					default:
 						throw new NotImplementedException("Section " + sectionType + " not implemented!");
@@ -132,7 +136,8 @@ namespace CTGP7
 				DriverOptions = 0,
 				TimingOptions = 1,
 				MissionFlags = 2,
-				ItemOptions = 3
+				ItemOptions = 3,
+				TextStrings = 4,
             }
 			public abstract SectionType GetSectionType();
 			public abstract void Write(EndianBinaryWriterEx ew);
@@ -148,7 +153,7 @@ namespace CTGP7
 			public DriverOptionsSection()
             {
 				DriverAmount = 1;
-				DriverChoices = new int[7][];
+				DriverChoices = new int[8][];
 				for (int i = 0; i < DriverChoices.Length; i++)
                 {
 					DriverChoices[i] = new int[4];
@@ -207,20 +212,125 @@ namespace CTGP7
 			{
 				return SectionType.MissionFlags;
 			}
+
 			public UInt32 CourseID;
 			public byte Class;
 			public byte CPUDifficulty;
+			public byte MissionType;
+			public byte MissionSubType;
+			public byte CalculationType;
+			public byte LapAmount;
+			public MK7Timer InitialTimer;
+			public bool AutoFinishRaceTimer;
+			public MK7Timer FinishRaceTimer;
+			public MK7Timer MinGradeTimer;
+			public MK7Timer MaxGradeTimer;
+			public bool UseScore;
+			public byte MinGradeScore;
+			public byte MaxGradeScore;
+			public byte InitialScore;
+			public bool AutoFinishRaceScore;
+			public byte FinishRaceScore;
+			public bool CountTimerUp;
+			public bool CountScoreUp;
+			public byte YellowScore;
+			private UInt32 Flags;
+
+			private static UInt32 ClearBit(UInt32 value, int bit)
+            {
+				return (UInt32)(value & ~(1u << bit));
+            }
+
+			private static UInt32 SetBit(UInt32 value, int bit)
+            {
+				return (UInt32)(value | (1u << bit));
+            }
+
+			private static UInt32 ChangeBit(UInt32 value, int bit, bool state)
+            {
+				return state ? SetBit(value, bit) : ClearBit(value, bit);
+            }
+
+			private static bool GetBit(UInt32 value, int bit)
+            {
+				return (value & (1u << bit)) != 0;
+            }
+
+			public bool RankVisible { get { return GetBit(Flags, 0); } set { Flags = ChangeBit(Flags, 0, value); } }
+			public bool LakituVisible { get { return GetBit(Flags, 1); } set { Flags = ChangeBit(Flags, 1, value); } }
+			public bool CourseIntroVisible { get { return GetBit(Flags, 2); } set { Flags = ChangeBit(Flags, 2, value); } }
+
 			public MissionFlagsSection()
 			{
 				CourseID = 0;
 				Class = 0;
 				CPUDifficulty = 1;
+				MissionType = 0;
+				MissionSubType = 0;
+				CalculationType = 0;
+				LapAmount = 3;
+				InitialTimer = new MK7Timer();
+				AutoFinishRaceTimer = false;
+				FinishRaceTimer = new MK7Timer();
+				MinGradeTimer = new MK7Timer();
+				MaxGradeTimer = new MK7Timer();
+				UseScore = false;
+				MinGradeScore = 0;
+				MaxGradeScore = 0;
+				InitialScore = 0;
+				AutoFinishRaceScore = false;
+				FinishRaceScore = 0;
+				CountTimerUp = false;
+				CountScoreUp = false;
+				YellowScore = 0;
+				Flags = 0;
 			}
 			public MissionFlagsSection(EndianBinaryReaderEx er) : this()
 			{
 				CourseID = er.ReadUInt32();
 				Class = er.ReadByte();
 				CPUDifficulty = er.ReadByte();
+
+				MissionType = er.ReadByte();
+				CalculationType = er.ReadByte();
+
+				Flags = er.ReadUInt32();
+
+				InitialTimer = new MK7Timer(er.ReadUInt32());
+
+				uint finishRaceTimerValue = er.ReadUInt32();
+				if (finishRaceTimerValue == 0xFFFFFFFF) AutoFinishRaceTimer = false;
+				else { AutoFinishRaceTimer = true; FinishRaceTimer = new MK7Timer(finishRaceTimerValue); }
+
+				switch (CalculationType)
+                {
+					case 0: // Timer
+						MinGradeTimer = new MK7Timer(er.ReadUInt32());
+						MaxGradeTimer = new MK7Timer(er.ReadUInt32());
+						break;
+					case 1: // Score
+						MinGradeScore = (byte)er.ReadUInt32();
+						MaxGradeScore = (byte)er.ReadUInt32();
+						break;
+                }
+
+				byte initialScoreValue = er.ReadByte();
+				if (initialScoreValue == 0xFF) UseScore = false;
+				else { UseScore = true; InitialScore = initialScoreValue; }
+
+				byte finishRaceScoreValue = er.ReadByte();
+				if (finishRaceScoreValue == 0xFF) AutoFinishRaceScore = false;
+				else { AutoFinishRaceScore = true; FinishRaceScore = finishRaceScoreValue; }
+
+				MissionSubType = er.ReadByte();
+
+				byte countDirectionValue = er.ReadByte();
+				CountTimerUp = (countDirectionValue & 1) != 0;
+				CountScoreUp = (countDirectionValue & (1 << 1)) != 0;
+
+				YellowScore = er.ReadByte();
+				LapAmount = er.ReadByte();
+
 				er.ReadPadding(4);
 			}
 			public override void Write(EndianBinaryWriterEx ew)
@@ -228,6 +338,44 @@ namespace CTGP7
 				ew.Write(CourseID);
 				ew.Write(Class);
 				ew.Write(CPUDifficulty);
+
+				ew.Write(MissionType);
+				ew.Write(CalculationType);
+
+				ew.Write(Flags);
+
+				ew.Write(InitialTimer.Frames);
+
+				if (AutoFinishRaceTimer) ew.Write(FinishRaceTimer.Frames);
+				else ew.Write(0xFFFFFFFF);
+
+				switch (CalculationType)
+				{
+					case 0: // Timer
+						ew.Write(MinGradeTimer.Frames);
+						ew.Write(MaxGradeTimer.Frames);
+						break;
+					case 1: // Score
+						ew.Write((uint)MinGradeScore);
+						ew.Write((uint)MaxGradeScore);
+						break;
+				}
+
+				if (UseScore) ew.Write(InitialScore);
+				else ew.Write((byte)0xFF);
+
+				if (AutoFinishRaceScore && UseScore) ew.Write(FinishRaceScore);
+				else ew.Write((byte)0xFF);
+
+				ew.Write(MissionSubType);
+
+				byte countDirectionValue = (byte)(((CountTimerUp ? 1 : 0) << 0) | ((CountScoreUp ? 1 : 0) << 1));
+				ew.Write(countDirectionValue);
+
+				ew.Write(YellowScore);
+
+				ew.Write(LapAmount);
+
 				ew.WritePadding(4);
 			}
 		}
@@ -282,7 +430,7 @@ namespace CTGP7
 				public ItemConfigMode ConfigMode;
 				public MK7Timer GiveItemOffset;
 				public MK7Timer GiveItemEach;
-				public byte GiveItemID;
+				public bool DisableCooldown;
 				public MK7Timer RouletteSpeed;
 				private bool IsPlayer;
 				public enum ItemConfigMode
@@ -307,7 +455,7 @@ namespace CTGP7
 					ConfigMode = ItemConfigMode.Rank;
 					GiveItemOffset = new MK7Timer(0);
 					GiveItemEach = new MK7Timer(0);
-					GiveItemID = 255;
+					DisableCooldown = false;
 					RouletteSpeed = new MK7Timer(0);
 
                 }
@@ -316,7 +464,7 @@ namespace CTGP7
 					RouletteSpeed = new MK7Timer(er.ReadUInt16());
 					GiveItemOffset = new MK7Timer(er.ReadUInt16());
 					GiveItemEach = new MK7Timer(er.ReadUInt16());
-					GiveItemID = er.ReadByte();
+					DisableCooldown = er.ReadByte() != 0;
 					ConfigMode = (ItemConfigMode)er.ReadByte();
 					for (int i = 0; i < Probabilities.Length; i++)
                     {
@@ -332,7 +480,7 @@ namespace CTGP7
 					ew.Write((UInt16)RouletteSpeed.Frames);
 					ew.Write((UInt16)GiveItemOffset.Frames);
 					ew.Write((UInt16)GiveItemEach.Frames);
-					ew.Write(GiveItemID);
+					ew.Write((byte)(DisableCooldown ? 1 : 0));
 					ew.Write((byte)ConfigMode);
 					for (int i = 0; i < Probabilities.Length; i++)
 					{
@@ -413,6 +561,127 @@ namespace CTGP7
 				return;
             }
         }
+
+		public class TextSection : BaseSection
+		{
+			public override SectionType GetSectionType()
+			{
+				return SectionType.TextStrings;
+			}
+			public List<LanguageEntry> entries;
+			public class LanguageEntry
+			{
+				public string langCode;
+				public string title;
+				public byte[] description;
+				public byte descriptionNewlines;
+
+				public LanguageEntry()
+				{
+					langCode = "ENG";
+					title = "Mission title";
+					description = Encoding.UTF8.GetBytes("Mission description.");
+					descriptionNewlines = 0;
+				}
+
+				public LanguageEntry(LanguageEntry other)
+                {
+					langCode = other.langCode;
+					title = other.title;
+					description = new byte[other.description.Length];
+					other.description.CopyTo(description, 0);
+					descriptionNewlines = other.descriptionNewlines;
+                }
+
+				public LanguageEntry(EndianBinaryReaderEx er)
+                {
+					long basepos = er.BaseStream.Position;
+					ushort langOffset = er.ReadUInt16();
+					ushort titleOffset = er.ReadUInt16();
+					ushort descriptionOffset = er.ReadUInt16();
+					descriptionNewlines = er.ReadByte();
+
+					er.BaseStream.Position = basepos + langOffset;
+					langCode = er.ReadStringNT(Encoding.UTF8);
+					er.BaseStream.Position = basepos + titleOffset;
+					title = er.ReadStringNT(Encoding.UTF8);
+
+					MemoryStream tmpStream = new MemoryStream();
+					er.BaseStream.Position = basepos + descriptionOffset;
+					byte b;
+
+					while (true)
+                    {
+						b = er.ReadByte();
+						if (b != 0)
+							tmpStream.WriteByte(b);
+						else
+							break;
+                    }
+					description = tmpStream.ToArray();
+                }
+
+				public void Write(EndianBinaryWriterEx ew)
+                {
+					long offset = 3 * sizeof(ushort) + sizeof(byte);
+					EndianBinaryWriterEx tmpWritter = new EndianBinaryWriterEx(new MemoryStream());
+					long lastpos = tmpWritter.BaseStream.Position;
+
+					ew.Write((ushort)(offset + lastpos));
+					tmpWritter.Write(langCode, Encoding.UTF8, true);
+					lastpos = tmpWritter.BaseStream.Position;
+
+					ew.Write((ushort)(offset + lastpos));
+					tmpWritter.Write(title, Encoding.UTF8, true);
+					lastpos = tmpWritter.BaseStream.Position;
+
+					ew.Write((ushort)(offset + lastpos));
+					tmpWritter.Write(description, 0, description.Length);
+					tmpWritter.Write((byte)0);
+					ew.Write(descriptionNewlines);
+					ew.Write((tmpWritter.BaseStream as MemoryStream).ToArray(), 0, (int)tmpWritter.BaseStream.Length);
+					ew.WritePadding(2);
+				}
+
+				public override string ToString()
+				{
+					return langCode;
+				}
+			}
+
+			public TextSection()
+			{
+				entries = new List<LanguageEntry>();
+				entries.Add(new LanguageEntry());
+			}
+			public TextSection(EndianBinaryReaderEx er)
+			{
+				entries = new List<LanguageEntry>();
+
+				long basepos = er.BaseStream.Position;
+				uint tableCount = er.ReadUInt32();
+				for (int i = 0; i < tableCount; i++)
+                {
+					uint offset = er.ReadUInt32();
+					long backup = er.BaseStream.Position;
+					er.BaseStream.Position = basepos + offset;
+					entries.Add(new LanguageEntry(er));
+					er.BaseStream.Position = backup;
+                }
+			}
+			public override void Write(EndianBinaryWriterEx ew)
+			{
+				EndianBinaryWriterEx langWritter = new EndianBinaryWriterEx(new MemoryStream(), Endianness.LittleEndian);
+				ew.Write((uint)entries.Count);
+				foreach (var entry in entries)
+                {
+					ew.Write((uint)(langWritter.BaseStream.Position + entries.Count * sizeof(uint) + sizeof(uint)));
+					entry.Write(langWritter);
+                }
+				ew.Write((langWritter.BaseStream as MemoryStream).ToArray(), 0, (int)langWritter.BaseStream.Length);
+				ew.WritePadding(4);
+			}
+		}
 
 		public Form GetDialog()
         {

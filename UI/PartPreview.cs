@@ -105,6 +105,7 @@ namespace CTGP7.UI
         {
             get
             {
+                if (!HasLoaded) return SetIndex;
                 if (UseIndex < 0 || UseData == null) return -1;
                 return UseData[UseIndex].Item1;
             }

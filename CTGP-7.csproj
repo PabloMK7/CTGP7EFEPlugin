@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\CourseTranslateNames.cs" />
+    <Compile Include="Common\ExtendedUTF8.cs" />
     <Compile Include="Common\MK7Timer.cs" />
     <Compile Include="FileFormats\CMSN.cs" />
     <Compile Include="FileFormats\MusicConfig.cs" />
@@ -76,6 +77,12 @@
     <Compile Include="UI\CourseSelect.Designer.cs">
       <DependentUpon>CourseSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\MissionRichText.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\MissionRichText.Designer.cs">
+      <DependentUpon>MissionRichText.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\MusicSlotEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +100,12 @@
     </Compile>
     <Compile Include="UI\ProbabilityViewer.Designer.cs">
       <DependentUpon>ProbabilityViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TimeSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\TimeSelector.Designer.cs">
+      <DependentUpon>TimeSelector.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +133,9 @@
     <EmbeddedResource Include="UI\CourseSelect.resx">
       <DependentUpon>CourseSelect.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\MissionRichText.resx">
+      <DependentUpon>MissionRichText.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\MusicSlotEditor.resx">
       <DependentUpon>MusicSlotEditor.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -129,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ProbabilityViewer.resx">
       <DependentUpon>ProbabilityViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TimeSelector.resx">
+      <DependentUpon>TimeSelector.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

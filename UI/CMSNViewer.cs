@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace CTGP7.UI
         private PartPreview[][] DriverPartPreviews;
         CTGP7CourseList TranslateTable;
         private List<string> ItemNames;
+        private List<List<string>> MissionSubtypes;
         public CMSNViewer(CMSN cmsn)
         {
             MissionData = cmsn;
@@ -37,6 +39,11 @@ namespace CTGP7.UI
                 "Star", "Bullet Bill", "Lightning", "Golden Mushroom",
                 "Fire Flower", "Super Leaf", "Lucky Seven", "Test3",
                 "Test4", "Triple Banana", "Triple Green Shells", "Triple Red Shells"
+            };
+            MissionSubtypes = new List<List<string>>()
+            {
+                new List<string>() {"None" },
+                new List<string>() {"Order", "All"}
             };
         }
         
@@ -66,6 +73,31 @@ namespace CTGP7.UI
                 courseSelector.SelectedCourseNameEntry = nameEntry;
                 ccComboBox.SelectedIndex = missionFlags.Class;
                 cpuComboBox.SelectedIndex = missionFlags.CPUDifficulty - 1;
+                missionTypeCombo.SelectedIndex = missionFlags.MissionType;
+                missionSubTypeCombo.SelectedIndex = missionFlags.MissionSubType;
+                calculationCombo.SelectedIndex = missionFlags.CalculationType;
+                initialTimerSelector.Time = missionFlags.InitialTimer;
+                timerDirectionCombo.SelectedIndex = missionFlags.CountTimerUp ? 1 : 0;
+                finishRaceTimerCheck.Checked = missionFlags.AutoFinishRaceTimer;
+                finishRaceTimerSelector.Time = missionFlags.FinishRaceTimer;
+                minGradeTimerSelector.Time = missionFlags.MinGradeTimer;
+                maxGradeTimerSelector.Time = missionFlags.MaxGradeTimer;
+                scoreEnabledCheck.Checked = missionFlags.UseScore;
+                initialScoreUpDown.Value = missionFlags.InitialScore;
+                directionScoreCombo.SelectedIndex = missionFlags.CountScoreUp ? 1 : 0;
+                finishRaceScoreCheck.Checked = missionFlags.AutoFinishRaceScore;
+                finishRaceScoreUpDown.Value = missionFlags.FinishRaceScore;
+                minGradeScoreUpDown.Value = missionFlags.MinGradeScore;
+                maxGradeScoreUpDown.Value = missionFlags.MaxGradeScore;
+                scoreYellowUpDown.Value = missionFlags.YellowScore;
+                lapAmountUpDown.Value = missionFlags.LapAmount;
+                rankVisibleCheck.Checked = missionFlags.RankVisible;
+                lakituVisibleCheck.Checked = missionFlags.LakituVisible;
+                playCourseIntroCheck.Checked = missionFlags.CourseIntroVisible;
+
+                scoreEnabledCheck_CheckedChanged(scoreEnabledCheck, new EventArgs());
+                finishRaceTimerCheck_CheckedChanged(finishRaceTimerCheck, new EventArgs());
+                finishRaceScoreCheck_CheckedChanged(finishRaceScoreCheck, new EventArgs());
             }
             { // Item Options
                 CMSN.ItemOptionsSection itemOptions = (CMSN.ItemOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.ItemOptions);
@@ -79,12 +111,15 @@ namespace CTGP7.UI
                     {
                         giveAfterPlayerNum.Value = (decimal)itemOptions.PlayerConfig.GiveItemOffset.TotalSeconds;
                         giveEachPlayerNum.Value = (decimal)itemOptions.PlayerConfig.GiveItemEach.TotalSeconds;
-                        giveIDPlayerNum.Value = itemOptions.PlayerConfig.GiveItemID;
                     }
+                    disableCooldownPlayerCheck.Checked = itemOptions.PlayerConfig.DisableCooldown;
                     roulettePlayerCheck.Checked = itemOptions.PlayerConfig.RouletteSpeed.Frames != 0;
                     if (roulettePlayerCheck.Checked)
                     {
-                        roulettePlayerNum.Value = (decimal)itemOptions.PlayerConfig.RouletteSpeed.TotalSeconds;
+                        if (itemOptions.PlayerConfig.RouletteSpeed.Frames == 1)
+                            roulettePlayerNum.Value = 0;
+                        else
+                            roulettePlayerNum.Value = (decimal)itemOptions.PlayerConfig.RouletteSpeed.TotalSeconds;
                     }
                 }
                 { // CPU Config
@@ -95,13 +130,23 @@ namespace CTGP7.UI
                     {
                         giveAfterCPUNum.Value = (decimal)itemOptions.CPUConfig.GiveItemOffset.TotalSeconds;
                         giveEachCPUNum.Value = (decimal)itemOptions.CPUConfig.GiveItemEach.TotalSeconds;
-                        giveIDCPUNum.Value = itemOptions.CPUConfig.GiveItemID;
                     }
+                    disableCooldownCPUCheck.Checked = itemOptions.CPUConfig.DisableCooldown;
                     rouletteCPUCheck.Checked = itemOptions.CPUConfig.RouletteSpeed.Frames != 0;
                     if (rouletteCPUCheck.Checked)
                     {
-                        rouletteCPUNum.Value = (decimal)itemOptions.CPUConfig.RouletteSpeed.TotalSeconds;
+                        if (itemOptions.CPUConfig.RouletteSpeed.Frames == 1)
+                            rouletteCPUNum.Value = 0;
+                        else 
+                            rouletteCPUNum.Value = (decimal)itemOptions.CPUConfig.RouletteSpeed.TotalSeconds;
                     }
+                }
+            }
+            { // Text entries
+                CMSN.TextSection textSection = (CMSN.TextSection)MissionData.GetSection(CMSN.BaseSection.SectionType.TextStrings);
+                foreach (var entry in textSection.entries)
+                {
+                    textEntryList.Items.Add(new CMSN.TextSection.LanguageEntry(entry));
                 }
             }
         }
@@ -128,6 +173,27 @@ namespace CTGP7.UI
                 else missionFlags.CourseID = nameEntry.courseID;
                 missionFlags.Class = (byte)ccComboBox.SelectedIndex;
                 missionFlags.CPUDifficulty = (byte)(cpuComboBox.SelectedIndex + 1);
+                missionFlags.MissionType = (byte)missionTypeCombo.SelectedIndex;
+                missionFlags.MissionSubType = (byte)missionSubTypeCombo.SelectedIndex;
+                missionFlags.CalculationType = (byte)calculationCombo.SelectedIndex;
+                missionFlags.InitialTimer = initialTimerSelector.Time;
+                missionFlags.CountTimerUp = timerDirectionCombo.SelectedIndex == 1;
+                missionFlags.AutoFinishRaceTimer = finishRaceTimerCheck.Checked;
+                missionFlags.FinishRaceTimer = finishRaceTimerSelector.Time;
+                missionFlags.MinGradeTimer = minGradeTimerSelector.Time;
+                missionFlags.MaxGradeTimer = maxGradeTimerSelector.Time;
+                missionFlags.UseScore = scoreEnabledCheck.Checked;
+                missionFlags.InitialScore = (byte)initialScoreUpDown.Value;
+                missionFlags.CountScoreUp = directionScoreCombo.SelectedIndex == 1;
+                missionFlags.AutoFinishRaceScore = finishRaceScoreCheck.Checked;
+                missionFlags.FinishRaceScore = (byte)finishRaceScoreUpDown.Value;
+                missionFlags.MinGradeScore = (byte)minGradeScoreUpDown.Value;
+                missionFlags.MaxGradeScore = (byte)maxGradeScoreUpDown.Value;
+                missionFlags.YellowScore = (byte)scoreYellowUpDown.Value;
+                missionFlags.LapAmount = (byte)lapAmountUpDown.Value;
+                missionFlags.RankVisible = rankVisibleCheck.Checked;
+                missionFlags.LakituVisible = lakituVisibleCheck.Checked;
+                missionFlags.CourseIntroVisible = playCourseIntroCheck.Checked;
             }
             { // Item Options
                 CMSN.ItemOptionsSection itemOptions = (CMSN.ItemOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.ItemOptions);
@@ -141,20 +207,26 @@ namespace CTGP7.UI
                         {
                             itemOptions.PlayerConfig.GiveItemOffset = new Common.MK7Timer((double)giveAfterPlayerNum.Value);
                             itemOptions.PlayerConfig.GiveItemEach = new Common.MK7Timer((double)giveEachPlayerNum.Value);
-                            itemOptions.PlayerConfig.GiveItemID = (byte)giveIDPlayerNum.Value;
                         } else
                         {
                             itemOptions.PlayerConfig.GiveItemOffset = new Common.MK7Timer(0);
                             itemOptions.PlayerConfig.GiveItemEach = new Common.MK7Timer(0);
-                            itemOptions.PlayerConfig.GiveItemID = 0;
                         }
                         if (roulettePlayerCheck.Checked)
                         {
-                            itemOptions.PlayerConfig.RouletteSpeed = new Common.MK7Timer((double)roulettePlayerNum.Value);
+                            if (roulettePlayerNum.Value == 0)
+                            {
+                                itemOptions.PlayerConfig.RouletteSpeed = new Common.MK7Timer(1);
+                            }
+                            else
+                            {
+                                itemOptions.PlayerConfig.RouletteSpeed = new Common.MK7Timer((double)roulettePlayerNum.Value);
+                            }
                         } else
                         {
                             itemOptions.PlayerConfig.RouletteSpeed = new Common.MK7Timer(0);
                         }
+                        itemOptions.PlayerConfig.DisableCooldown = disableCooldownPlayerCheck.Checked;
                         itemOptions.PlayerConfig.Probabilities = probabilityPlayerViewer.Values;
                     }
                     { // CPU config
@@ -163,24 +235,37 @@ namespace CTGP7.UI
                         {
                             itemOptions.CPUConfig.GiveItemOffset = new Common.MK7Timer((double)giveAfterCPUNum.Value);
                             itemOptions.CPUConfig.GiveItemEach = new Common.MK7Timer((double)giveEachCPUNum.Value);
-                            itemOptions.CPUConfig.GiveItemID = (byte)giveIDCPUNum.Value;
                         }
                         else
                         {
                             itemOptions.CPUConfig.GiveItemOffset = new Common.MK7Timer(0);
                             itemOptions.CPUConfig.GiveItemEach = new Common.MK7Timer(0);
-                            itemOptions.CPUConfig.GiveItemID = 0;
                         }
                         if (rouletteCPUCheck.Checked)
                         {
-                            itemOptions.CPUConfig.RouletteSpeed = new Common.MK7Timer((double)rouletteCPUNum.Value);
+                            if (rouletteCPUNum.Value == 0)
+                            {
+                                itemOptions.CPUConfig.RouletteSpeed = new Common.MK7Timer(1);
+                            } else
+                            {
+                                itemOptions.CPUConfig.RouletteSpeed = new Common.MK7Timer((double)rouletteCPUNum.Value);
+                            }
                         }
                         else
                         {
                             itemOptions.CPUConfig.RouletteSpeed = new Common.MK7Timer(0);
                         }
+                        itemOptions.CPUConfig.DisableCooldown = disableCooldownCPUCheck.Checked;
                         itemOptions.CPUConfig.Probabilities = probabilityCPUViewer.Values;
                     }
+                }
+            }
+            { // Text entries
+                CMSN.TextSection textSection = (CMSN.TextSection)MissionData.GetSection(CMSN.BaseSection.SectionType.TextStrings);
+                textSection.entries.Clear();
+                foreach (var entry in textEntryList.Items)
+                {
+                    textSection.entries.Add(new CMSN.TextSection.LanguageEntry(entry as CMSN.TextSection.LanguageEntry));
                 }
             }
         }
@@ -243,7 +328,6 @@ namespace CTGP7.UI
         private void giveItemPlayerCheck_CheckedChanged(object sender, EventArgs e)
         {
             giveAfterPlayerNum.Enabled = giveEachPlayerNum.Enabled = giveItemPlayerCheck.Checked;
-            giveIDPlayerNum.Enabled = modePlayerBox.SelectedIndex == (int)CMSN.ItemOptionsSection.ItemConfig.ItemConfigMode.BoxID && giveItemPlayerCheck.Checked;
         }
 
         private void roulettePlayerCheck_CheckedChanged(object sender, EventArgs e)
@@ -254,7 +338,6 @@ namespace CTGP7.UI
         private void giveItemCPUCheck_CheckedChanged(object sender, EventArgs e)
         {
             giveAfterCPUNum.Enabled = giveEachCPUNum.Enabled = giveItemCPUCheck.Checked;
-            giveIDCPUNum.Enabled = modeCPUBox.SelectedIndex == (int)CMSN.ItemOptionsSection.ItemConfig.ItemConfigMode.BoxID && giveItemCPUCheck.Checked;
         }
 
         private void rouletteCPUCheck_CheckedChanged(object sender, EventArgs e)
@@ -271,6 +354,7 @@ namespace CTGP7.UI
                 if (isPlayer) isizero = !isizero;
 
                 if (isizero && configMode == CMSN.ItemOptionsSection.ItemConfig.ItemConfigMode.DriverID) tableRowNames.Add("(Unused)");
+                else if (i == 0 && configMode == CMSN.ItemOptionsSection.ItemConfig.ItemConfigMode.BoxID) tableRowNames.Add("(Unused)");
                 else
                 {
                     tableRowNames.Add(String.Format("{0}", i));
@@ -281,13 +365,126 @@ namespace CTGP7.UI
 
         private void modePlayerBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            giveIDPlayerNum.Enabled = modePlayerBox.SelectedIndex == (int)CMSN.ItemOptionsSection.ItemConfig.ItemConfigMode.BoxID && giveItemPlayerCheck.Checked;
             probabilityPlayerViewer.SetRowNames(GetProbabilityTableRows((CMSN.ItemOptionsSection.ItemConfig.ItemConfigMode)modePlayerBox.SelectedIndex, true));
         }
         private void modeCPUBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            giveIDCPUNum.Enabled = modeCPUBox.SelectedIndex == (int)CMSN.ItemOptionsSection.ItemConfig.ItemConfigMode.BoxID && giveItemCPUCheck.Checked;
             probabilityCPUViewer.SetRowNames(GetProbabilityTableRows((CMSN.ItemOptionsSection.ItemConfig.ItemConfigMode)modeCPUBox.SelectedIndex, false));
+        }
+
+        private void textEntryList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (textEntryList.SelectedIndex != -1)
+            {
+                langCodeText.Enabled = true;
+                langTitleText.Enabled = true;
+                langDescriptionText.Enabled = true;
+                if (textEntryList.Items.Count > 1)
+                    removeTextEntryButton.Enabled = true;
+
+                langCodeText.Text = (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).langCode;
+                langTitleText.Text = (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).title;
+                langDescriptionText.RichText = (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).description;
+            } else
+            {
+                langCodeText.Enabled = false;
+                langTitleText.Enabled = false;
+                langDescriptionText.Enabled = false;
+                removeTextEntryButton.Enabled = false;
+
+                langCodeText.Text = "";
+                langTitleText.Text = "";
+                langDescriptionText.RichText = new byte[0];
+            }
+        }
+
+        private void langCodeText_TextChanged(object sender, EventArgs e)
+        {
+            if (textEntryList.SelectedIndex != -1)
+            {
+                (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).langCode = langCodeText.Text;
+            }
+        }
+
+        private void langTitleText_TextChanged(object sender, EventArgs e)
+        {
+            if (textEntryList.SelectedIndex != -1)
+                (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).title = langTitleText.Text;
+        }
+
+        private void langDescriptionText_RichTextChanged(object sender, EventArgs e)
+        {
+            if (textEntryList.SelectedIndex != -1)
+            {
+                (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).description = langDescriptionText.RichText;
+                (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).descriptionNewlines = (byte)langDescriptionText.RichTextNewLines;
+            }
+        }
+
+        private void addTextEntryButton_Click(object sender, EventArgs e)
+        {
+            textEntryList.Items.Add(new CMSN.TextSection.LanguageEntry());
+        }
+        private void removeTextEntryButton_Click(object sender, EventArgs e)
+        {
+            if (textEntryList.SelectedIndex != -1)
+                textEntryList.Items.RemoveAt(textEntryList.SelectedIndex);
+        }
+
+        private void langCodeText_Validating(object sender, CancelEventArgs e)
+        {
+            if (textEntryList.SelectedIndex != -1)
+                textEntryList.Items[textEntryList.SelectedIndex] = textEntryList.Items[textEntryList.SelectedIndex]; // Bruh
+        }
+
+        private void calculationCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (calculationCombo.SelectedIndex == 0) // Timer
+            {
+                minGradeTimerSelector.Enabled = true;
+                maxGradeTimerSelector.Enabled = true;
+                scoreEnabledCheck.Enabled = true;
+                minGradeScoreUpDown.Enabled = false;
+                maxGradeScoreUpDown.Enabled = false;
+            } else if (calculationCombo.SelectedIndex == 1) // Score
+            {
+                minGradeTimerSelector.Enabled = false;
+                maxGradeTimerSelector.Enabled = false;
+                scoreEnabledCheck.Checked = true;
+                scoreEnabledCheck.Enabled = false;
+                minGradeScoreUpDown.Enabled = true;
+                maxGradeScoreUpDown.Enabled = true;
+            }
+        }
+
+        private void finishRaceScoreCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            finishRaceScoreUpDown.Enabled = finishRaceScoreCheck.Checked;
+        }
+
+        private void finishRaceTimerCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            finishRaceTimerSelector.Enabled = finishRaceTimerCheck.Checked;
+        }
+
+        private void scoreEnabledCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            bool enable = scoreEnabledCheck.Checked;
+            initialScoreUpDown.Enabled = enable;
+            directionScoreCombo.Enabled = enable;
+            finishRaceScoreCheck.Enabled = enable;
+            finishRaceScoreUpDown.Enabled = enable && finishRaceScoreCheck.Checked;
+            minGradeScoreUpDown.Enabled = enable && calculationCombo.SelectedIndex == 1;
+            maxGradeScoreUpDown.Enabled = enable && calculationCombo.SelectedIndex == 1;
+            scoreYellowUpDown.Enabled = enable;
+        }
+
+        private void missionTypeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (missionTypeCombo.SelectedIndex == -1) return;
+            missionSubTypeCombo.DataSource = null;
+            missionSubTypeCombo.DataSource = MissionSubtypes[missionTypeCombo.SelectedIndex].ToArray();
+            missionSubTypeCombo.SelectedIndex = 0;
         }
     }
 }
