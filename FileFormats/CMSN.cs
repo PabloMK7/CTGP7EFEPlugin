@@ -235,6 +235,8 @@ namespace CTGP7
 			public bool CountScoreUp;
 			public byte YellowScore;
 			private UInt32 Flags;
+			public bool RespawnCoins;
+			public MK7Timer RespawnCoinsTimer;
 
 			private static UInt32 ClearBit(UInt32 value, int bit)
             {
@@ -284,6 +286,8 @@ namespace CTGP7
 				CountScoreUp = false;
 				YellowScore = 0;
 				Flags = 0;
+				RespawnCoins = false;
+				RespawnCoinsTimer = new MK7Timer();
 			}
 			public MissionFlagsSection(EndianBinaryReaderEx er) : this()
 			{
@@ -331,6 +335,10 @@ namespace CTGP7
 				YellowScore = er.ReadByte();
 				LapAmount = er.ReadByte();
 
+				ushort respawnCoinTimeValue = er.ReadUInt16();
+				if (respawnCoinTimeValue == 0xFFFF) RespawnCoins = false;
+				else { RespawnCoins = true; RespawnCoinsTimer = new MK7Timer(respawnCoinTimeValue); }
+
 				er.ReadPadding(4);
 			}
 			public override void Write(EndianBinaryWriterEx ew)
@@ -375,6 +383,9 @@ namespace CTGP7
 				ew.Write(YellowScore);
 
 				ew.Write(LapAmount);
+
+				if (RespawnCoins) ew.Write((ushort)RespawnCoinsTimer.Frames);
+				else ew.Write((ushort)0xFFFF);
 
 				ew.WritePadding(4);
 			}
@@ -422,6 +433,8 @@ namespace CTGP7
 			public const int ItemAmount = 20;
 			public ItemMode Mode;
 			public bool SpawnItemBoxes;
+			public bool RespawnItemBox;
+			public MK7Timer RespawnItemBoxTimer;
 			
 			public class ItemConfig
             {
@@ -501,6 +514,8 @@ namespace CTGP7
 				SpawnItemBoxes = true;
 				PlayerConfig = new ItemConfig(true);
 				CPUConfig = new ItemConfig(false);
+				RespawnItemBox = false;
+				RespawnItemBoxTimer = new MK7Timer();
             }
 			public ItemOptionsSection(EndianBinaryReaderEx er) : this()
             {
@@ -509,6 +524,11 @@ namespace CTGP7
 				long offsetCPU = er.ReadUInt16();
 				Mode = (ItemMode)er.ReadByte();
 				SpawnItemBoxes = er.ReadByte() != 0;
+
+				ushort respawnItemBoxTimeValue = er.ReadUInt16();
+				if (respawnItemBoxTimeValue == 0xFFFF) RespawnItemBox = false;
+				else { RespawnItemBox = true; RespawnItemBoxTimer = new MK7Timer(respawnItemBoxTimeValue); }
+
 				if (Mode == ItemMode.Custom)
                 {
 					er.BaseStream.Position = basePos + offsetPlayer;
@@ -525,6 +545,7 @@ namespace CTGP7
 				tempWritter.Write(new ushort()); // offsetCPU
 				tempWritter.Write(new byte()); // Mode
 				tempWritter.Write(new byte()); // SpawnItemBoxes
+				tempWritter.Write(new ushort());
 				tempWritter.WritePadding(4);
 
 				UInt16 baseOffset = (UInt16)tempWritter.BaseStream.Position;
@@ -544,6 +565,8 @@ namespace CTGP7
 					ew.Write(offsetCPU); // offsetCPU
 					ew.Write((byte)Mode);
 					ew.Write((byte)(SpawnItemBoxes ? 1 : 0));
+					if (RespawnItemBox) ew.Write((ushort)RespawnItemBoxTimer.Frames);
+					else ew.Write((ushort)0xFFFF);
 					ew.WritePadding(4);
 					ew.Write((sectionWritter.BaseStream as MemoryStream).ToArray(), 0, (int)sectionWritter.BaseStream.Length);
 
@@ -553,6 +576,8 @@ namespace CTGP7
 					ew.Write((ushort)0xFFFF); // offsetCPU
 					ew.Write((byte)Mode);
 					ew.Write((byte)(SpawnItemBoxes ? 1 : 0));
+					if (RespawnItemBox) ew.Write((ushort)RespawnItemBoxTimer.Frames);
+					else ew.Write((ushort)0xFFFF);
 					ew.WritePadding(4);
 				}	
 				

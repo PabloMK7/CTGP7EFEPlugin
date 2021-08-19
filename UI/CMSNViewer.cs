@@ -43,7 +43,8 @@ namespace CTGP7.UI
             MissionSubtypes = new List<List<string>>()
             {
                 new List<string>() {"None" },
-                new List<string>() {"Order", "All"}
+                new List<string>() {"Order", "All"},
+                new List<string>() {"ItemBox", "Coin", "Rocky Wrenches"}
             };
         }
         
@@ -94,15 +95,20 @@ namespace CTGP7.UI
                 rankVisibleCheck.Checked = missionFlags.RankVisible;
                 lakituVisibleCheck.Checked = missionFlags.LakituVisible;
                 playCourseIntroCheck.Checked = missionFlags.CourseIntroVisible;
+                coinRespawnCheck.Checked = missionFlags.RespawnCoins;
+                coinRespawnTimer.Time = missionFlags.RespawnCoinsTimer;
 
                 scoreEnabledCheck_CheckedChanged(scoreEnabledCheck, new EventArgs());
                 finishRaceTimerCheck_CheckedChanged(finishRaceTimerCheck, new EventArgs());
                 finishRaceScoreCheck_CheckedChanged(finishRaceScoreCheck, new EventArgs());
+                coinRespawnCheck_CheckedChanged(coinRespawnCheck, new EventArgs());
             }
             { // Item Options
                 CMSN.ItemOptionsSection itemOptions = (CMSN.ItemOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.ItemOptions);
                 itemsModeBox.SelectedIndex = (int)itemOptions.Mode;
                 spawnBoxCheck.Checked = itemOptions.SpawnItemBoxes;
+                itemBoxRespawnCheck.Checked = itemOptions.RespawnItemBox;
+                itemBoxRespawnTimer.Time = itemOptions.RespawnItemBoxTimer;
                 { // Player Config
                     probabilityPlayerViewer.PopulateData(GetProbabilityTableRows(itemOptions.PlayerConfig.ConfigMode, true), ItemNames, itemOptions.PlayerConfig.Probabilities);
                     modePlayerBox.SelectedIndex = (int)itemOptions.PlayerConfig.ConfigMode;
@@ -141,6 +147,7 @@ namespace CTGP7.UI
                             rouletteCPUNum.Value = (decimal)itemOptions.CPUConfig.RouletteSpeed.TotalSeconds;
                     }
                 }
+                itemBoxRespawnCheck_CheckedChanged(itemBoxRespawnCheck, new EventArgs());
             }
             { // Text entries
                 CMSN.TextSection textSection = (CMSN.TextSection)MissionData.GetSection(CMSN.BaseSection.SectionType.TextStrings);
@@ -194,11 +201,15 @@ namespace CTGP7.UI
                 missionFlags.RankVisible = rankVisibleCheck.Checked;
                 missionFlags.LakituVisible = lakituVisibleCheck.Checked;
                 missionFlags.CourseIntroVisible = playCourseIntroCheck.Checked;
+                missionFlags.RespawnCoins = coinRespawnCheck.Checked;
+                missionFlags.RespawnCoinsTimer = coinRespawnTimer.Time;
             }
             { // Item Options
                 CMSN.ItemOptionsSection itemOptions = (CMSN.ItemOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.ItemOptions);
                 itemOptions.Mode = (CMSN.ItemOptionsSection.ItemMode)itemsModeBox.SelectedIndex;
                 itemOptions.SpawnItemBoxes = spawnBoxCheck.Checked;
+                itemOptions.RespawnItemBox = itemBoxRespawnCheck.Checked;
+                itemOptions.RespawnItemBoxTimer = itemBoxRespawnTimer.Time;
                 if (itemOptions.Mode == CMSN.ItemOptionsSection.ItemMode.Custom)
                 {
                     { // Player config
@@ -485,6 +496,16 @@ namespace CTGP7.UI
             missionSubTypeCombo.DataSource = null;
             missionSubTypeCombo.DataSource = MissionSubtypes[missionTypeCombo.SelectedIndex].ToArray();
             missionSubTypeCombo.SelectedIndex = 0;
+        }
+
+        private void coinRespawnCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            coinRespawnTimer.Enabled = coinRespawnCheck.Checked;
+        }
+
+        private void itemBoxRespawnCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            itemBoxRespawnTimer.Enabled = itemBoxRespawnCheck.Checked;
         }
     }
 }
