@@ -27,6 +27,7 @@ namespace CTGP7
 			Sections.Add(new MissionFlagsSection());
 			Sections.Add(new ItemOptionsSection());
 			Sections.Add(new TextSection());
+			Sections.Add(new InfoSection());
 		}
 		public CMSN(byte[] Data)
 		{
@@ -35,6 +36,7 @@ namespace CTGP7
 			Header = new CMSNHeader(er);
 			er.BaseStream.Position = Header.SectionTableOffset;
 			uint sections = er.ReadUInt32();
+			bool infoSectionPresent = false;
 			for (int i = 0; i < sections; i++)
             {
 				uint sectionType = er.ReadUInt32();
@@ -55,11 +57,16 @@ namespace CTGP7
 					case BaseSection.SectionType.TextStrings:
 						Sections.Add(new TextSection(er));
 						break;
+					case BaseSection.SectionType.Info:
+						infoSectionPresent = true;
+						Sections.Add(new InfoSection(er));
+						break;
 					default:
 						throw new NotImplementedException("Section " + sectionType + " not implemented!");
-                }
+				}
 				er.BaseStream.Position = prevPos;
             }
+			if (!infoSectionPresent) Sections.Add(new InfoSection());
 		}
 		public byte[] Write()
 		{
@@ -138,6 +145,7 @@ namespace CTGP7
 				MissionFlags = 2,
 				ItemOptions = 3,
 				TextStrings = 4,
+				Info = 5,
             }
 			public abstract SectionType GetSectionType();
 			public abstract void Write(EndianBinaryWriterEx ew);
@@ -708,6 +716,41 @@ namespace CTGP7
 			}
 		}
 
+		public class InfoSection : BaseSection
+        {
+			public override SectionType GetSectionType()
+			{
+				return SectionType.Info;
+			}
+
+			public byte[] MissionUUID;
+			public UInt32 SaveIteration;
+			public UInt32 Checksum;
+			public InfoSection()
+            {
+				MissionUUID = new byte[0xC];
+				System.Security.Cryptography.RNGCryptoServiceProvider RandomGenerator = new System.Security.Cryptography.RNGCryptoServiceProvider();
+				RandomGenerator.GetNonZeroBytes(MissionUUID);
+				MissionUUID[MissionUUID.Length - 1] = 0;
+				SaveIteration = 0;
+				Checksum = 0;
+            }
+			public InfoSection(EndianBinaryReaderEx er)
+            {
+				MissionUUID = er.ReadBytes(0xC);
+				SaveIteration = er.ReadUInt32();
+				er.ReadUInt32(); // Ignore reading checksum
+
+				er.ReadPadding(4);
+            }
+			public override void Write(EndianBinaryWriterEx ew)
+            {
+				ew.Write(MissionUUID, 0, 0xC);
+
+				ew.Write(SaveIteration);
+				ew.Write(Checksum);
+            }
+		}
 		public Form GetDialog()
         {
 			Viewer = new UI.CMSNViewer(this);

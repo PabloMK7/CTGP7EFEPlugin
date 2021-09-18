@@ -44,7 +44,8 @@ namespace CTGP7.UI
             {
                 new List<string>() {"None" },
                 new List<string>() {"Order", "All"},
-                new List<string>() {"ItemBox", "Coin", "Rocky Wrenches"}
+                new List<string>() {"ItemBox", "Coin", "Rocky Wrenches"},
+                new List<string>() {"Boost Pad", "Mini-Turbo", "Super Mini-Turbo", "Rocket Start", "Trick", "Improved Trick", "Star Ring"},
             };
         }
         
@@ -155,6 +156,10 @@ namespace CTGP7.UI
                 {
                     textEntryList.Items.Add(new CMSN.TextSection.LanguageEntry(entry));
                 }
+            }
+            { // Info section
+                CMSN.InfoSection infoSection = (CMSN.InfoSection)MissionData.GetSection(CMSN.BaseSection.SectionType.Info);
+                missionUUIDLabel.Text = "Mission UUID: " + BitConverter.ToString(infoSection.MissionUUID);
             }
         }
         public void SaveData()
@@ -278,6 +283,9 @@ namespace CTGP7.UI
                 {
                     textSection.entries.Add(new CMSN.TextSection.LanguageEntry(entry as CMSN.TextSection.LanguageEntry));
                 }
+            }
+            { // Info section
+
             }
         }
         public int DriverAmount
@@ -506,6 +514,19 @@ namespace CTGP7.UI
         private void itemBoxRespawnCheck_CheckedChanged(object sender, EventArgs e)
         {
             itemBoxRespawnTimer.Enabled = itemBoxRespawnCheck.Checked;
+        }
+
+        private void resetMissionSaveDataButton_Click(object sender, EventArgs e)
+        {
+            CMSN.InfoSection infoSection = (CMSN.InfoSection)MissionData.GetSection(CMSN.BaseSection.SectionType.Info);
+
+            saveResetLabel.Text = "";
+            DialogResult res = MessageBox.Show("Do you want to reset the save data identifier for this mission? This will cause the checksum to break and the best time stored in the console to reset.", "Reset Mission Save Data", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                saveResetLabel.Text = "Done!";
+                infoSection.SaveIteration++;
+            }
         }
     }
 }

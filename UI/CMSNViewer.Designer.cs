@@ -182,6 +182,10 @@
             this.removeTextEntryButton = new System.Windows.Forms.Button();
             this.addTextEntryButton = new System.Windows.Forms.Button();
             this.textEntryList = new System.Windows.Forms.ListBox();
+            this.infoTab = new System.Windows.Forms.TabPage();
+            this.missionUUIDLabel = new System.Windows.Forms.Label();
+            this.resetMissionSaveDataButton = new System.Windows.Forms.Button();
+            this.saveResetLabel = new System.Windows.Forms.Label();
             this.tabContainer.SuspendLayout();
             this.settingsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lapAmountUpDown)).BeginInit();
@@ -206,6 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.giveEachCPUNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.giveAfterCPUNum)).BeginInit();
             this.textTab.SuspendLayout();
+            this.infoTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabContainer
@@ -217,6 +222,7 @@
             this.tabContainer.Controls.Add(this.driverTab);
             this.tabContainer.Controls.Add(this.itemsTab);
             this.tabContainer.Controls.Add(this.textTab);
+            this.tabContainer.Controls.Add(this.infoTab);
             this.tabContainer.Location = new System.Drawing.Point(2, 2);
             this.tabContainer.Name = "tabContainer";
             this.tabContainer.SelectedIndex = 0;
@@ -689,7 +695,8 @@
             this.missionTypeCombo.Items.AddRange(new object[] {
             "Timer",
             "Gates",
-            "Object"});
+            "Object",
+            "Boost"});
             this.missionTypeCombo.Location = new System.Drawing.Point(83, 98);
             this.missionTypeCombo.Name = "missionTypeCombo";
             this.missionTypeCombo.Size = new System.Drawing.Size(353, 21);
@@ -1951,6 +1958,46 @@
             this.textEntryList.TabIndex = 0;
             this.textEntryList.SelectedIndexChanged += new System.EventHandler(this.textEntryList_SelectedIndexChanged);
             // 
+            // infoTab
+            // 
+            this.infoTab.Controls.Add(this.saveResetLabel);
+            this.infoTab.Controls.Add(this.resetMissionSaveDataButton);
+            this.infoTab.Controls.Add(this.missionUUIDLabel);
+            this.infoTab.Location = new System.Drawing.Point(4, 22);
+            this.infoTab.Name = "infoTab";
+            this.infoTab.Padding = new System.Windows.Forms.Padding(3);
+            this.infoTab.Size = new System.Drawing.Size(922, 434);
+            this.infoTab.TabIndex = 4;
+            this.infoTab.Text = "Info";
+            this.infoTab.UseVisualStyleBackColor = true;
+            // 
+            // missionUUIDLabel
+            // 
+            this.missionUUIDLabel.AutoSize = true;
+            this.missionUUIDLabel.Location = new System.Drawing.Point(6, 3);
+            this.missionUUIDLabel.Name = "missionUUIDLabel";
+            this.missionUUIDLabel.Size = new System.Drawing.Size(75, 13);
+            this.missionUUIDLabel.TabIndex = 0;
+            this.missionUUIDLabel.Text = "Mission UUID:";
+            // 
+            // resetMissionSaveDataButton
+            // 
+            this.resetMissionSaveDataButton.Location = new System.Drawing.Point(6, 19);
+            this.resetMissionSaveDataButton.Name = "resetMissionSaveDataButton";
+            this.resetMissionSaveDataButton.Size = new System.Drawing.Size(148, 23);
+            this.resetMissionSaveDataButton.TabIndex = 1;
+            this.resetMissionSaveDataButton.Text = "Reset Mission Save Data";
+            this.resetMissionSaveDataButton.UseVisualStyleBackColor = true;
+            this.resetMissionSaveDataButton.Click += new System.EventHandler(this.resetMissionSaveDataButton_Click);
+            // 
+            // saveResetLabel
+            // 
+            this.saveResetLabel.AutoSize = true;
+            this.saveResetLabel.Location = new System.Drawing.Point(160, 24);
+            this.saveResetLabel.Name = "saveResetLabel";
+            this.saveResetLabel.Size = new System.Drawing.Size(0, 13);
+            this.saveResetLabel.TabIndex = 2;
+            // 
             // CMSNViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1995,6 +2042,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.giveAfterCPUNum)).EndInit();
             this.textTab.ResumeLayout(false);
             this.textTab.PerformLayout();
+            this.infoTab.ResumeLayout(false);
+            this.infoTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2148,5 +2197,9 @@
         private TimeSelector itemBoxRespawnTimer;
         private TimeSelector coinRespawnTimer;
         private System.Windows.Forms.CheckBox coinRespawnCheck;
+        private System.Windows.Forms.TabPage infoTab;
+        private System.Windows.Forms.Button resetMissionSaveDataButton;
+        private System.Windows.Forms.Label missionUUIDLabel;
+        private System.Windows.Forms.Label saveResetLabel;
     }
 }
