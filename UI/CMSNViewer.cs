@@ -51,7 +51,6 @@ namespace CTGP7.UI
         
         public void LoadData()
         {
-
             { // Driver options
                 CMSN.DriverOptionsSection driverOpts = (CMSN.DriverOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.DriverOptions);
                 if (driverOpts != null)
@@ -96,8 +95,21 @@ namespace CTGP7.UI
                 rankVisibleCheck.Checked = missionFlags.RankVisible;
                 lakituVisibleCheck.Checked = missionFlags.LakituVisible;
                 playCourseIntroCheck.Checked = missionFlags.CourseIntroVisible;
+                hideScoreCheck.Checked = missionFlags.ScoreHidden;
+                scoreIsBadCheck.Checked = missionFlags.ScoreNegative;
+                forceBackwardsCheck.Checked = missionFlags.ForceBackwards;
+                finishRaceSectionCheck.Checked = missionFlags.FinishOnSection;
                 coinRespawnCheck.Checked = missionFlags.RespawnCoins;
                 coinRespawnTimer.Time = missionFlags.RespawnCoinsTimer;
+                try
+                {
+                    completeCondition1Combo.SelectedIndex = missionFlags.CompleteCondition1;
+                    completeCondition2Combo.SelectedIndex = missionFlags.CompleteCondition2;
+                } catch (Exception e)
+                {
+                    completeCondition1Combo.SelectedIndex = 0;
+                    completeCondition2Combo.SelectedIndex = 0;
+                }
 
                 scoreEnabledCheck_CheckedChanged(scoreEnabledCheck, new EventArgs());
                 finishRaceTimerCheck_CheckedChanged(finishRaceTimerCheck, new EventArgs());
@@ -206,8 +218,14 @@ namespace CTGP7.UI
                 missionFlags.RankVisible = rankVisibleCheck.Checked;
                 missionFlags.LakituVisible = lakituVisibleCheck.Checked;
                 missionFlags.CourseIntroVisible = playCourseIntroCheck.Checked;
+                missionFlags.ScoreHidden = hideScoreCheck.Checked;
+                missionFlags.ScoreNegative = scoreIsBadCheck.Checked;
+                missionFlags.ForceBackwards = forceBackwardsCheck.Checked;
+                missionFlags.FinishOnSection = finishRaceSectionCheck.Checked;
                 missionFlags.RespawnCoins = coinRespawnCheck.Checked;
                 missionFlags.RespawnCoinsTimer = coinRespawnTimer.Time;
+                missionFlags.CompleteCondition1 = (byte)completeCondition1Combo.SelectedIndex;
+                missionFlags.CompleteCondition2 = (byte)completeCondition2Combo.SelectedIndex;
             }
             { // Item Options
                 CMSN.ItemOptionsSection itemOptions = (CMSN.ItemOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.ItemOptions);

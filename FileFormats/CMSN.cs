@@ -245,6 +245,8 @@ namespace CTGP7
 			private UInt32 Flags;
 			public bool RespawnCoins;
 			public MK7Timer RespawnCoinsTimer;
+			public byte CompleteCondition1;
+			public byte CompleteCondition2;
 
 			private static UInt32 ClearBit(UInt32 value, int bit)
             {
@@ -269,6 +271,10 @@ namespace CTGP7
 			public bool RankVisible { get { return GetBit(Flags, 0); } set { Flags = ChangeBit(Flags, 0, value); } }
 			public bool LakituVisible { get { return GetBit(Flags, 1); } set { Flags = ChangeBit(Flags, 1, value); } }
 			public bool CourseIntroVisible { get { return GetBit(Flags, 2); } set { Flags = ChangeBit(Flags, 2, value); } }
+			public bool ScoreHidden { get { return GetBit(Flags, 3); } set { Flags = ChangeBit(Flags, 3, value); } }
+			public bool ScoreNegative { get { return GetBit(Flags, 4); } set { Flags = ChangeBit(Flags, 4, value); } }
+			public bool ForceBackwards { get { return GetBit(Flags, 5); } set { Flags = ChangeBit(Flags, 5, value); } }
+			public bool FinishOnSection { get { return GetBit(Flags, 6); } set { Flags = ChangeBit(Flags, 6, value); } }
 
 			public MissionFlagsSection()
 			{
@@ -296,6 +302,8 @@ namespace CTGP7
 				Flags = 0;
 				RespawnCoins = false;
 				RespawnCoinsTimer = new MK7Timer();
+				CompleteCondition1 = 0;
+				CompleteCondition2 = 0;
 			}
 			public MissionFlagsSection(EndianBinaryReaderEx er) : this()
 			{
@@ -347,6 +355,10 @@ namespace CTGP7
 				if (respawnCoinTimeValue == 0xFFFF) RespawnCoins = false;
 				else { RespawnCoins = true; RespawnCoinsTimer = new MK7Timer(respawnCoinTimeValue); }
 
+				byte completeConditionPacked = er.ReadByte();
+				CompleteCondition1 = (byte)((uint)completeConditionPacked & 0xF);
+				CompleteCondition2 = (byte)((uint)completeConditionPacked >> 4);
+
 				er.ReadPadding(4);
 			}
 			public override void Write(EndianBinaryWriterEx ew)
@@ -394,6 +406,9 @@ namespace CTGP7
 
 				if (RespawnCoins) ew.Write((ushort)RespawnCoinsTimer.Frames);
 				else ew.Write((ushort)0xFFFF);
+
+				byte completeConditionPacked = (byte)(((uint)CompleteCondition1 & 0xF) | ((uint)CompleteCondition2 << 4));
+				ew.Write(completeConditionPacked);
 
 				ew.WritePadding(4);
 			}
