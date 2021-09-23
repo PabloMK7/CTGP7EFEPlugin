@@ -48,6 +48,7 @@ namespace CTGP7.UI
             this.mainDataView.Size = new System.Drawing.Size(150, 150);
             this.mainDataView.TabIndex = 0;
             this.mainDataView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainDataView_CellEndEdit);
+            this.mainDataView.Paint += new System.Windows.Forms.PaintEventHandler(this.mainDataView_Paint);
             // 
             // ProbabilityViewer
             // 

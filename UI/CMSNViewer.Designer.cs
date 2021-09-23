@@ -37,10 +37,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CMSNViewer));
             this.tabContainer = new System.Windows.Forms.TabControl();
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.finishRaceSectionCheck = new System.Windows.Forms.CheckBox();
+            this.forceBackwardsCheck = new System.Windows.Forms.CheckBox();
+            this.scoreIsBadCheck = new System.Windows.Forms.CheckBox();
+            this.completeCondition2Combo = new System.Windows.Forms.ComboBox();
             this.hideScoreCheck = new System.Windows.Forms.CheckBox();
             this.label55 = new System.Windows.Forms.Label();
             this.completeCondition1Combo = new System.Windows.Forms.ComboBox();
             this.coinRespawnCheck = new System.Windows.Forms.CheckBox();
+            this.coinRespawnTimer = new CTGP7.UI.TimeSelector();
             this.lapAmountUpDown = new System.Windows.Forms.NumericUpDown();
             this.label54 = new System.Windows.Forms.Label();
             this.playCourseIntroCheck = new System.Windows.Forms.CheckBox();
@@ -65,12 +70,16 @@
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.finishRaceTimerCheck = new System.Windows.Forms.CheckBox();
+            this.finishRaceTimerSelector = new CTGP7.UI.TimeSelector();
             this.timerDirectionCombo = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
+            this.maxGradeTimerSelector = new CTGP7.UI.TimeSelector();
             this.label42 = new System.Windows.Forms.Label();
+            this.minGradeTimerSelector = new CTGP7.UI.TimeSelector();
             this.label41 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
+            this.initialTimerSelector = new CTGP7.UI.TimeSelector();
             this.calculationCombo = new System.Windows.Forms.ComboBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -80,6 +89,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.ccComboBox = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.courseSelector = new CTGP7.UI.CourseSelect();
             this.driverTab = new System.Windows.Forms.TabPage();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -98,64 +108,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.driverAmount = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.itemsTab = new System.Windows.Forms.TabPage();
-            this.spawnBoxCheck = new System.Windows.Forms.CheckBox();
-            this.itemBoxRespawnCheck = new System.Windows.Forms.CheckBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.disableCooldownPlayerCheck = new System.Windows.Forms.CheckBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.roulettePlayerNum = new System.Windows.Forms.NumericUpDown();
-            this.roulettePlayerCheck = new System.Windows.Forms.CheckBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.giveEachPlayerNum = new System.Windows.Forms.NumericUpDown();
-            this.giveAfterPlayerNum = new System.Windows.Forms.NumericUpDown();
-            this.giveItemPlayerCheck = new System.Windows.Forms.CheckBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.modePlayerBox = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.disableCooldownCPUCheck = new System.Windows.Forms.CheckBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.rouletteCPUNum = new System.Windows.Forms.NumericUpDown();
-            this.rouletteCPUCheck = new System.Windows.Forms.CheckBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.giveEachCPUNum = new System.Windows.Forms.NumericUpDown();
-            this.giveAfterCPUNum = new System.Windows.Forms.NumericUpDown();
-            this.giveItemCPUCheck = new System.Windows.Forms.CheckBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.modeCPUBox = new System.Windows.Forms.ComboBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.itemsModeBox = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textTab = new System.Windows.Forms.TabPage();
-            this.label36 = new System.Windows.Forms.Label();
-            this.langCodeText = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.langTitleText = new System.Windows.Forms.TextBox();
-            this.removeTextEntryButton = new System.Windows.Forms.Button();
-            this.addTextEntryButton = new System.Windows.Forms.Button();
-            this.textEntryList = new System.Windows.Forms.ListBox();
-            this.infoTab = new System.Windows.Forms.TabPage();
-            this.saveResetLabel = new System.Windows.Forms.Label();
-            this.resetMissionSaveDataButton = new System.Windows.Forms.Button();
-            this.missionUUIDLabel = new System.Windows.Forms.Label();
-            this.completeCondition2Combo = new System.Windows.Forms.ComboBox();
-            this.scoreIsBadCheck = new System.Windows.Forms.CheckBox();
-            this.forceBackwardsCheck = new System.Windows.Forms.CheckBox();
-            this.coinRespawnTimer = new CTGP7.UI.TimeSelector();
-            this.finishRaceTimerSelector = new CTGP7.UI.TimeSelector();
-            this.maxGradeTimerSelector = new CTGP7.UI.TimeSelector();
-            this.minGradeTimerSelector = new CTGP7.UI.TimeSelector();
-            this.initialTimerSelector = new CTGP7.UI.TimeSelector();
-            this.courseSelector = new CTGP7.UI.CourseSelect();
             this.cpu7Glider = new CTGP7.UI.PartPreview();
             this.cpu7Tire = new CTGP7.UI.PartPreview();
             this.cpu7Body = new CTGP7.UI.PartPreview();
@@ -188,11 +140,59 @@
             this.playerTire = new CTGP7.UI.PartPreview();
             this.playerBody = new CTGP7.UI.PartPreview();
             this.playerDriver = new CTGP7.UI.PartPreview();
+            this.itemsTab = new System.Windows.Forms.TabPage();
             this.itemBoxRespawnTimer = new CTGP7.UI.TimeSelector();
+            this.spawnBoxCheck = new System.Windows.Forms.CheckBox();
+            this.itemBoxRespawnCheck = new System.Windows.Forms.CheckBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.probabilityPlayerViewer = new CTGP7.UI.ByteProbabilityViewer();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.disableCooldownPlayerCheck = new System.Windows.Forms.CheckBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.roulettePlayerNum = new System.Windows.Forms.NumericUpDown();
+            this.roulettePlayerCheck = new System.Windows.Forms.CheckBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.giveEachPlayerNum = new System.Windows.Forms.NumericUpDown();
+            this.giveAfterPlayerNum = new System.Windows.Forms.NumericUpDown();
+            this.giveItemPlayerCheck = new System.Windows.Forms.CheckBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.modePlayerBox = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.probabilityCPUViewer = new CTGP7.UI.ByteProbabilityViewer();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.disableCooldownCPUCheck = new System.Windows.Forms.CheckBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.rouletteCPUNum = new System.Windows.Forms.NumericUpDown();
+            this.rouletteCPUCheck = new System.Windows.Forms.CheckBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.giveEachCPUNum = new System.Windows.Forms.NumericUpDown();
+            this.giveAfterCPUNum = new System.Windows.Forms.NumericUpDown();
+            this.giveItemCPUCheck = new System.Windows.Forms.CheckBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.modeCPUBox = new System.Windows.Forms.ComboBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.itemsModeBox = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textTab = new System.Windows.Forms.TabPage();
             this.langDescriptionText = new CTGP7.UI.MissionRichText();
-            this.finishRaceSectionCheck = new System.Windows.Forms.CheckBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.langCodeText = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.langTitleText = new System.Windows.Forms.TextBox();
+            this.removeTextEntryButton = new System.Windows.Forms.Button();
+            this.addTextEntryButton = new System.Windows.Forms.Button();
+            this.textEntryList = new System.Windows.Forms.ListBox();
+            this.infoTab = new System.Windows.Forms.TabPage();
+            this.saveResetLabel = new System.Windows.Forms.Label();
+            this.resetMissionSaveDataButton = new System.Windows.Forms.Button();
+            this.missionUUIDLabel = new System.Windows.Forms.Label();
             this.tabContainer.SuspendLayout();
             this.settingsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lapAmountUpDown)).BeginInit();
@@ -299,6 +299,51 @@
             this.settingsTab.Text = "Settings";
             this.settingsTab.UseVisualStyleBackColor = true;
             // 
+            // finishRaceSectionCheck
+            // 
+            this.finishRaceSectionCheck.AutoSize = true;
+            this.finishRaceSectionCheck.Location = new System.Drawing.Point(607, 327);
+            this.finishRaceSectionCheck.Name = "finishRaceSectionCheck";
+            this.finishRaceSectionCheck.Size = new System.Drawing.Size(130, 17);
+            this.finishRaceSectionCheck.TabIndex = 59;
+            this.finishRaceSectionCheck.Text = "Finish Race Section 2";
+            this.finishRaceSectionCheck.UseVisualStyleBackColor = true;
+            // 
+            // forceBackwardsCheck
+            // 
+            this.forceBackwardsCheck.AutoSize = true;
+            this.forceBackwardsCheck.Location = new System.Drawing.Point(492, 327);
+            this.forceBackwardsCheck.Name = "forceBackwardsCheck";
+            this.forceBackwardsCheck.Size = new System.Drawing.Size(109, 17);
+            this.forceBackwardsCheck.TabIndex = 58;
+            this.forceBackwardsCheck.Text = "Force Backwards";
+            this.forceBackwardsCheck.UseVisualStyleBackColor = true;
+            // 
+            // scoreIsBadCheck
+            // 
+            this.scoreIsBadCheck.AutoSize = true;
+            this.scoreIsBadCheck.Location = new System.Drawing.Point(399, 327);
+            this.scoreIsBadCheck.Name = "scoreIsBadCheck";
+            this.scoreIsBadCheck.Size = new System.Drawing.Size(87, 17);
+            this.scoreIsBadCheck.TabIndex = 57;
+            this.scoreIsBadCheck.Text = "Score Is Bad";
+            this.scoreIsBadCheck.UseVisualStyleBackColor = true;
+            // 
+            // completeCondition2Combo
+            // 
+            this.completeCondition2Combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.completeCondition2Combo.FormattingEnabled = true;
+            this.completeCondition2Combo.Items.AddRange(new object[] {
+            "None",
+            "Yellow score reached",
+            "Yellow score not reached",
+            "Player finishes 1st",
+            "CPU 1 finishes 1st"});
+            this.completeCondition2Combo.Location = new System.Drawing.Point(708, 125);
+            this.completeCondition2Combo.Name = "completeCondition2Combo";
+            this.completeCondition2Combo.Size = new System.Drawing.Size(173, 21);
+            this.completeCondition2Combo.TabIndex = 56;
+            // 
             // hideScoreCheck
             // 
             this.hideScoreCheck.AutoSize = true;
@@ -343,6 +388,14 @@
             this.coinRespawnCheck.Text = "Coin Respawn Time:";
             this.coinRespawnCheck.UseVisualStyleBackColor = true;
             this.coinRespawnCheck.CheckedChanged += new System.EventHandler(this.coinRespawnCheck_CheckedChanged);
+            // 
+            // coinRespawnTimer
+            // 
+            this.coinRespawnTimer.Location = new System.Drawing.Point(147, 355);
+            this.coinRespawnTimer.Name = "coinRespawnTimer";
+            this.coinRespawnTimer.Size = new System.Drawing.Size(213, 26);
+            this.coinRespawnTimer.TabIndex = 51;
+            this.coinRespawnTimer.Time = mK7Timer1;
             // 
             // lapAmountUpDown
             // 
@@ -599,6 +652,14 @@
             this.finishRaceTimerCheck.UseVisualStyleBackColor = true;
             this.finishRaceTimerCheck.CheckedChanged += new System.EventHandler(this.finishRaceTimerCheck_CheckedChanged);
             // 
+            // finishRaceTimerSelector
+            // 
+            this.finishRaceTimerSelector.Location = new System.Drawing.Point(156, 222);
+            this.finishRaceTimerSelector.Name = "finishRaceTimerSelector";
+            this.finishRaceTimerSelector.Size = new System.Drawing.Size(213, 26);
+            this.finishRaceTimerSelector.TabIndex = 19;
+            this.finishRaceTimerSelector.Time = mK7Timer2;
+            // 
             // timerDirectionCombo
             // 
             this.timerDirectionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -629,6 +690,14 @@
             this.label43.TabIndex = 16;
             this.label43.Text = "Max Grade: ";
             // 
+            // maxGradeTimerSelector
+            // 
+            this.maxGradeTimerSelector.Location = new System.Drawing.Point(156, 286);
+            this.maxGradeTimerSelector.Name = "maxGradeTimerSelector";
+            this.maxGradeTimerSelector.Size = new System.Drawing.Size(213, 26);
+            this.maxGradeTimerSelector.TabIndex = 15;
+            this.maxGradeTimerSelector.Time = mK7Timer3;
+            // 
             // label42
             // 
             this.label42.AutoSize = true;
@@ -637,6 +706,14 @@
             this.label42.Size = new System.Drawing.Size(62, 13);
             this.label42.TabIndex = 14;
             this.label42.Text = "Min Grade: ";
+            // 
+            // minGradeTimerSelector
+            // 
+            this.minGradeTimerSelector.Location = new System.Drawing.Point(156, 254);
+            this.minGradeTimerSelector.Name = "minGradeTimerSelector";
+            this.minGradeTimerSelector.Size = new System.Drawing.Size(213, 26);
+            this.minGradeTimerSelector.TabIndex = 13;
+            this.minGradeTimerSelector.Time = mK7Timer4;
             // 
             // label41
             // 
@@ -655,6 +732,14 @@
             this.label40.Size = new System.Drawing.Size(69, 13);
             this.label40.TabIndex = 11;
             this.label40.Text = "Timer Config:";
+            // 
+            // initialTimerSelector
+            // 
+            this.initialTimerSelector.Location = new System.Drawing.Point(156, 163);
+            this.initialTimerSelector.Name = "initialTimerSelector";
+            this.initialTimerSelector.Size = new System.Drawing.Size(213, 26);
+            this.initialTimerSelector.TabIndex = 10;
+            this.initialTimerSelector.Time = mK7Timer5;
             // 
             // calculationCombo
             // 
@@ -755,6 +840,16 @@
             this.label17.Size = new System.Drawing.Size(35, 13);
             this.label17.TabIndex = 1;
             this.label17.Text = "Class:";
+            // 
+            // courseSelector
+            // 
+            this.courseSelector.AllowedTypes = new CTGP7.CTGP7CourseList.NameEntry.CourseType[] {
+        CTGP7.CTGP7CourseList.NameEntry.CourseType.OriginalRace,
+        CTGP7.CTGP7CourseList.NameEntry.CourseType.CustomRace};
+            this.courseSelector.Location = new System.Drawing.Point(58, 6);
+            this.courseSelector.Name = "courseSelector";
+            this.courseSelector.Size = new System.Drawing.Size(378, 21);
+            this.courseSelector.TabIndex = 0;
             // 
             // driverTab
             // 
@@ -975,750 +1070,6 @@
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Drivers";
-            // 
-            // itemsTab
-            // 
-            this.itemsTab.Controls.Add(this.itemBoxRespawnTimer);
-            this.itemsTab.Controls.Add(this.spawnBoxCheck);
-            this.itemsTab.Controls.Add(this.itemBoxRespawnCheck);
-            this.itemsTab.Controls.Add(this.splitContainer1);
-            this.itemsTab.Controls.Add(this.itemsModeBox);
-            this.itemsTab.Controls.Add(this.label19);
-            this.itemsTab.Location = new System.Drawing.Point(4, 22);
-            this.itemsTab.Name = "itemsTab";
-            this.itemsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.itemsTab.Size = new System.Drawing.Size(922, 434);
-            this.itemsTab.TabIndex = 2;
-            this.itemsTab.Text = "Items";
-            this.itemsTab.UseVisualStyleBackColor = true;
-            // 
-            // spawnBoxCheck
-            // 
-            this.spawnBoxCheck.AutoSize = true;
-            this.spawnBoxCheck.Location = new System.Drawing.Point(178, 8);
-            this.spawnBoxCheck.Name = "spawnBoxCheck";
-            this.spawnBoxCheck.Size = new System.Drawing.Size(114, 17);
-            this.spawnBoxCheck.TabIndex = 49;
-            this.spawnBoxCheck.Text = "Spawn Item Boxes";
-            this.spawnBoxCheck.UseVisualStyleBackColor = true;
-            // 
-            // itemBoxRespawnCheck
-            // 
-            this.itemBoxRespawnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemBoxRespawnCheck.AutoSize = true;
-            this.itemBoxRespawnCheck.Location = new System.Drawing.Point(298, 8);
-            this.itemBoxRespawnCheck.Name = "itemBoxRespawnCheck";
-            this.itemBoxRespawnCheck.Size = new System.Drawing.Size(144, 17);
-            this.itemBoxRespawnCheck.TabIndex = 15;
-            this.itemBoxRespawnCheck.Text = "Item Box Respawn Time:";
-            this.itemBoxRespawnCheck.UseVisualStyleBackColor = true;
-            this.itemBoxRespawnCheck.CheckedChanged += new System.EventHandler(this.itemBoxRespawnCheck_CheckedChanged);
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer1.Location = new System.Drawing.Point(10, 33);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.probabilityPlayerViewer);
-            this.splitContainer1.Panel1.Controls.Add(this.panel1);
-            this.splitContainer1.Panel1.Controls.Add(this.label21);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.probabilityCPUViewer);
-            this.splitContainer1.Panel2.Controls.Add(this.panel2);
-            this.splitContainer1.Panel2.Controls.Add(this.label33);
-            this.splitContainer1.Size = new System.Drawing.Size(901, 395);
-            this.splitContainer1.SplitterDistance = 201;
-            this.splitContainer1.TabIndex = 48;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.disableCooldownPlayerCheck);
-            this.panel1.Controls.Add(this.label34);
-            this.panel1.Controls.Add(this.label27);
-            this.panel1.Controls.Add(this.label26);
-            this.panel1.Controls.Add(this.roulettePlayerNum);
-            this.panel1.Controls.Add(this.roulettePlayerCheck);
-            this.panel1.Controls.Add(this.label24);
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.giveEachPlayerNum);
-            this.panel1.Controls.Add(this.giveAfterPlayerNum);
-            this.panel1.Controls.Add(this.giveItemPlayerCheck);
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.modePlayerBox);
-            this.panel1.Location = new System.Drawing.Point(48, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(846, 29);
-            this.panel1.TabIndex = 5;
-            // 
-            // disableCooldownPlayerCheck
-            // 
-            this.disableCooldownPlayerCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.disableCooldownPlayerCheck.AutoSize = true;
-            this.disableCooldownPlayerCheck.Location = new System.Drawing.Point(550, 5);
-            this.disableCooldownPlayerCheck.Name = "disableCooldownPlayerCheck";
-            this.disableCooldownPlayerCheck.Size = new System.Drawing.Size(111, 17);
-            this.disableCooldownPlayerCheck.TabIndex = 14;
-            this.disableCooldownPlayerCheck.Text = "Disable Cooldown";
-            this.disableCooldownPlayerCheck.UseVisualStyleBackColor = true;
-            // 
-            // label34
-            // 
-            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label34.Location = new System.Drawing.Point(539, -1);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(1, 29);
-            this.label34.TabIndex = 13;
-            // 
-            // label27
-            // 
-            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label27.Location = new System.Drawing.Point(147, -1);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(1, 29);
-            this.label27.TabIndex = 12;
-            // 
-            // label26
-            // 
-            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label26.Location = new System.Drawing.Point(665, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(1, 29);
-            this.label26.TabIndex = 11;
-            // 
-            // roulettePlayerNum
-            // 
-            this.roulettePlayerNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.roulettePlayerNum.DecimalPlaces = 2;
-            this.roulettePlayerNum.Enabled = false;
-            this.roulettePlayerNum.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.roulettePlayerNum.Location = new System.Drawing.Point(797, 4);
-            this.roulettePlayerNum.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.roulettePlayerNum.Name = "roulettePlayerNum";
-            this.roulettePlayerNum.Size = new System.Drawing.Size(44, 20);
-            this.roulettePlayerNum.TabIndex = 10;
-            this.roulettePlayerNum.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            // 
-            // roulettePlayerCheck
-            // 
-            this.roulettePlayerCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.roulettePlayerCheck.AutoSize = true;
-            this.roulettePlayerCheck.Location = new System.Drawing.Point(674, 5);
-            this.roulettePlayerCheck.Name = "roulettePlayerCheck";
-            this.roulettePlayerCheck.Size = new System.Drawing.Size(117, 17);
-            this.roulettePlayerCheck.TabIndex = 9;
-            this.roulettePlayerCheck.Text = "Roulette Speed (s):";
-            this.roulettePlayerCheck.UseVisualStyleBackColor = true;
-            this.roulettePlayerCheck.CheckedChanged += new System.EventHandler(this.roulettePlayerCheck_CheckedChanged);
-            // 
-            // label24
-            // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(337, 6);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(49, 13);
-            this.label24.TabIndex = 6;
-            this.label24.Text = "Each (s):";
-            // 
-            // label23
-            // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(237, 6);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(46, 13);
-            this.label23.TabIndex = 5;
-            this.label23.Text = "After (s):";
-            // 
-            // giveEachPlayerNum
-            // 
-            this.giveEachPlayerNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.giveEachPlayerNum.DecimalPlaces = 2;
-            this.giveEachPlayerNum.Enabled = false;
-            this.giveEachPlayerNum.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.giveEachPlayerNum.Location = new System.Drawing.Point(390, 4);
-            this.giveEachPlayerNum.Maximum = new decimal(new int[] {
-            180,
-            0,
-            0,
-            0});
-            this.giveEachPlayerNum.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.giveEachPlayerNum.Name = "giveEachPlayerNum";
-            this.giveEachPlayerNum.Size = new System.Drawing.Size(42, 20);
-            this.giveEachPlayerNum.TabIndex = 4;
-            this.giveEachPlayerNum.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // giveAfterPlayerNum
-            // 
-            this.giveAfterPlayerNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.giveAfterPlayerNum.DecimalPlaces = 2;
-            this.giveAfterPlayerNum.Enabled = false;
-            this.giveAfterPlayerNum.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.giveAfterPlayerNum.Location = new System.Drawing.Point(288, 4);
-            this.giveAfterPlayerNum.Maximum = new decimal(new int[] {
-            180,
-            0,
-            0,
-            0});
-            this.giveAfterPlayerNum.Name = "giveAfterPlayerNum";
-            this.giveAfterPlayerNum.Size = new System.Drawing.Size(44, 20);
-            this.giveAfterPlayerNum.TabIndex = 3;
-            // 
-            // giveItemPlayerCheck
-            // 
-            this.giveItemPlayerCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.giveItemPlayerCheck.AutoSize = true;
-            this.giveItemPlayerCheck.Location = new System.Drawing.Point(160, 5);
-            this.giveItemPlayerCheck.Name = "giveItemPlayerCheck";
-            this.giveItemPlayerCheck.Size = new System.Drawing.Size(79, 17);
-            this.giveItemPlayerCheck.TabIndex = 2;
-            this.giveItemPlayerCheck.Text = "Give Items:";
-            this.giveItemPlayerCheck.UseVisualStyleBackColor = true;
-            this.giveItemPlayerCheck.CheckedChanged += new System.EventHandler(this.giveItemPlayerCheck_CheckedChanged);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(3, 6);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(37, 13);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "Mode:";
-            // 
-            // modePlayerBox
-            // 
-            this.modePlayerBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.modePlayerBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.modePlayerBox.FormattingEnabled = true;
-            this.modePlayerBox.Items.AddRange(new object[] {
-            "Box ID",
-            "Rank",
-            "Driver ID"});
-            this.modePlayerBox.Location = new System.Drawing.Point(46, 3);
-            this.modePlayerBox.Name = "modePlayerBox";
-            this.modePlayerBox.Size = new System.Drawing.Size(87, 21);
-            this.modePlayerBox.TabIndex = 0;
-            this.modePlayerBox.SelectedIndexChanged += new System.EventHandler(this.modePlayerBox_SelectedIndexChanged);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(3, 10);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(39, 13);
-            this.label21.TabIndex = 3;
-            this.label21.Text = "Player:";
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label25);
-            this.panel2.Controls.Add(this.disableCooldownCPUCheck);
-            this.panel2.Controls.Add(this.label20);
-            this.panel2.Controls.Add(this.label28);
-            this.panel2.Controls.Add(this.rouletteCPUNum);
-            this.panel2.Controls.Add(this.rouletteCPUCheck);
-            this.panel2.Controls.Add(this.label30);
-            this.panel2.Controls.Add(this.label31);
-            this.panel2.Controls.Add(this.giveEachCPUNum);
-            this.panel2.Controls.Add(this.giveAfterCPUNum);
-            this.panel2.Controls.Add(this.giveItemCPUCheck);
-            this.panel2.Controls.Add(this.label32);
-            this.panel2.Controls.Add(this.modeCPUBox);
-            this.panel2.Location = new System.Drawing.Point(48, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(846, 29);
-            this.panel2.TabIndex = 47;
-            // 
-            // label25
-            // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label25.Location = new System.Drawing.Point(539, -1);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(1, 29);
-            this.label25.TabIndex = 14;
-            // 
-            // disableCooldownCPUCheck
-            // 
-            this.disableCooldownCPUCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.disableCooldownCPUCheck.AutoSize = true;
-            this.disableCooldownCPUCheck.Location = new System.Drawing.Point(550, 5);
-            this.disableCooldownCPUCheck.Name = "disableCooldownCPUCheck";
-            this.disableCooldownCPUCheck.Size = new System.Drawing.Size(111, 17);
-            this.disableCooldownCPUCheck.TabIndex = 13;
-            this.disableCooldownCPUCheck.Text = "Disable Cooldown";
-            this.disableCooldownCPUCheck.UseVisualStyleBackColor = true;
-            // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label20.Location = new System.Drawing.Point(146, -1);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(1, 29);
-            this.label20.TabIndex = 12;
-            // 
-            // label28
-            // 
-            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label28.Location = new System.Drawing.Point(665, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(1, 29);
-            this.label28.TabIndex = 11;
-            // 
-            // rouletteCPUNum
-            // 
-            this.rouletteCPUNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rouletteCPUNum.DecimalPlaces = 2;
-            this.rouletteCPUNum.Enabled = false;
-            this.rouletteCPUNum.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.rouletteCPUNum.Location = new System.Drawing.Point(797, 4);
-            this.rouletteCPUNum.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.rouletteCPUNum.Name = "rouletteCPUNum";
-            this.rouletteCPUNum.Size = new System.Drawing.Size(44, 20);
-            this.rouletteCPUNum.TabIndex = 10;
-            this.rouletteCPUNum.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            // 
-            // rouletteCPUCheck
-            // 
-            this.rouletteCPUCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rouletteCPUCheck.AutoSize = true;
-            this.rouletteCPUCheck.Location = new System.Drawing.Point(674, 5);
-            this.rouletteCPUCheck.Name = "rouletteCPUCheck";
-            this.rouletteCPUCheck.Size = new System.Drawing.Size(117, 17);
-            this.rouletteCPUCheck.TabIndex = 9;
-            this.rouletteCPUCheck.Text = "Roulette Speed (s):";
-            this.rouletteCPUCheck.UseVisualStyleBackColor = true;
-            this.rouletteCPUCheck.CheckedChanged += new System.EventHandler(this.rouletteCPUCheck_CheckedChanged);
-            // 
-            // label30
-            // 
-            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(337, 6);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(49, 13);
-            this.label30.TabIndex = 6;
-            this.label30.Text = "Each (s):";
-            // 
-            // label31
-            // 
-            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(237, 6);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(46, 13);
-            this.label31.TabIndex = 5;
-            this.label31.Text = "After (s):";
-            // 
-            // giveEachCPUNum
-            // 
-            this.giveEachCPUNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.giveEachCPUNum.DecimalPlaces = 2;
-            this.giveEachCPUNum.Enabled = false;
-            this.giveEachCPUNum.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.giveEachCPUNum.Location = new System.Drawing.Point(390, 4);
-            this.giveEachCPUNum.Maximum = new decimal(new int[] {
-            180,
-            0,
-            0,
-            0});
-            this.giveEachCPUNum.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.giveEachCPUNum.Name = "giveEachCPUNum";
-            this.giveEachCPUNum.Size = new System.Drawing.Size(42, 20);
-            this.giveEachCPUNum.TabIndex = 4;
-            this.giveEachCPUNum.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // giveAfterCPUNum
-            // 
-            this.giveAfterCPUNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.giveAfterCPUNum.DecimalPlaces = 2;
-            this.giveAfterCPUNum.Enabled = false;
-            this.giveAfterCPUNum.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.giveAfterCPUNum.Location = new System.Drawing.Point(288, 4);
-            this.giveAfterCPUNum.Maximum = new decimal(new int[] {
-            180,
-            0,
-            0,
-            0});
-            this.giveAfterCPUNum.Name = "giveAfterCPUNum";
-            this.giveAfterCPUNum.Size = new System.Drawing.Size(44, 20);
-            this.giveAfterCPUNum.TabIndex = 3;
-            // 
-            // giveItemCPUCheck
-            // 
-            this.giveItemCPUCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.giveItemCPUCheck.AutoSize = true;
-            this.giveItemCPUCheck.Location = new System.Drawing.Point(160, 5);
-            this.giveItemCPUCheck.Name = "giveItemCPUCheck";
-            this.giveItemCPUCheck.Size = new System.Drawing.Size(79, 17);
-            this.giveItemCPUCheck.TabIndex = 2;
-            this.giveItemCPUCheck.Text = "Give Items:";
-            this.giveItemCPUCheck.UseVisualStyleBackColor = true;
-            this.giveItemCPUCheck.CheckedChanged += new System.EventHandler(this.giveItemCPUCheck_CheckedChanged);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(3, 6);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(37, 13);
-            this.label32.TabIndex = 1;
-            this.label32.Text = "Mode:";
-            // 
-            // modeCPUBox
-            // 
-            this.modeCPUBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.modeCPUBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.modeCPUBox.FormattingEnabled = true;
-            this.modeCPUBox.Items.AddRange(new object[] {
-            "Box ID",
-            "Rank",
-            "Driver ID"});
-            this.modeCPUBox.Location = new System.Drawing.Point(46, 3);
-            this.modeCPUBox.Name = "modeCPUBox";
-            this.modeCPUBox.Size = new System.Drawing.Size(87, 21);
-            this.modeCPUBox.TabIndex = 0;
-            this.modeCPUBox.SelectedIndexChanged += new System.EventHandler(this.modeCPUBox_SelectedIndexChanged);
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(3, 10);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(32, 13);
-            this.label33.TabIndex = 46;
-            this.label33.Text = "CPU:";
-            // 
-            // itemsModeBox
-            // 
-            this.itemsModeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.itemsModeBox.FormattingEnabled = true;
-            this.itemsModeBox.Items.AddRange(new object[] {
-            "All",
-            "Shells",
-            "Bananas",
-            "Mushrooms",
-            "Bobombs",
-            "None",
-            "Custom"});
-            this.itemsModeBox.Location = new System.Drawing.Point(51, 6);
-            this.itemsModeBox.Name = "itemsModeBox";
-            this.itemsModeBox.Size = new System.Drawing.Size(121, 21);
-            this.itemsModeBox.TabIndex = 1;
-            this.itemsModeBox.SelectedIndexChanged += new System.EventHandler(this.itemsModeBox_SelectedIndexChanged);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(10, 9);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(35, 13);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Items:";
-            // 
-            // textTab
-            // 
-            this.textTab.Controls.Add(this.langDescriptionText);
-            this.textTab.Controls.Add(this.label36);
-            this.textTab.Controls.Add(this.langCodeText);
-            this.textTab.Controls.Add(this.label35);
-            this.textTab.Controls.Add(this.label29);
-            this.textTab.Controls.Add(this.langTitleText);
-            this.textTab.Controls.Add(this.removeTextEntryButton);
-            this.textTab.Controls.Add(this.addTextEntryButton);
-            this.textTab.Controls.Add(this.textEntryList);
-            this.textTab.Location = new System.Drawing.Point(4, 22);
-            this.textTab.Name = "textTab";
-            this.textTab.Padding = new System.Windows.Forms.Padding(3);
-            this.textTab.Size = new System.Drawing.Size(922, 434);
-            this.textTab.TabIndex = 3;
-            this.textTab.Text = "Text";
-            this.textTab.UseVisualStyleBackColor = true;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(167, 37);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(35, 13);
-            this.label36.TabIndex = 12;
-            this.label36.Text = "Code:";
-            // 
-            // langCodeText
-            // 
-            this.langCodeText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.langCodeText.Enabled = false;
-            this.langCodeText.Location = new System.Drawing.Point(206, 34);
-            this.langCodeText.Name = "langCodeText";
-            this.langCodeText.Size = new System.Drawing.Size(709, 20);
-            this.langCodeText.TabIndex = 11;
-            this.langCodeText.TextChanged += new System.EventHandler(this.langCodeText_TextChanged);
-            this.langCodeText.Validating += new System.ComponentModel.CancelEventHandler(this.langCodeText_Validating);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(168, 83);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(63, 13);
-            this.label35.TabIndex = 5;
-            this.label35.Text = "Description:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(169, 63);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(33, 13);
-            this.label29.TabIndex = 4;
-            this.label29.Text = "Title: ";
-            // 
-            // langTitleText
-            // 
-            this.langTitleText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.langTitleText.Enabled = false;
-            this.langTitleText.Location = new System.Drawing.Point(207, 60);
-            this.langTitleText.Name = "langTitleText";
-            this.langTitleText.Size = new System.Drawing.Size(709, 20);
-            this.langTitleText.TabIndex = 3;
-            this.langTitleText.TextChanged += new System.EventHandler(this.langTitleText_TextChanged);
-            // 
-            // removeTextEntryButton
-            // 
-            this.removeTextEntryButton.Enabled = false;
-            this.removeTextEntryButton.Location = new System.Drawing.Point(87, 6);
-            this.removeTextEntryButton.Name = "removeTextEntryButton";
-            this.removeTextEntryButton.Size = new System.Drawing.Size(75, 23);
-            this.removeTextEntryButton.TabIndex = 2;
-            this.removeTextEntryButton.Text = "Remove";
-            this.removeTextEntryButton.UseVisualStyleBackColor = true;
-            this.removeTextEntryButton.Click += new System.EventHandler(this.removeTextEntryButton_Click);
-            // 
-            // addTextEntryButton
-            // 
-            this.addTextEntryButton.Location = new System.Drawing.Point(6, 6);
-            this.addTextEntryButton.Name = "addTextEntryButton";
-            this.addTextEntryButton.Size = new System.Drawing.Size(75, 23);
-            this.addTextEntryButton.TabIndex = 1;
-            this.addTextEntryButton.Text = "Add";
-            this.addTextEntryButton.UseVisualStyleBackColor = true;
-            this.addTextEntryButton.Click += new System.EventHandler(this.addTextEntryButton_Click);
-            // 
-            // textEntryList
-            // 
-            this.textEntryList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.textEntryList.FormattingEnabled = true;
-            this.textEntryList.Location = new System.Drawing.Point(6, 34);
-            this.textEntryList.Name = "textEntryList";
-            this.textEntryList.Size = new System.Drawing.Size(156, 394);
-            this.textEntryList.TabIndex = 0;
-            this.textEntryList.SelectedIndexChanged += new System.EventHandler(this.textEntryList_SelectedIndexChanged);
-            // 
-            // infoTab
-            // 
-            this.infoTab.Controls.Add(this.saveResetLabel);
-            this.infoTab.Controls.Add(this.resetMissionSaveDataButton);
-            this.infoTab.Controls.Add(this.missionUUIDLabel);
-            this.infoTab.Location = new System.Drawing.Point(4, 22);
-            this.infoTab.Name = "infoTab";
-            this.infoTab.Padding = new System.Windows.Forms.Padding(3);
-            this.infoTab.Size = new System.Drawing.Size(922, 434);
-            this.infoTab.TabIndex = 4;
-            this.infoTab.Text = "Info";
-            this.infoTab.UseVisualStyleBackColor = true;
-            // 
-            // saveResetLabel
-            // 
-            this.saveResetLabel.AutoSize = true;
-            this.saveResetLabel.Location = new System.Drawing.Point(160, 24);
-            this.saveResetLabel.Name = "saveResetLabel";
-            this.saveResetLabel.Size = new System.Drawing.Size(0, 13);
-            this.saveResetLabel.TabIndex = 2;
-            // 
-            // resetMissionSaveDataButton
-            // 
-            this.resetMissionSaveDataButton.Location = new System.Drawing.Point(6, 19);
-            this.resetMissionSaveDataButton.Name = "resetMissionSaveDataButton";
-            this.resetMissionSaveDataButton.Size = new System.Drawing.Size(148, 23);
-            this.resetMissionSaveDataButton.TabIndex = 1;
-            this.resetMissionSaveDataButton.Text = "Reset Mission Save Data";
-            this.resetMissionSaveDataButton.UseVisualStyleBackColor = true;
-            this.resetMissionSaveDataButton.Click += new System.EventHandler(this.resetMissionSaveDataButton_Click);
-            // 
-            // missionUUIDLabel
-            // 
-            this.missionUUIDLabel.AutoSize = true;
-            this.missionUUIDLabel.Location = new System.Drawing.Point(6, 3);
-            this.missionUUIDLabel.Name = "missionUUIDLabel";
-            this.missionUUIDLabel.Size = new System.Drawing.Size(75, 13);
-            this.missionUUIDLabel.TabIndex = 0;
-            this.missionUUIDLabel.Text = "Mission UUID:";
-            // 
-            // completeCondition2Combo
-            // 
-            this.completeCondition2Combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.completeCondition2Combo.FormattingEnabled = true;
-            this.completeCondition2Combo.Items.AddRange(new object[] {
-            "None",
-            "Yellow score reached",
-            "Yellow score not reached",
-            "Player finishes 1st",
-            "CPU 1 finishes 1st"});
-            this.completeCondition2Combo.Location = new System.Drawing.Point(708, 125);
-            this.completeCondition2Combo.Name = "completeCondition2Combo";
-            this.completeCondition2Combo.Size = new System.Drawing.Size(173, 21);
-            this.completeCondition2Combo.TabIndex = 56;
-            // 
-            // scoreIsBadCheck
-            // 
-            this.scoreIsBadCheck.AutoSize = true;
-            this.scoreIsBadCheck.Location = new System.Drawing.Point(399, 327);
-            this.scoreIsBadCheck.Name = "scoreIsBadCheck";
-            this.scoreIsBadCheck.Size = new System.Drawing.Size(87, 17);
-            this.scoreIsBadCheck.TabIndex = 57;
-            this.scoreIsBadCheck.Text = "Score Is Bad";
-            this.scoreIsBadCheck.UseVisualStyleBackColor = true;
-            // 
-            // forceBackwardsCheck
-            // 
-            this.forceBackwardsCheck.AutoSize = true;
-            this.forceBackwardsCheck.Location = new System.Drawing.Point(492, 327);
-            this.forceBackwardsCheck.Name = "forceBackwardsCheck";
-            this.forceBackwardsCheck.Size = new System.Drawing.Size(109, 17);
-            this.forceBackwardsCheck.TabIndex = 58;
-            this.forceBackwardsCheck.Text = "Force Backwards";
-            this.forceBackwardsCheck.UseVisualStyleBackColor = true;
-            // 
-            // coinRespawnTimer
-            // 
-            this.coinRespawnTimer.Location = new System.Drawing.Point(147, 355);
-            this.coinRespawnTimer.Name = "coinRespawnTimer";
-            this.coinRespawnTimer.Size = new System.Drawing.Size(213, 26);
-            this.coinRespawnTimer.TabIndex = 51;
-            this.coinRespawnTimer.Time = mK7Timer1;
-            // 
-            // finishRaceTimerSelector
-            // 
-            this.finishRaceTimerSelector.Location = new System.Drawing.Point(156, 222);
-            this.finishRaceTimerSelector.Name = "finishRaceTimerSelector";
-            this.finishRaceTimerSelector.Size = new System.Drawing.Size(213, 26);
-            this.finishRaceTimerSelector.TabIndex = 19;
-            this.finishRaceTimerSelector.Time = mK7Timer2;
-            // 
-            // maxGradeTimerSelector
-            // 
-            this.maxGradeTimerSelector.Location = new System.Drawing.Point(156, 286);
-            this.maxGradeTimerSelector.Name = "maxGradeTimerSelector";
-            this.maxGradeTimerSelector.Size = new System.Drawing.Size(213, 26);
-            this.maxGradeTimerSelector.TabIndex = 15;
-            this.maxGradeTimerSelector.Time = mK7Timer3;
-            // 
-            // minGradeTimerSelector
-            // 
-            this.minGradeTimerSelector.Location = new System.Drawing.Point(156, 254);
-            this.minGradeTimerSelector.Name = "minGradeTimerSelector";
-            this.minGradeTimerSelector.Size = new System.Drawing.Size(213, 26);
-            this.minGradeTimerSelector.TabIndex = 13;
-            this.minGradeTimerSelector.Time = mK7Timer4;
-            // 
-            // initialTimerSelector
-            // 
-            this.initialTimerSelector.Location = new System.Drawing.Point(156, 163);
-            this.initialTimerSelector.Name = "initialTimerSelector";
-            this.initialTimerSelector.Size = new System.Drawing.Size(213, 26);
-            this.initialTimerSelector.TabIndex = 10;
-            this.initialTimerSelector.Time = mK7Timer5;
-            // 
-            // courseSelector
-            // 
-            this.courseSelector.AllowedTypes = new CTGP7.CTGP7CourseList.NameEntry.CourseType[] {
-        CTGP7.CTGP7CourseList.NameEntry.CourseType.OriginalRace,
-        CTGP7.CTGP7CourseList.NameEntry.CourseType.CustomRace};
-            this.courseSelector.Location = new System.Drawing.Point(58, 6);
-            this.courseSelector.Name = "courseSelector";
-            this.courseSelector.Size = new System.Drawing.Size(378, 21);
-            this.courseSelector.TabIndex = 0;
             // 
             // cpu7Glider
             // 
@@ -2040,6 +1391,22 @@
             this.playerDriver.Size = new System.Drawing.Size(206, 44);
             this.playerDriver.TabIndex = 3;
             // 
+            // itemsTab
+            // 
+            this.itemsTab.Controls.Add(this.itemBoxRespawnTimer);
+            this.itemsTab.Controls.Add(this.spawnBoxCheck);
+            this.itemsTab.Controls.Add(this.itemBoxRespawnCheck);
+            this.itemsTab.Controls.Add(this.splitContainer1);
+            this.itemsTab.Controls.Add(this.itemsModeBox);
+            this.itemsTab.Controls.Add(this.label19);
+            this.itemsTab.Location = new System.Drawing.Point(4, 22);
+            this.itemsTab.Name = "itemsTab";
+            this.itemsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.itemsTab.Size = new System.Drawing.Size(922, 434);
+            this.itemsTab.TabIndex = 2;
+            this.itemsTab.Text = "Items";
+            this.itemsTab.UseVisualStyleBackColor = true;
+            // 
             // itemBoxRespawnTimer
             // 
             this.itemBoxRespawnTimer.Location = new System.Drawing.Point(448, 4);
@@ -2047,6 +1414,53 @@
             this.itemBoxRespawnTimer.Size = new System.Drawing.Size(213, 26);
             this.itemBoxRespawnTimer.TabIndex = 50;
             this.itemBoxRespawnTimer.Time = mK7Timer6;
+            // 
+            // spawnBoxCheck
+            // 
+            this.spawnBoxCheck.AutoSize = true;
+            this.spawnBoxCheck.Location = new System.Drawing.Point(178, 8);
+            this.spawnBoxCheck.Name = "spawnBoxCheck";
+            this.spawnBoxCheck.Size = new System.Drawing.Size(114, 17);
+            this.spawnBoxCheck.TabIndex = 49;
+            this.spawnBoxCheck.Text = "Spawn Item Boxes";
+            this.spawnBoxCheck.UseVisualStyleBackColor = true;
+            // 
+            // itemBoxRespawnCheck
+            // 
+            this.itemBoxRespawnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.itemBoxRespawnCheck.AutoSize = true;
+            this.itemBoxRespawnCheck.Location = new System.Drawing.Point(298, 8);
+            this.itemBoxRespawnCheck.Name = "itemBoxRespawnCheck";
+            this.itemBoxRespawnCheck.Size = new System.Drawing.Size(144, 17);
+            this.itemBoxRespawnCheck.TabIndex = 15;
+            this.itemBoxRespawnCheck.Text = "Item Box Respawn Time:";
+            this.itemBoxRespawnCheck.UseVisualStyleBackColor = true;
+            this.itemBoxRespawnCheck.CheckedChanged += new System.EventHandler(this.itemBoxRespawnCheck_CheckedChanged);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer1.Location = new System.Drawing.Point(10, 33);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.probabilityPlayerViewer);
+            this.splitContainer1.Panel1.Controls.Add(this.panel1);
+            this.splitContainer1.Panel1.Controls.Add(this.label21);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.probabilityCPUViewer);
+            this.splitContainer1.Panel2.Controls.Add(this.panel2);
+            this.splitContainer1.Panel2.Controls.Add(this.label33);
+            this.splitContainer1.Size = new System.Drawing.Size(901, 395);
+            this.splitContainer1.SplitterDistance = 201;
+            this.splitContainer1.TabIndex = 48;
             // 
             // probabilityPlayerViewer
             // 
@@ -2058,6 +1472,221 @@
             this.probabilityPlayerViewer.Size = new System.Drawing.Size(891, 160);
             this.probabilityPlayerViewer.TabIndex = 6;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.disableCooldownPlayerCheck);
+            this.panel1.Controls.Add(this.label34);
+            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.label26);
+            this.panel1.Controls.Add(this.roulettePlayerNum);
+            this.panel1.Controls.Add(this.roulettePlayerCheck);
+            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.giveEachPlayerNum);
+            this.panel1.Controls.Add(this.giveAfterPlayerNum);
+            this.panel1.Controls.Add(this.giveItemPlayerCheck);
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Controls.Add(this.modePlayerBox);
+            this.panel1.Location = new System.Drawing.Point(48, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(846, 29);
+            this.panel1.TabIndex = 5;
+            // 
+            // disableCooldownPlayerCheck
+            // 
+            this.disableCooldownPlayerCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.disableCooldownPlayerCheck.AutoSize = true;
+            this.disableCooldownPlayerCheck.Location = new System.Drawing.Point(550, 5);
+            this.disableCooldownPlayerCheck.Name = "disableCooldownPlayerCheck";
+            this.disableCooldownPlayerCheck.Size = new System.Drawing.Size(111, 17);
+            this.disableCooldownPlayerCheck.TabIndex = 14;
+            this.disableCooldownPlayerCheck.Text = "Disable Cooldown";
+            this.disableCooldownPlayerCheck.UseVisualStyleBackColor = true;
+            // 
+            // label34
+            // 
+            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label34.Location = new System.Drawing.Point(539, -1);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(1, 29);
+            this.label34.TabIndex = 13;
+            // 
+            // label27
+            // 
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label27.Location = new System.Drawing.Point(147, -1);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(1, 29);
+            this.label27.TabIndex = 12;
+            // 
+            // label26
+            // 
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label26.Location = new System.Drawing.Point(665, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(1, 29);
+            this.label26.TabIndex = 11;
+            // 
+            // roulettePlayerNum
+            // 
+            this.roulettePlayerNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.roulettePlayerNum.DecimalPlaces = 2;
+            this.roulettePlayerNum.Enabled = false;
+            this.roulettePlayerNum.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.roulettePlayerNum.Location = new System.Drawing.Point(797, 4);
+            this.roulettePlayerNum.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.roulettePlayerNum.Name = "roulettePlayerNum";
+            this.roulettePlayerNum.Size = new System.Drawing.Size(44, 20);
+            this.roulettePlayerNum.TabIndex = 10;
+            this.roulettePlayerNum.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // roulettePlayerCheck
+            // 
+            this.roulettePlayerCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.roulettePlayerCheck.AutoSize = true;
+            this.roulettePlayerCheck.Location = new System.Drawing.Point(674, 5);
+            this.roulettePlayerCheck.Name = "roulettePlayerCheck";
+            this.roulettePlayerCheck.Size = new System.Drawing.Size(117, 17);
+            this.roulettePlayerCheck.TabIndex = 9;
+            this.roulettePlayerCheck.Text = "Roulette Speed (s):";
+            this.roulettePlayerCheck.UseVisualStyleBackColor = true;
+            this.roulettePlayerCheck.CheckedChanged += new System.EventHandler(this.roulettePlayerCheck_CheckedChanged);
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(337, 6);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(49, 13);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "Each (s):";
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(237, 6);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(46, 13);
+            this.label23.TabIndex = 5;
+            this.label23.Text = "After (s):";
+            // 
+            // giveEachPlayerNum
+            // 
+            this.giveEachPlayerNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.giveEachPlayerNum.DecimalPlaces = 2;
+            this.giveEachPlayerNum.Enabled = false;
+            this.giveEachPlayerNum.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.giveEachPlayerNum.Location = new System.Drawing.Point(390, 4);
+            this.giveEachPlayerNum.Maximum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            0});
+            this.giveEachPlayerNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.giveEachPlayerNum.Name = "giveEachPlayerNum";
+            this.giveEachPlayerNum.Size = new System.Drawing.Size(42, 20);
+            this.giveEachPlayerNum.TabIndex = 4;
+            this.giveEachPlayerNum.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // giveAfterPlayerNum
+            // 
+            this.giveAfterPlayerNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.giveAfterPlayerNum.DecimalPlaces = 2;
+            this.giveAfterPlayerNum.Enabled = false;
+            this.giveAfterPlayerNum.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.giveAfterPlayerNum.Location = new System.Drawing.Point(288, 4);
+            this.giveAfterPlayerNum.Maximum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            0});
+            this.giveAfterPlayerNum.Name = "giveAfterPlayerNum";
+            this.giveAfterPlayerNum.Size = new System.Drawing.Size(44, 20);
+            this.giveAfterPlayerNum.TabIndex = 3;
+            // 
+            // giveItemPlayerCheck
+            // 
+            this.giveItemPlayerCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.giveItemPlayerCheck.AutoSize = true;
+            this.giveItemPlayerCheck.Location = new System.Drawing.Point(160, 5);
+            this.giveItemPlayerCheck.Name = "giveItemPlayerCheck";
+            this.giveItemPlayerCheck.Size = new System.Drawing.Size(79, 17);
+            this.giveItemPlayerCheck.TabIndex = 2;
+            this.giveItemPlayerCheck.Text = "Give Items:";
+            this.giveItemPlayerCheck.UseVisualStyleBackColor = true;
+            this.giveItemPlayerCheck.CheckedChanged += new System.EventHandler(this.giveItemPlayerCheck_CheckedChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(3, 6);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(37, 13);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "Mode:";
+            // 
+            // modePlayerBox
+            // 
+            this.modePlayerBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.modePlayerBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.modePlayerBox.FormattingEnabled = true;
+            this.modePlayerBox.Items.AddRange(new object[] {
+            "Box ID",
+            "Rank",
+            "Driver ID",
+            "True Rank"});
+            this.modePlayerBox.Location = new System.Drawing.Point(46, 3);
+            this.modePlayerBox.Name = "modePlayerBox";
+            this.modePlayerBox.Size = new System.Drawing.Size(87, 21);
+            this.modePlayerBox.TabIndex = 0;
+            this.modePlayerBox.SelectedIndexChanged += new System.EventHandler(this.modePlayerBox_SelectedIndexChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(3, 10);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(39, 13);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "Player:";
+            // 
             // probabilityCPUViewer
             // 
             this.probabilityCPUViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -2067,6 +1696,267 @@
             this.probabilityCPUViewer.Name = "probabilityCPUViewer";
             this.probabilityCPUViewer.Size = new System.Drawing.Size(891, 148);
             this.probabilityCPUViewer.TabIndex = 48;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label25);
+            this.panel2.Controls.Add(this.disableCooldownCPUCheck);
+            this.panel2.Controls.Add(this.label20);
+            this.panel2.Controls.Add(this.label28);
+            this.panel2.Controls.Add(this.rouletteCPUNum);
+            this.panel2.Controls.Add(this.rouletteCPUCheck);
+            this.panel2.Controls.Add(this.label30);
+            this.panel2.Controls.Add(this.label31);
+            this.panel2.Controls.Add(this.giveEachCPUNum);
+            this.panel2.Controls.Add(this.giveAfterCPUNum);
+            this.panel2.Controls.Add(this.giveItemCPUCheck);
+            this.panel2.Controls.Add(this.label32);
+            this.panel2.Controls.Add(this.modeCPUBox);
+            this.panel2.Location = new System.Drawing.Point(48, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(846, 29);
+            this.panel2.TabIndex = 47;
+            // 
+            // label25
+            // 
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label25.Location = new System.Drawing.Point(539, -1);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(1, 29);
+            this.label25.TabIndex = 14;
+            // 
+            // disableCooldownCPUCheck
+            // 
+            this.disableCooldownCPUCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.disableCooldownCPUCheck.AutoSize = true;
+            this.disableCooldownCPUCheck.Location = new System.Drawing.Point(550, 5);
+            this.disableCooldownCPUCheck.Name = "disableCooldownCPUCheck";
+            this.disableCooldownCPUCheck.Size = new System.Drawing.Size(111, 17);
+            this.disableCooldownCPUCheck.TabIndex = 13;
+            this.disableCooldownCPUCheck.Text = "Disable Cooldown";
+            this.disableCooldownCPUCheck.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label20.Location = new System.Drawing.Point(146, -1);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(1, 29);
+            this.label20.TabIndex = 12;
+            // 
+            // label28
+            // 
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label28.Location = new System.Drawing.Point(665, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(1, 29);
+            this.label28.TabIndex = 11;
+            // 
+            // rouletteCPUNum
+            // 
+            this.rouletteCPUNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rouletteCPUNum.DecimalPlaces = 2;
+            this.rouletteCPUNum.Enabled = false;
+            this.rouletteCPUNum.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.rouletteCPUNum.Location = new System.Drawing.Point(797, 4);
+            this.rouletteCPUNum.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.rouletteCPUNum.Name = "rouletteCPUNum";
+            this.rouletteCPUNum.Size = new System.Drawing.Size(44, 20);
+            this.rouletteCPUNum.TabIndex = 10;
+            this.rouletteCPUNum.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // rouletteCPUCheck
+            // 
+            this.rouletteCPUCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rouletteCPUCheck.AutoSize = true;
+            this.rouletteCPUCheck.Location = new System.Drawing.Point(674, 5);
+            this.rouletteCPUCheck.Name = "rouletteCPUCheck";
+            this.rouletteCPUCheck.Size = new System.Drawing.Size(117, 17);
+            this.rouletteCPUCheck.TabIndex = 9;
+            this.rouletteCPUCheck.Text = "Roulette Speed (s):";
+            this.rouletteCPUCheck.UseVisualStyleBackColor = true;
+            this.rouletteCPUCheck.CheckedChanged += new System.EventHandler(this.rouletteCPUCheck_CheckedChanged);
+            // 
+            // label30
+            // 
+            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(337, 6);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(49, 13);
+            this.label30.TabIndex = 6;
+            this.label30.Text = "Each (s):";
+            // 
+            // label31
+            // 
+            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(237, 6);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(46, 13);
+            this.label31.TabIndex = 5;
+            this.label31.Text = "After (s):";
+            // 
+            // giveEachCPUNum
+            // 
+            this.giveEachCPUNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.giveEachCPUNum.DecimalPlaces = 2;
+            this.giveEachCPUNum.Enabled = false;
+            this.giveEachCPUNum.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.giveEachCPUNum.Location = new System.Drawing.Point(390, 4);
+            this.giveEachCPUNum.Maximum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            0});
+            this.giveEachCPUNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.giveEachCPUNum.Name = "giveEachCPUNum";
+            this.giveEachCPUNum.Size = new System.Drawing.Size(42, 20);
+            this.giveEachCPUNum.TabIndex = 4;
+            this.giveEachCPUNum.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // giveAfterCPUNum
+            // 
+            this.giveAfterCPUNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.giveAfterCPUNum.DecimalPlaces = 2;
+            this.giveAfterCPUNum.Enabled = false;
+            this.giveAfterCPUNum.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.giveAfterCPUNum.Location = new System.Drawing.Point(288, 4);
+            this.giveAfterCPUNum.Maximum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            0});
+            this.giveAfterCPUNum.Name = "giveAfterCPUNum";
+            this.giveAfterCPUNum.Size = new System.Drawing.Size(44, 20);
+            this.giveAfterCPUNum.TabIndex = 3;
+            // 
+            // giveItemCPUCheck
+            // 
+            this.giveItemCPUCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.giveItemCPUCheck.AutoSize = true;
+            this.giveItemCPUCheck.Location = new System.Drawing.Point(160, 5);
+            this.giveItemCPUCheck.Name = "giveItemCPUCheck";
+            this.giveItemCPUCheck.Size = new System.Drawing.Size(79, 17);
+            this.giveItemCPUCheck.TabIndex = 2;
+            this.giveItemCPUCheck.Text = "Give Items:";
+            this.giveItemCPUCheck.UseVisualStyleBackColor = true;
+            this.giveItemCPUCheck.CheckedChanged += new System.EventHandler(this.giveItemCPUCheck_CheckedChanged);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(3, 6);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(37, 13);
+            this.label32.TabIndex = 1;
+            this.label32.Text = "Mode:";
+            // 
+            // modeCPUBox
+            // 
+            this.modeCPUBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.modeCPUBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.modeCPUBox.FormattingEnabled = true;
+            this.modeCPUBox.Items.AddRange(new object[] {
+            "Box ID",
+            "Rank",
+            "Driver ID",
+            "True Rank"});
+            this.modeCPUBox.Location = new System.Drawing.Point(46, 3);
+            this.modeCPUBox.Name = "modeCPUBox";
+            this.modeCPUBox.Size = new System.Drawing.Size(87, 21);
+            this.modeCPUBox.TabIndex = 0;
+            this.modeCPUBox.SelectedIndexChanged += new System.EventHandler(this.modeCPUBox_SelectedIndexChanged);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(3, 10);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(32, 13);
+            this.label33.TabIndex = 46;
+            this.label33.Text = "CPU:";
+            // 
+            // itemsModeBox
+            // 
+            this.itemsModeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.itemsModeBox.FormattingEnabled = true;
+            this.itemsModeBox.Items.AddRange(new object[] {
+            "All",
+            "Shells",
+            "Bananas",
+            "Mushrooms",
+            "Bobombs",
+            "None",
+            "Custom"});
+            this.itemsModeBox.Location = new System.Drawing.Point(51, 6);
+            this.itemsModeBox.Name = "itemsModeBox";
+            this.itemsModeBox.Size = new System.Drawing.Size(121, 21);
+            this.itemsModeBox.TabIndex = 1;
+            this.itemsModeBox.SelectedIndexChanged += new System.EventHandler(this.itemsModeBox_SelectedIndexChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(10, 9);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(35, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Items:";
+            // 
+            // textTab
+            // 
+            this.textTab.Controls.Add(this.langDescriptionText);
+            this.textTab.Controls.Add(this.label36);
+            this.textTab.Controls.Add(this.langCodeText);
+            this.textTab.Controls.Add(this.label35);
+            this.textTab.Controls.Add(this.label29);
+            this.textTab.Controls.Add(this.langTitleText);
+            this.textTab.Controls.Add(this.removeTextEntryButton);
+            this.textTab.Controls.Add(this.addTextEntryButton);
+            this.textTab.Controls.Add(this.textEntryList);
+            this.textTab.Location = new System.Drawing.Point(4, 22);
+            this.textTab.Name = "textTab";
+            this.textTab.Padding = new System.Windows.Forms.Padding(3);
+            this.textTab.Size = new System.Drawing.Size(922, 434);
+            this.textTab.TabIndex = 3;
+            this.textTab.Text = "Text";
+            this.textTab.UseVisualStyleBackColor = true;
             // 
             // langDescriptionText
             // 
@@ -2081,15 +1971,127 @@
             this.langDescriptionText.TabIndex = 13;
             this.langDescriptionText.RichTextChanged += new System.EventHandler(this.langDescriptionText_RichTextChanged);
             // 
-            // finishRaceSectionCheck
+            // label36
             // 
-            this.finishRaceSectionCheck.AutoSize = true;
-            this.finishRaceSectionCheck.Location = new System.Drawing.Point(607, 327);
-            this.finishRaceSectionCheck.Name = "finishRaceSectionCheck";
-            this.finishRaceSectionCheck.Size = new System.Drawing.Size(130, 17);
-            this.finishRaceSectionCheck.TabIndex = 59;
-            this.finishRaceSectionCheck.Text = "Finish Race Section 2";
-            this.finishRaceSectionCheck.UseVisualStyleBackColor = true;
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(167, 37);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(35, 13);
+            this.label36.TabIndex = 12;
+            this.label36.Text = "Code:";
+            // 
+            // langCodeText
+            // 
+            this.langCodeText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.langCodeText.Enabled = false;
+            this.langCodeText.Location = new System.Drawing.Point(206, 34);
+            this.langCodeText.Name = "langCodeText";
+            this.langCodeText.Size = new System.Drawing.Size(709, 20);
+            this.langCodeText.TabIndex = 11;
+            this.langCodeText.TextChanged += new System.EventHandler(this.langCodeText_TextChanged);
+            this.langCodeText.Validating += new System.ComponentModel.CancelEventHandler(this.langCodeText_Validating);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(168, 83);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(63, 13);
+            this.label35.TabIndex = 5;
+            this.label35.Text = "Description:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(169, 63);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(33, 13);
+            this.label29.TabIndex = 4;
+            this.label29.Text = "Title: ";
+            // 
+            // langTitleText
+            // 
+            this.langTitleText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.langTitleText.Enabled = false;
+            this.langTitleText.Location = new System.Drawing.Point(207, 60);
+            this.langTitleText.Name = "langTitleText";
+            this.langTitleText.Size = new System.Drawing.Size(709, 20);
+            this.langTitleText.TabIndex = 3;
+            this.langTitleText.TextChanged += new System.EventHandler(this.langTitleText_TextChanged);
+            // 
+            // removeTextEntryButton
+            // 
+            this.removeTextEntryButton.Enabled = false;
+            this.removeTextEntryButton.Location = new System.Drawing.Point(87, 6);
+            this.removeTextEntryButton.Name = "removeTextEntryButton";
+            this.removeTextEntryButton.Size = new System.Drawing.Size(75, 23);
+            this.removeTextEntryButton.TabIndex = 2;
+            this.removeTextEntryButton.Text = "Remove";
+            this.removeTextEntryButton.UseVisualStyleBackColor = true;
+            this.removeTextEntryButton.Click += new System.EventHandler(this.removeTextEntryButton_Click);
+            // 
+            // addTextEntryButton
+            // 
+            this.addTextEntryButton.Location = new System.Drawing.Point(6, 6);
+            this.addTextEntryButton.Name = "addTextEntryButton";
+            this.addTextEntryButton.Size = new System.Drawing.Size(75, 23);
+            this.addTextEntryButton.TabIndex = 1;
+            this.addTextEntryButton.Text = "Add";
+            this.addTextEntryButton.UseVisualStyleBackColor = true;
+            this.addTextEntryButton.Click += new System.EventHandler(this.addTextEntryButton_Click);
+            // 
+            // textEntryList
+            // 
+            this.textEntryList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.textEntryList.FormattingEnabled = true;
+            this.textEntryList.Location = new System.Drawing.Point(6, 34);
+            this.textEntryList.Name = "textEntryList";
+            this.textEntryList.Size = new System.Drawing.Size(156, 394);
+            this.textEntryList.TabIndex = 0;
+            this.textEntryList.SelectedIndexChanged += new System.EventHandler(this.textEntryList_SelectedIndexChanged);
+            // 
+            // infoTab
+            // 
+            this.infoTab.Controls.Add(this.saveResetLabel);
+            this.infoTab.Controls.Add(this.resetMissionSaveDataButton);
+            this.infoTab.Controls.Add(this.missionUUIDLabel);
+            this.infoTab.Location = new System.Drawing.Point(4, 22);
+            this.infoTab.Name = "infoTab";
+            this.infoTab.Padding = new System.Windows.Forms.Padding(3);
+            this.infoTab.Size = new System.Drawing.Size(922, 434);
+            this.infoTab.TabIndex = 4;
+            this.infoTab.Text = "Info";
+            this.infoTab.UseVisualStyleBackColor = true;
+            // 
+            // saveResetLabel
+            // 
+            this.saveResetLabel.AutoSize = true;
+            this.saveResetLabel.Location = new System.Drawing.Point(160, 24);
+            this.saveResetLabel.Name = "saveResetLabel";
+            this.saveResetLabel.Size = new System.Drawing.Size(0, 13);
+            this.saveResetLabel.TabIndex = 2;
+            // 
+            // resetMissionSaveDataButton
+            // 
+            this.resetMissionSaveDataButton.Location = new System.Drawing.Point(6, 19);
+            this.resetMissionSaveDataButton.Name = "resetMissionSaveDataButton";
+            this.resetMissionSaveDataButton.Size = new System.Drawing.Size(148, 23);
+            this.resetMissionSaveDataButton.TabIndex = 1;
+            this.resetMissionSaveDataButton.Text = "Reset Mission Save Data";
+            this.resetMissionSaveDataButton.UseVisualStyleBackColor = true;
+            this.resetMissionSaveDataButton.Click += new System.EventHandler(this.resetMissionSaveDataButton_Click);
+            // 
+            // missionUUIDLabel
+            // 
+            this.missionUUIDLabel.AutoSize = true;
+            this.missionUUIDLabel.Location = new System.Drawing.Point(6, 3);
+            this.missionUUIDLabel.Name = "missionUUIDLabel";
+            this.missionUUIDLabel.Size = new System.Drawing.Size(75, 13);
+            this.missionUUIDLabel.TabIndex = 0;
+            this.missionUUIDLabel.Text = "Mission UUID:";
             // 
             // CMSNViewer
             // 

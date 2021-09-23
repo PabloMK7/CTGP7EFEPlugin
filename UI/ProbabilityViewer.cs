@@ -16,9 +16,11 @@ namespace CTGP7.UI
         private List<string> RowNames;
         private List<string> ColumnNames;
         private T[][] Data;
+        private bool FirstDraw;
         public ProbabilityViewer()
         {
             InitializeComponent();
+            FirstDraw = false;
         }
 
         public void PopulateData(List<string> rowNames, List<string> columnNames, T[][] data)
@@ -145,6 +147,15 @@ namespace CTGP7.UI
         private void MainDataView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             Data[e.RowIndex][e.ColumnIndex] = (T)mainDataView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+        }
+
+        private void mainDataView_Paint(object sender, PaintEventArgs e)
+        {
+            if (!FirstDraw)
+            {
+                FirstDraw = true;
+                UpdateNames();
+            }
         }
     }
 

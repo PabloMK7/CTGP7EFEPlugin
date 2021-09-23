@@ -474,6 +474,7 @@ namespace CTGP7
 					BoxID = 0,
 					Rank = 1,
 					DriverID = 2,
+					TrueRank = 3
                 }
 
 				public ItemConfig(bool isPlayer)

@@ -394,7 +394,10 @@ namespace CTGP7.UI
                 else if (i == 0 && configMode == CMSN.ItemOptionsSection.ItemConfig.ItemConfigMode.BoxID) tableRowNames.Add("(Unused)");
                 else
                 {
-                    tableRowNames.Add(String.Format("{0}", i));
+                    if (configMode == CMSN.ItemOptionsSection.ItemConfig.ItemConfigMode.Rank || configMode == CMSN.ItemOptionsSection.ItemConfig.ItemConfigMode.TrueRank)
+                        tableRowNames.Add(String.Format("{0}", i + 1));
+                    else
+                        tableRowNames.Add(String.Format("{0}", i));
                 }
             }
             return tableRowNames;
