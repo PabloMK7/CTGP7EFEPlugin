@@ -92,13 +92,16 @@ namespace CTGP7.UI
                 maxGradeScoreUpDown.Value = missionFlags.MaxGradeScore;
                 scoreYellowUpDown.Value = missionFlags.YellowScore;
                 lapAmountUpDown.Value = missionFlags.LapAmount;
-                rankVisibleCheck.Checked = missionFlags.RankVisible;
-                lakituVisibleCheck.Checked = missionFlags.LakituVisible;
+                rankHiddenCheck.Checked = !missionFlags.RankVisible;
+                lakituHiddenCheck.Checked = !missionFlags.LakituVisible;
+                hideCoinsCheck.Checked = missionFlags.CoinCounterHidden;
+                hideLapsCheck.Checked = !missionFlags.LapCounterVisible;
                 playCourseIntroCheck.Checked = missionFlags.CourseIntroVisible;
                 hideScoreCheck.Checked = missionFlags.ScoreHidden;
                 scoreIsBadCheck.Checked = missionFlags.ScoreNegative;
                 forceBackwardsCheck.Checked = missionFlags.ForceBackwards;
                 finishRaceSectionCheck.Checked = missionFlags.FinishOnSection;
+                givePointHitCheck.Checked = missionFlags.GivePointOnHit;
                 coinRespawnCheck.Checked = missionFlags.RespawnCoins;
                 coinRespawnTimer.Time = missionFlags.RespawnCoinsTimer;
                 try
@@ -215,13 +218,16 @@ namespace CTGP7.UI
                 missionFlags.MaxGradeScore = (byte)maxGradeScoreUpDown.Value;
                 missionFlags.YellowScore = (byte)scoreYellowUpDown.Value;
                 missionFlags.LapAmount = (byte)lapAmountUpDown.Value;
-                missionFlags.RankVisible = rankVisibleCheck.Checked;
-                missionFlags.LakituVisible = lakituVisibleCheck.Checked;
+                missionFlags.RankVisible = !rankHiddenCheck.Checked;
+                missionFlags.LakituVisible = !lakituHiddenCheck.Checked;
+                missionFlags.CoinCounterHidden = hideCoinsCheck.Checked;
+                missionFlags.LapCounterVisible = !hideLapsCheck.Checked;
                 missionFlags.CourseIntroVisible = playCourseIntroCheck.Checked;
                 missionFlags.ScoreHidden = hideScoreCheck.Checked;
                 missionFlags.ScoreNegative = scoreIsBadCheck.Checked;
                 missionFlags.ForceBackwards = forceBackwardsCheck.Checked;
                 missionFlags.FinishOnSection = finishRaceSectionCheck.Checked;
+                missionFlags.GivePointOnHit = givePointHitCheck.Checked;
                 missionFlags.RespawnCoins = coinRespawnCheck.Checked;
                 missionFlags.RespawnCoinsTimer = coinRespawnTimer.Time;
                 missionFlags.CompleteCondition1 = (byte)completeCondition1Combo.SelectedIndex;

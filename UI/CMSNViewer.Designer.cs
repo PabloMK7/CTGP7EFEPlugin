@@ -37,6 +37,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CMSNViewer));
             this.tabContainer = new System.Windows.Forms.TabControl();
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.hideLapsCheck = new System.Windows.Forms.CheckBox();
+            this.hideCoinsCheck = new System.Windows.Forms.CheckBox();
             this.finishRaceSectionCheck = new System.Windows.Forms.CheckBox();
             this.forceBackwardsCheck = new System.Windows.Forms.CheckBox();
             this.scoreIsBadCheck = new System.Windows.Forms.CheckBox();
@@ -49,8 +51,8 @@
             this.lapAmountUpDown = new System.Windows.Forms.NumericUpDown();
             this.label54 = new System.Windows.Forms.Label();
             this.playCourseIntroCheck = new System.Windows.Forms.CheckBox();
-            this.lakituVisibleCheck = new System.Windows.Forms.CheckBox();
-            this.rankVisibleCheck = new System.Windows.Forms.CheckBox();
+            this.lakituHiddenCheck = new System.Windows.Forms.CheckBox();
+            this.rankHiddenCheck = new System.Windows.Forms.CheckBox();
             this.label53 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
@@ -193,6 +195,7 @@
             this.saveResetLabel = new System.Windows.Forms.Label();
             this.resetMissionSaveDataButton = new System.Windows.Forms.Button();
             this.missionUUIDLabel = new System.Windows.Forms.Label();
+            this.givePointHitCheck = new System.Windows.Forms.CheckBox();
             this.tabContainer.SuspendLayout();
             this.settingsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lapAmountUpDown)).BeginInit();
@@ -238,6 +241,9 @@
             // 
             // settingsTab
             // 
+            this.settingsTab.Controls.Add(this.givePointHitCheck);
+            this.settingsTab.Controls.Add(this.hideLapsCheck);
+            this.settingsTab.Controls.Add(this.hideCoinsCheck);
             this.settingsTab.Controls.Add(this.finishRaceSectionCheck);
             this.settingsTab.Controls.Add(this.forceBackwardsCheck);
             this.settingsTab.Controls.Add(this.scoreIsBadCheck);
@@ -250,8 +256,8 @@
             this.settingsTab.Controls.Add(this.lapAmountUpDown);
             this.settingsTab.Controls.Add(this.label54);
             this.settingsTab.Controls.Add(this.playCourseIntroCheck);
-            this.settingsTab.Controls.Add(this.lakituVisibleCheck);
-            this.settingsTab.Controls.Add(this.rankVisibleCheck);
+            this.settingsTab.Controls.Add(this.lakituHiddenCheck);
+            this.settingsTab.Controls.Add(this.rankHiddenCheck);
             this.settingsTab.Controls.Add(this.label53);
             this.settingsTab.Controls.Add(this.label52);
             this.settingsTab.Controls.Add(this.label51);
@@ -299,10 +305,30 @@
             this.settingsTab.Text = "Settings";
             this.settingsTab.UseVisualStyleBackColor = true;
             // 
+            // hideLapsCheck
+            // 
+            this.hideLapsCheck.AutoSize = true;
+            this.hideLapsCheck.Location = new System.Drawing.Point(268, 327);
+            this.hideLapsCheck.Name = "hideLapsCheck";
+            this.hideLapsCheck.Size = new System.Drawing.Size(74, 17);
+            this.hideLapsCheck.TabIndex = 61;
+            this.hideLapsCheck.Text = "Hide Laps";
+            this.hideLapsCheck.UseVisualStyleBackColor = true;
+            // 
+            // hideCoinsCheck
+            // 
+            this.hideCoinsCheck.AutoSize = true;
+            this.hideCoinsCheck.Location = new System.Drawing.Point(185, 327);
+            this.hideCoinsCheck.Name = "hideCoinsCheck";
+            this.hideCoinsCheck.Size = new System.Drawing.Size(77, 17);
+            this.hideCoinsCheck.TabIndex = 60;
+            this.hideCoinsCheck.Text = "Hide Coins";
+            this.hideCoinsCheck.UseVisualStyleBackColor = true;
+            // 
             // finishRaceSectionCheck
             // 
             this.finishRaceSectionCheck.AutoSize = true;
-            this.finishRaceSectionCheck.Location = new System.Drawing.Point(607, 327);
+            this.finishRaceSectionCheck.Location = new System.Drawing.Point(225, 350);
             this.finishRaceSectionCheck.Name = "finishRaceSectionCheck";
             this.finishRaceSectionCheck.Size = new System.Drawing.Size(130, 17);
             this.finishRaceSectionCheck.TabIndex = 59;
@@ -312,7 +338,7 @@
             // forceBackwardsCheck
             // 
             this.forceBackwardsCheck.AutoSize = true;
-            this.forceBackwardsCheck.Location = new System.Drawing.Point(492, 327);
+            this.forceBackwardsCheck.Location = new System.Drawing.Point(110, 350);
             this.forceBackwardsCheck.Name = "forceBackwardsCheck";
             this.forceBackwardsCheck.Size = new System.Drawing.Size(109, 17);
             this.forceBackwardsCheck.TabIndex = 58;
@@ -322,7 +348,7 @@
             // scoreIsBadCheck
             // 
             this.scoreIsBadCheck.AutoSize = true;
-            this.scoreIsBadCheck.Location = new System.Drawing.Point(399, 327);
+            this.scoreIsBadCheck.Location = new System.Drawing.Point(17, 350);
             this.scoreIsBadCheck.Name = "scoreIsBadCheck";
             this.scoreIsBadCheck.Size = new System.Drawing.Size(87, 17);
             this.scoreIsBadCheck.TabIndex = 57;
@@ -338,7 +364,8 @@
             "Yellow score reached",
             "Yellow score not reached",
             "Player finishes 1st",
-            "CPU 1 finishes 1st"});
+            "CPU 1 finishes 1st",
+            "Do not get hit"});
             this.completeCondition2Combo.Location = new System.Drawing.Point(708, 125);
             this.completeCondition2Combo.Name = "completeCondition2Combo";
             this.completeCondition2Combo.Size = new System.Drawing.Size(173, 21);
@@ -347,7 +374,7 @@
             // hideScoreCheck
             // 
             this.hideScoreCheck.AutoSize = true;
-            this.hideScoreCheck.Location = new System.Drawing.Point(314, 327);
+            this.hideScoreCheck.Location = new System.Drawing.Point(17, 327);
             this.hideScoreCheck.Name = "hideScoreCheck";
             this.hideScoreCheck.Size = new System.Drawing.Size(79, 17);
             this.hideScoreCheck.TabIndex = 55;
@@ -372,7 +399,8 @@
             "Yellow score reached",
             "Yellow score not reached",
             "Player finishes 1st",
-            "CPU 1 finishes 1st"});
+            "CPU 1 finishes 1st",
+            "Do not get hit"});
             this.completeCondition1Combo.Location = new System.Drawing.Point(528, 125);
             this.completeCondition1Combo.Name = "completeCondition1Combo";
             this.completeCondition1Combo.Size = new System.Drawing.Size(174, 21);
@@ -381,7 +409,7 @@
             // coinRespawnCheck
             // 
             this.coinRespawnCheck.AutoSize = true;
-            this.coinRespawnCheck.Location = new System.Drawing.Point(17, 359);
+            this.coinRespawnCheck.Location = new System.Drawing.Point(17, 377);
             this.coinRespawnCheck.Name = "coinRespawnCheck";
             this.coinRespawnCheck.Size = new System.Drawing.Size(124, 17);
             this.coinRespawnCheck.TabIndex = 52;
@@ -391,7 +419,7 @@
             // 
             // coinRespawnTimer
             // 
-            this.coinRespawnTimer.Location = new System.Drawing.Point(147, 355);
+            this.coinRespawnTimer.Location = new System.Drawing.Point(147, 373);
             this.coinRespawnTimer.Name = "coinRespawnTimer";
             this.coinRespawnTimer.Size = new System.Drawing.Size(213, 26);
             this.coinRespawnTimer.TabIndex = 51;
@@ -431,32 +459,32 @@
             // playCourseIntroCheck
             // 
             this.playCourseIntroCheck.AutoSize = true;
-            this.playCourseIntroCheck.Location = new System.Drawing.Point(202, 327);
+            this.playCourseIntroCheck.Location = new System.Drawing.Point(434, 327);
             this.playCourseIntroCheck.Name = "playCourseIntroCheck";
             this.playCourseIntroCheck.Size = new System.Drawing.Size(106, 17);
             this.playCourseIntroCheck.TabIndex = 48;
             this.playCourseIntroCheck.Text = "Play Course Intro";
             this.playCourseIntroCheck.UseVisualStyleBackColor = true;
             // 
-            // lakituVisibleCheck
+            // lakituHiddenCheck
             // 
-            this.lakituVisibleCheck.AutoSize = true;
-            this.lakituVisibleCheck.Location = new System.Drawing.Point(108, 327);
-            this.lakituVisibleCheck.Name = "lakituVisibleCheck";
-            this.lakituVisibleCheck.Size = new System.Drawing.Size(88, 17);
-            this.lakituVisibleCheck.TabIndex = 47;
-            this.lakituVisibleCheck.Text = "Lakitu Visible";
-            this.lakituVisibleCheck.UseVisualStyleBackColor = true;
+            this.lakituHiddenCheck.AutoSize = true;
+            this.lakituHiddenCheck.Location = new System.Drawing.Point(348, 327);
+            this.lakituHiddenCheck.Name = "lakituHiddenCheck";
+            this.lakituHiddenCheck.Size = new System.Drawing.Size(80, 17);
+            this.lakituHiddenCheck.TabIndex = 47;
+            this.lakituHiddenCheck.Text = "Hide Lakitu";
+            this.lakituHiddenCheck.UseVisualStyleBackColor = true;
             // 
-            // rankVisibleCheck
+            // rankHiddenCheck
             // 
-            this.rankVisibleCheck.AutoSize = true;
-            this.rankVisibleCheck.Location = new System.Drawing.Point(17, 327);
-            this.rankVisibleCheck.Name = "rankVisibleCheck";
-            this.rankVisibleCheck.Size = new System.Drawing.Size(85, 17);
-            this.rankVisibleCheck.TabIndex = 46;
-            this.rankVisibleCheck.Text = "Rank Visible";
-            this.rankVisibleCheck.UseVisualStyleBackColor = true;
+            this.rankHiddenCheck.AutoSize = true;
+            this.rankHiddenCheck.Location = new System.Drawing.Point(102, 327);
+            this.rankHiddenCheck.Name = "rankHiddenCheck";
+            this.rankHiddenCheck.Size = new System.Drawing.Size(77, 17);
+            this.rankHiddenCheck.TabIndex = 46;
+            this.rankHiddenCheck.Text = "Hide Rank";
+            this.rankHiddenCheck.UseVisualStyleBackColor = true;
             // 
             // label53
             // 
@@ -2093,6 +2121,16 @@
             this.missionUUIDLabel.TabIndex = 0;
             this.missionUUIDLabel.Text = "Mission UUID:";
             // 
+            // givePointHitCheck
+            // 
+            this.givePointHitCheck.AutoSize = true;
+            this.givePointHitCheck.Location = new System.Drawing.Point(361, 350);
+            this.givePointHitCheck.Name = "givePointHitCheck";
+            this.givePointHitCheck.Size = new System.Drawing.Size(123, 17);
+            this.givePointHitCheck.TabIndex = 62;
+            this.givePointHitCheck.Text = "Give Point When Hit";
+            this.givePointHitCheck.UseVisualStyleBackColor = true;
+            // 
             // CMSNViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2281,8 +2319,8 @@
         private System.Windows.Forms.NumericUpDown scoreYellowUpDown;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.CheckBox playCourseIntroCheck;
-        private System.Windows.Forms.CheckBox lakituVisibleCheck;
-        private System.Windows.Forms.CheckBox rankVisibleCheck;
+        private System.Windows.Forms.CheckBox lakituHiddenCheck;
+        private System.Windows.Forms.CheckBox rankHiddenCheck;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label51;
@@ -2303,5 +2341,8 @@
         private System.Windows.Forms.CheckBox scoreIsBadCheck;
         private System.Windows.Forms.CheckBox forceBackwardsCheck;
         private System.Windows.Forms.CheckBox finishRaceSectionCheck;
+        private System.Windows.Forms.CheckBox hideLapsCheck;
+        private System.Windows.Forms.CheckBox hideCoinsCheck;
+        private System.Windows.Forms.CheckBox givePointHitCheck;
     }
 }

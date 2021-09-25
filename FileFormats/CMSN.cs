@@ -275,6 +275,9 @@ namespace CTGP7
 			public bool ScoreNegative { get { return GetBit(Flags, 4); } set { Flags = ChangeBit(Flags, 4, value); } }
 			public bool ForceBackwards { get { return GetBit(Flags, 5); } set { Flags = ChangeBit(Flags, 5, value); } }
 			public bool FinishOnSection { get { return GetBit(Flags, 6); } set { Flags = ChangeBit(Flags, 6, value); } }
+			public bool CoinCounterHidden { get { return GetBit(Flags, 7); } set { Flags = ChangeBit(Flags, 7, value); } }
+			public bool LapCounterVisible { get { return GetBit(Flags, 8); } set { Flags = ChangeBit(Flags, 8, value); } }
+			public bool GivePointOnHit { get { return GetBit(Flags, 9); } set { Flags = ChangeBit(Flags, 9, value); } }
 
 			public MissionFlagsSection()
 			{
@@ -353,7 +356,7 @@ namespace CTGP7
 
 				ushort respawnCoinTimeValue = er.ReadUInt16();
 				if (respawnCoinTimeValue == 0xFFFF) RespawnCoins = false;
-				else { RespawnCoins = true; RespawnCoinsTimer = new MK7Timer(respawnCoinTimeValue); }
+				else { RespawnCoins = true; RespawnCoinsTimer = new MK7Timer((uint)(respawnCoinTimeValue * 20)); }
 
 				byte completeConditionPacked = er.ReadByte();
 				CompleteCondition1 = (byte)((uint)completeConditionPacked & 0xF);
@@ -404,7 +407,7 @@ namespace CTGP7
 
 				ew.Write(LapAmount);
 
-				if (RespawnCoins) ew.Write((ushort)RespawnCoinsTimer.Frames);
+				if (RespawnCoins) ew.Write((ushort)(RespawnCoinsTimer.Frames / 20f));
 				else ew.Write((ushort)0xFFFF);
 
 				byte completeConditionPacked = (byte)(((uint)CompleteCondition1 & 0xF) | ((uint)CompleteCondition2 << 4));
