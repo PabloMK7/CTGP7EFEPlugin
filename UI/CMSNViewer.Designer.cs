@@ -37,6 +37,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CMSNViewer));
             this.tabContainer = new System.Windows.Forms.TabControl();
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.givePointHitCheck = new System.Windows.Forms.CheckBox();
             this.hideLapsCheck = new System.Windows.Forms.CheckBox();
             this.hideCoinsCheck = new System.Windows.Forms.CheckBox();
             this.finishRaceSectionCheck = new System.Windows.Forms.CheckBox();
@@ -192,10 +193,29 @@
             this.addTextEntryButton = new System.Windows.Forms.Button();
             this.textEntryList = new System.Windows.Forms.ListBox();
             this.infoTab = new System.Windows.Forms.TabPage();
+            this.label57 = new System.Windows.Forms.Label();
+            this.levelNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label56 = new System.Windows.Forms.Label();
+            this.worldNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.replacementSarcLabel = new System.Windows.Forms.Label();
+            this.dataSarcLabel = new System.Windows.Forms.Label();
+            this.checksumLabel = new System.Windows.Forms.Label();
+            this.clearChecksumButton = new System.Windows.Forms.Button();
+            this.calculateChecksumButton = new System.Windows.Forms.Button();
+            this.replacementSarcButton = new System.Windows.Forms.Button();
+            this.dataSarcButton = new System.Windows.Forms.Button();
+            this.setChecksumAppButton = new System.Windows.Forms.Button();
+            this.checksumAppPathLabel = new System.Windows.Forms.Label();
             this.saveResetLabel = new System.Windows.Forms.Label();
             this.resetMissionSaveDataButton = new System.Windows.Forms.Button();
             this.missionUUIDLabel = new System.Windows.Forms.Label();
-            this.givePointHitCheck = new System.Windows.Forms.CheckBox();
+            this.checksumAppFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dataFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.replacementFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.customCCCheck = new System.Windows.Forms.CheckBox();
+            this.customCCUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label58 = new System.Windows.Forms.Label();
+            this.improvedTricksCombo = new System.Windows.Forms.ComboBox();
             this.tabContainer.SuspendLayout();
             this.settingsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lapAmountUpDown)).BeginInit();
@@ -221,6 +241,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.giveAfterCPUNum)).BeginInit();
             this.textTab.SuspendLayout();
             this.infoTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.levelNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.worldNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customCCUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tabContainer
@@ -241,6 +264,10 @@
             // 
             // settingsTab
             // 
+            this.settingsTab.Controls.Add(this.improvedTricksCombo);
+            this.settingsTab.Controls.Add(this.label58);
+            this.settingsTab.Controls.Add(this.customCCUpDown);
+            this.settingsTab.Controls.Add(this.customCCCheck);
             this.settingsTab.Controls.Add(this.givePointHitCheck);
             this.settingsTab.Controls.Add(this.hideLapsCheck);
             this.settingsTab.Controls.Add(this.hideCoinsCheck);
@@ -304,6 +331,16 @@
             this.settingsTab.TabIndex = 0;
             this.settingsTab.Text = "Settings";
             this.settingsTab.UseVisualStyleBackColor = true;
+            // 
+            // givePointHitCheck
+            // 
+            this.givePointHitCheck.AutoSize = true;
+            this.givePointHitCheck.Location = new System.Drawing.Point(361, 350);
+            this.givePointHitCheck.Name = "givePointHitCheck";
+            this.givePointHitCheck.Size = new System.Drawing.Size(123, 17);
+            this.givePointHitCheck.TabIndex = 62;
+            this.givePointHitCheck.Text = "Give Point When Hit";
+            this.givePointHitCheck.UseVisualStyleBackColor = true;
             // 
             // hideLapsCheck
             // 
@@ -427,7 +464,7 @@
             // 
             // lapAmountUpDown
             // 
-            this.lapAmountUpDown.Location = new System.Drawing.Point(284, 38);
+            this.lapAmountUpDown.Location = new System.Drawing.Point(284, 37);
             this.lapAmountUpDown.Maximum = new decimal(new int[] {
             9,
             0,
@@ -450,7 +487,7 @@
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(245, 40);
+            this.label54.Location = new System.Drawing.Point(240, 40);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(33, 13);
             this.label54.TabIndex = 49;
@@ -2083,6 +2120,19 @@
             // 
             // infoTab
             // 
+            this.infoTab.Controls.Add(this.label57);
+            this.infoTab.Controls.Add(this.levelNumericUpDown);
+            this.infoTab.Controls.Add(this.label56);
+            this.infoTab.Controls.Add(this.worldNumericUpDown);
+            this.infoTab.Controls.Add(this.replacementSarcLabel);
+            this.infoTab.Controls.Add(this.dataSarcLabel);
+            this.infoTab.Controls.Add(this.checksumLabel);
+            this.infoTab.Controls.Add(this.clearChecksumButton);
+            this.infoTab.Controls.Add(this.calculateChecksumButton);
+            this.infoTab.Controls.Add(this.replacementSarcButton);
+            this.infoTab.Controls.Add(this.dataSarcButton);
+            this.infoTab.Controls.Add(this.setChecksumAppButton);
+            this.infoTab.Controls.Add(this.checksumAppPathLabel);
             this.infoTab.Controls.Add(this.saveResetLabel);
             this.infoTab.Controls.Add(this.resetMissionSaveDataButton);
             this.infoTab.Controls.Add(this.missionUUIDLabel);
@@ -2093,6 +2143,154 @@
             this.infoTab.TabIndex = 4;
             this.infoTab.Text = "Info";
             this.infoTab.UseVisualStyleBackColor = true;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(90, 50);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(36, 13);
+            this.label57.TabIndex = 16;
+            this.label57.Text = "Level:";
+            // 
+            // levelNumericUpDown
+            // 
+            this.levelNumericUpDown.Location = new System.Drawing.Point(132, 48);
+            this.levelNumericUpDown.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.levelNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.levelNumericUpDown.Name = "levelNumericUpDown";
+            this.levelNumericUpDown.Size = new System.Drawing.Size(28, 20);
+            this.levelNumericUpDown.TabIndex = 15;
+            this.levelNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(6, 50);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(38, 13);
+            this.label56.TabIndex = 14;
+            this.label56.Text = "World:";
+            // 
+            // worldNumericUpDown
+            // 
+            this.worldNumericUpDown.Location = new System.Drawing.Point(50, 48);
+            this.worldNumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.worldNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.worldNumericUpDown.Name = "worldNumericUpDown";
+            this.worldNumericUpDown.Size = new System.Drawing.Size(34, 20);
+            this.worldNumericUpDown.TabIndex = 12;
+            this.worldNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // replacementSarcLabel
+            // 
+            this.replacementSarcLabel.AutoSize = true;
+            this.replacementSarcLabel.Location = new System.Drawing.Point(160, 154);
+            this.replacementSarcLabel.Name = "replacementSarcLabel";
+            this.replacementSarcLabel.Size = new System.Drawing.Size(35, 13);
+            this.replacementSarcLabel.TabIndex = 11;
+            this.replacementSarcLabel.Text = "Path: ";
+            // 
+            // dataSarcLabel
+            // 
+            this.dataSarcLabel.AutoSize = true;
+            this.dataSarcLabel.Location = new System.Drawing.Point(160, 125);
+            this.dataSarcLabel.Name = "dataSarcLabel";
+            this.dataSarcLabel.Size = new System.Drawing.Size(35, 13);
+            this.dataSarcLabel.TabIndex = 10;
+            this.dataSarcLabel.Text = "Path: ";
+            // 
+            // checksumLabel
+            // 
+            this.checksumLabel.AutoSize = true;
+            this.checksumLabel.Location = new System.Drawing.Point(160, 200);
+            this.checksumLabel.Name = "checksumLabel";
+            this.checksumLabel.Size = new System.Drawing.Size(47, 13);
+            this.checksumLabel.TabIndex = 9;
+            this.checksumLabel.Text = "Current: ";
+            // 
+            // clearChecksumButton
+            // 
+            this.clearChecksumButton.Location = new System.Drawing.Point(6, 224);
+            this.clearChecksumButton.Name = "clearChecksumButton";
+            this.clearChecksumButton.Size = new System.Drawing.Size(148, 23);
+            this.clearChecksumButton.TabIndex = 8;
+            this.clearChecksumButton.Text = "Clear Checksum";
+            this.clearChecksumButton.UseVisualStyleBackColor = true;
+            this.clearChecksumButton.Click += new System.EventHandler(this.clearChecksumButton_Click);
+            // 
+            // calculateChecksumButton
+            // 
+            this.calculateChecksumButton.Location = new System.Drawing.Point(6, 195);
+            this.calculateChecksumButton.Name = "calculateChecksumButton";
+            this.calculateChecksumButton.Size = new System.Drawing.Size(148, 23);
+            this.calculateChecksumButton.TabIndex = 7;
+            this.calculateChecksumButton.Text = "Calculate Checksum";
+            this.calculateChecksumButton.UseVisualStyleBackColor = true;
+            this.calculateChecksumButton.Click += new System.EventHandler(this.calculateChecksumButton_Click);
+            // 
+            // replacementSarcButton
+            // 
+            this.replacementSarcButton.Location = new System.Drawing.Point(6, 149);
+            this.replacementSarcButton.Name = "replacementSarcButton";
+            this.replacementSarcButton.Size = new System.Drawing.Size(148, 23);
+            this.replacementSarcButton.TabIndex = 6;
+            this.replacementSarcButton.Text = "Select replacement.sarc";
+            this.replacementSarcButton.UseVisualStyleBackColor = true;
+            this.replacementSarcButton.Click += new System.EventHandler(this.replacementSarcButton_Click);
+            // 
+            // dataSarcButton
+            // 
+            this.dataSarcButton.Location = new System.Drawing.Point(6, 120);
+            this.dataSarcButton.Name = "dataSarcButton";
+            this.dataSarcButton.Size = new System.Drawing.Size(148, 23);
+            this.dataSarcButton.TabIndex = 5;
+            this.dataSarcButton.Text = "Select data.sarc";
+            this.dataSarcButton.UseVisualStyleBackColor = true;
+            this.dataSarcButton.Click += new System.EventHandler(this.dataSarcButton_Click);
+            // 
+            // setChecksumAppButton
+            // 
+            this.setChecksumAppButton.Location = new System.Drawing.Point(6, 74);
+            this.setChecksumAppButton.Name = "setChecksumAppButton";
+            this.setChecksumAppButton.Size = new System.Drawing.Size(148, 23);
+            this.setChecksumAppButton.TabIndex = 4;
+            this.setChecksumAppButton.Text = "Set Checksum App Path";
+            this.setChecksumAppButton.UseVisualStyleBackColor = true;
+            this.setChecksumAppButton.Click += new System.EventHandler(this.setChecksumAppButton_Click);
+            // 
+            // checksumAppPathLabel
+            // 
+            this.checksumAppPathLabel.AutoSize = true;
+            this.checksumAppPathLabel.Location = new System.Drawing.Point(160, 79);
+            this.checksumAppPathLabel.Name = "checksumAppPathLabel";
+            this.checksumAppPathLabel.Size = new System.Drawing.Size(35, 13);
+            this.checksumAppPathLabel.TabIndex = 3;
+            this.checksumAppPathLabel.Text = "Path: ";
             // 
             // saveResetLabel
             // 
@@ -2121,15 +2319,67 @@
             this.missionUUIDLabel.TabIndex = 0;
             this.missionUUIDLabel.Text = "Mission UUID:";
             // 
-            // givePointHitCheck
+            // checksumAppFileDialog
             // 
-            this.givePointHitCheck.AutoSize = true;
-            this.givePointHitCheck.Location = new System.Drawing.Point(361, 350);
-            this.givePointHitCheck.Name = "givePointHitCheck";
-            this.givePointHitCheck.Size = new System.Drawing.Size(123, 17);
-            this.givePointHitCheck.TabIndex = 62;
-            this.givePointHitCheck.Text = "Give Point When Hit";
-            this.givePointHitCheck.UseVisualStyleBackColor = true;
+            this.checksumAppFileDialog.Filter = "Executable Files (*.exe)|*.exe";
+            // 
+            // dataFileDialog
+            // 
+            this.dataFileDialog.Filter = "SARC Archives|*.sarc";
+            // 
+            // replacementFileDialog
+            // 
+            this.replacementFileDialog.Filter = "SARC Archives|*.sarc";
+            // 
+            // customCCCheck
+            // 
+            this.customCCCheck.AutoSize = true;
+            this.customCCCheck.Location = new System.Drawing.Point(243, 69);
+            this.customCCCheck.Name = "customCCCheck";
+            this.customCCCheck.Size = new System.Drawing.Size(81, 17);
+            this.customCCCheck.TabIndex = 63;
+            this.customCCCheck.Text = "Custom CC:";
+            this.customCCCheck.UseVisualStyleBackColor = true;
+            this.customCCCheck.CheckedChanged += new System.EventHandler(this.customCCCheck_CheckedChanged);
+            // 
+            // customCCUpDown
+            // 
+            this.customCCUpDown.Location = new System.Drawing.Point(330, 68);
+            this.customCCUpDown.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.customCCUpDown.Name = "customCCUpDown";
+            this.customCCUpDown.Size = new System.Drawing.Size(49, 20);
+            this.customCCUpDown.TabIndex = 64;
+            this.customCCUpDown.Value = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(327, 41);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(86, 13);
+            this.label58.TabIndex = 65;
+            this.label58.Text = "Improved Tricks:";
+            // 
+            // improvedTricksCombo
+            // 
+            this.improvedTricksCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.improvedTricksCombo.FormattingEnabled = true;
+            this.improvedTricksCombo.Items.AddRange(new object[] {
+            "User Choice",
+            "Disable",
+            "Enable"});
+            this.improvedTricksCombo.Location = new System.Drawing.Point(419, 36);
+            this.improvedTricksCombo.Name = "improvedTricksCombo";
+            this.improvedTricksCombo.Size = new System.Drawing.Size(135, 21);
+            this.improvedTricksCombo.TabIndex = 66;
             // 
             // CMSNViewer
             // 
@@ -2177,6 +2427,9 @@
             this.textTab.PerformLayout();
             this.infoTab.ResumeLayout(false);
             this.infoTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.levelNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.worldNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customCCUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2344,5 +2597,25 @@
         private System.Windows.Forms.CheckBox hideLapsCheck;
         private System.Windows.Forms.CheckBox hideCoinsCheck;
         private System.Windows.Forms.CheckBox givePointHitCheck;
+        private System.Windows.Forms.Button setChecksumAppButton;
+        private System.Windows.Forms.Label checksumAppPathLabel;
+        private System.Windows.Forms.OpenFileDialog checksumAppFileDialog;
+        private System.Windows.Forms.Label replacementSarcLabel;
+        private System.Windows.Forms.Label dataSarcLabel;
+        private System.Windows.Forms.Label checksumLabel;
+        private System.Windows.Forms.Button clearChecksumButton;
+        private System.Windows.Forms.Button calculateChecksumButton;
+        private System.Windows.Forms.Button replacementSarcButton;
+        private System.Windows.Forms.Button dataSarcButton;
+        private System.Windows.Forms.OpenFileDialog dataFileDialog;
+        private System.Windows.Forms.OpenFileDialog replacementFileDialog;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.NumericUpDown levelNumericUpDown;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.NumericUpDown worldNumericUpDown;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.NumericUpDown customCCUpDown;
+        private System.Windows.Forms.CheckBox customCCCheck;
+        private System.Windows.Forms.ComboBox improvedTricksCombo;
     }
 }

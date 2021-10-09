@@ -247,6 +247,9 @@ namespace CTGP7
 			public MK7Timer RespawnCoinsTimer;
 			public byte CompleteCondition1;
 			public byte CompleteCondition2;
+			public byte ImprovedTricksOption;
+			public bool UseCCSelector;
+			public UInt16 CCSelectorSpeed;
 
 			private static UInt32 ClearBit(UInt32 value, int bit)
             {
@@ -307,6 +310,9 @@ namespace CTGP7
 				RespawnCoinsTimer = new MK7Timer();
 				CompleteCondition1 = 0;
 				CompleteCondition2 = 0;
+				ImprovedTricksOption = 0;
+				UseCCSelector = false;
+				CCSelectorSpeed = 150;
 			}
 			public MissionFlagsSection(EndianBinaryReaderEx er) : this()
 			{
@@ -362,6 +368,12 @@ namespace CTGP7
 				CompleteCondition1 = (byte)((uint)completeConditionPacked & 0xF);
 				CompleteCondition2 = (byte)((uint)completeConditionPacked >> 4);
 
+				ImprovedTricksOption = er.ReadByte();
+
+				UInt16 ccSelectorValue = er.ReadUInt16();
+				if (ccSelectorValue == 0) { UseCCSelector = false; CCSelectorSpeed = 150; }
+				else { UseCCSelector = true; CCSelectorSpeed = ccSelectorValue; }
+
 				er.ReadPadding(4);
 			}
 			public override void Write(EndianBinaryWriterEx ew)
@@ -412,6 +424,10 @@ namespace CTGP7
 
 				byte completeConditionPacked = (byte)(((uint)CompleteCondition1 & 0xF) | ((uint)CompleteCondition2 << 4));
 				ew.Write(completeConditionPacked);
+
+				ew.Write(ImprovedTricksOption);
+				if (UseCCSelector) ew.Write(CCSelectorSpeed);
+				else ew.Write((ushort)0);
 
 				ew.WritePadding(4);
 			}
@@ -745,6 +761,9 @@ namespace CTGP7
 			public byte[] MissionUUID;
 			public UInt32 SaveIteration;
 			public UInt32 Checksum;
+			public UInt32 Key;
+			public byte World;
+			public byte Level;
 			public InfoSection()
             {
 				MissionUUID = new byte[0xC];
@@ -753,14 +772,29 @@ namespace CTGP7
 				MissionUUID[MissionUUID.Length - 1] = 0;
 				SaveIteration = 0;
 				Checksum = 0;
+				Key = 0;
+				World = 1;
+				Level = 1;
             }
 			public InfoSection(EndianBinaryReaderEx er)
             {
 				MissionUUID = er.ReadBytes(0xC);
 				SaveIteration = er.ReadUInt32();
-				er.ReadUInt32(); // Ignore reading checksum
-
-				er.ReadPadding(4);
+				Checksum = er.ReadUInt32();
+				try
+                {
+					Key = er.ReadUInt32();
+					World = er.ReadByte();
+					Level = er.ReadByte();
+					er.ReadPadding(4);
+				} catch (Exception)
+                {
+					Key = 0;
+					World = 1;
+					Level = 1;
+                }
+				if (World == 0) World = 1;
+				if (Level == 0 || Level > 4) Level = 1;
             }
 			public override void Write(EndianBinaryWriterEx ew)
             {
@@ -768,6 +802,10 @@ namespace CTGP7
 
 				ew.Write(SaveIteration);
 				ew.Write(Checksum);
+				ew.Write(Key);
+				ew.Write(World);
+				ew.Write(Level);
+				ew.WritePadding(4);
             }
 		}
 		public Form GetDialog()

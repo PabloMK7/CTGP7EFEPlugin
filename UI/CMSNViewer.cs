@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace CTGP7.UI
         CTGP7CourseList TranslateTable;
         private List<string> ItemNames;
         private List<List<string>> MissionSubtypes;
+        private UInt32 CurrentKey;
+        private UInt32 CurrentChecksum;
         public CMSNViewer(CMSN cmsn)
         {
             MissionData = cmsn;
@@ -49,6 +52,11 @@ namespace CTGP7.UI
             };
         }
         
+        private void UpdateChecksumLabel()
+        {
+            checksumLabel.Text = "Current: 0x" + CurrentChecksum.ToString("X8");
+        }
+
         public void LoadData()
         {
             { // Driver options
@@ -108,16 +116,20 @@ namespace CTGP7.UI
                 {
                     completeCondition1Combo.SelectedIndex = missionFlags.CompleteCondition1;
                     completeCondition2Combo.SelectedIndex = missionFlags.CompleteCondition2;
-                } catch (Exception e)
+                } catch (Exception)
                 {
                     completeCondition1Combo.SelectedIndex = 0;
                     completeCondition2Combo.SelectedIndex = 0;
                 }
+                customCCCheck.Checked = missionFlags.UseCCSelector;
+                customCCUpDown.Value = missionFlags.CCSelectorSpeed;
+                improvedTricksCombo.SelectedIndex = missionFlags.ImprovedTricksOption;
 
                 scoreEnabledCheck_CheckedChanged(scoreEnabledCheck, new EventArgs());
                 finishRaceTimerCheck_CheckedChanged(finishRaceTimerCheck, new EventArgs());
                 finishRaceScoreCheck_CheckedChanged(finishRaceScoreCheck, new EventArgs());
                 coinRespawnCheck_CheckedChanged(coinRespawnCheck, new EventArgs());
+                customCCCheck_CheckedChanged(customCCCheck, new EventArgs());
             }
             { // Item Options
                 CMSN.ItemOptionsSection itemOptions = (CMSN.ItemOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.ItemOptions);
@@ -175,6 +187,11 @@ namespace CTGP7.UI
             { // Info section
                 CMSN.InfoSection infoSection = (CMSN.InfoSection)MissionData.GetSection(CMSN.BaseSection.SectionType.Info);
                 missionUUIDLabel.Text = "Mission UUID: " + BitConverter.ToString(infoSection.MissionUUID);
+                CurrentChecksum = infoSection.Checksum;
+                CurrentKey = infoSection.Key;
+                worldNumericUpDown.Value = infoSection.World;
+                levelNumericUpDown.Value = infoSection.Level;
+                UpdateChecksumLabel();
             }
         }
         public void SaveData()
@@ -232,6 +249,9 @@ namespace CTGP7.UI
                 missionFlags.RespawnCoinsTimer = coinRespawnTimer.Time;
                 missionFlags.CompleteCondition1 = (byte)completeCondition1Combo.SelectedIndex;
                 missionFlags.CompleteCondition2 = (byte)completeCondition2Combo.SelectedIndex;
+                missionFlags.UseCCSelector = customCCCheck.Checked;
+                missionFlags.CCSelectorSpeed = (ushort)customCCUpDown.Value;
+                missionFlags.ImprovedTricksOption = (byte)improvedTricksCombo.SelectedIndex;
             }
             { // Item Options
                 CMSN.ItemOptionsSection itemOptions = (CMSN.ItemOptionsSection)MissionData.GetSection(CMSN.BaseSection.SectionType.ItemOptions);
@@ -309,7 +329,11 @@ namespace CTGP7.UI
                 }
             }
             { // Info section
-
+                CMSN.InfoSection infoSection = (CMSN.InfoSection)MissionData.GetSection(CMSN.BaseSection.SectionType.Info);
+                infoSection.Checksum = CurrentChecksum;
+                infoSection.Key = CurrentKey;
+                infoSection.World = (byte)worldNumericUpDown.Value;
+                infoSection.Level = (byte)levelNumericUpDown.Value;
             }
         }
         public int DriverAmount
@@ -360,6 +384,7 @@ namespace CTGP7.UI
                     DriverPartPreviews[i][j].ParentViewer = this;
                 }
             }
+            checksumAppPathLabel.Text = "Path: " + (Properties.Settings.Default["checksumAppPath"] as string);
         }
 
         private void itemsModeBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -554,6 +579,93 @@ namespace CTGP7.UI
                 saveResetLabel.Text = "Done!";
                 infoSection.SaveIteration++;
             }
+        }
+
+        private void setChecksumAppButton_Click(object sender, EventArgs e)
+        {
+            checksumAppFileDialog.FileName = Properties.Settings.Default["checksumAppPath"] as string;
+            if (checksumAppFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Properties.Settings.Default["checksumAppPath"] = checksumAppFileDialog.FileName;
+                Properties.Settings.Default.Save(); 
+                checksumAppPathLabel.Text = "Path: " + (Properties.Settings.Default["checksumAppPath"] as string);
+            }
+        }
+
+        private void clearChecksumButton_Click(object sender, EventArgs e)
+        {
+            CurrentKey = CurrentChecksum = 0;
+            UpdateChecksumLabel();
+        }
+
+        private void dataSarcButton_Click(object sender, EventArgs e)
+        {
+            if (dataFileDialog.ShowDialog() != DialogResult.OK) dataFileDialog.FileName = "";
+            dataSarcLabel.Text = "Path: " + dataFileDialog.FileName;
+        }
+
+        private void replacementSarcButton_Click(object sender, EventArgs e)
+        {
+            if (replacementFileDialog.ShowDialog() != DialogResult.OK) replacementFileDialog.FileName = "";
+            replacementSarcLabel.Text = "Path: " + replacementFileDialog.FileName;
+        }
+
+        private void calculateChecksumButton_Click(object sender, EventArgs e)
+        {
+            string EncryptorPath = Properties.Settings.Default["checksumAppPath"] as string;
+            if (EncryptorPath.Length == 0)
+            {
+                MessageBox.Show("The application to calculate the checksum has not been configured.", "Missing Checksum App", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            CurrentChecksum = 0;
+            {
+                Random r = new Random();
+                CurrentKey = ((uint)r.Next(1 << 30) << 2) | (uint)r.Next(1 << 2);
+            }
+            byte[] data = MissionData.Write();
+            string tempFile = System.IO.Path.GetTempFileName();
+            File.WriteAllBytes(tempFile, data);
+            string EncryptorCommand = "-k 0x" + CurrentKey.ToString("X8") + " -c " + tempFile;
+            if (dataFileDialog.FileName.Length != 0)
+            {
+                EncryptorCommand += " -d " + dataFileDialog.FileName;
+            }
+            if (replacementFileDialog.FileName.Length != 0)
+            {
+                EncryptorCommand += " -r " + replacementFileDialog.FileName;
+            }
+
+            var proc = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = EncryptorPath,
+                    Arguments = EncryptorCommand,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true
+                }
+            };
+            proc.Start();
+            string output = proc.StandardOutput.ReadToEnd();
+            string err = proc.StandardError.ReadToEnd();
+            proc.WaitForExit();
+            if (proc.ExitCode != 0)
+            {
+                MessageBox.Show("Checksum calculation failed:\n" + err, "Checksum App Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            } else
+            {
+                CurrentChecksum = UInt32.Parse(output.Substring(2), System.Globalization.NumberStyles.HexNumber);
+                UpdateChecksumLabel();
+            }
+        }
+
+        private void customCCCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            customCCUpDown.Enabled = customCCCheck.Checked;
         }
     }
 }
