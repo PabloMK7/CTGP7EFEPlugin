@@ -47,7 +47,7 @@ namespace CTGP7.UI
             {
                 new List<string>() {"None" },
                 new List<string>() {"Order", "All"},
-                new List<string>() {"ItemBox", "Coin", "Rocky Wrenches"},
+                new List<string>() {"ItemBox", "Coin", "Rocky Wrench", "Crab", "Frogoon"},
                 new List<string>() {"Boost Pad", "Mini-Turbo", "Super Mini-Turbo", "Rocket Start", "Trick", "Improved Trick", "Star Ring"},
             };
         }
@@ -110,6 +110,7 @@ namespace CTGP7.UI
                 forceBackwardsCheck.Checked = missionFlags.ForceBackwards;
                 finishRaceSectionCheck.Checked = missionFlags.FinishOnSection;
                 givePointHitCheck.Checked = missionFlags.GivePointOnHit;
+                blockSpawnCoinHitCheck.Checked = missionFlags.BlockCoinSpawnWhenHit;
                 coinRespawnCheck.Checked = missionFlags.RespawnCoins;
                 coinRespawnTimer.Time = missionFlags.RespawnCoinsTimer;
                 try
@@ -121,9 +122,18 @@ namespace CTGP7.UI
                     completeCondition1Combo.SelectedIndex = 0;
                     completeCondition2Combo.SelectedIndex = 0;
                 }
-                customCCCheck.Checked = missionFlags.UseCCSelector;
-                customCCUpDown.Value = missionFlags.CCSelectorSpeed;
-                improvedTricksCombo.SelectedIndex = missionFlags.ImprovedTricksOption;
+                try
+                {
+                    customCCCheck.Checked = missionFlags.UseCCSelector;
+                    customCCUpDown.Value = missionFlags.CCSelectorSpeed;
+                    improvedTricksCombo.SelectedIndex = missionFlags.ImprovedTricksOption;
+                } catch (Exception)
+                {
+                    customCCCheck.Checked = false;
+                    customCCUpDown.Value = 150;
+                    improvedTricksCombo.SelectedIndex = 0;
+                }
+                
 
                 scoreEnabledCheck_CheckedChanged(scoreEnabledCheck, new EventArgs());
                 finishRaceTimerCheck_CheckedChanged(finishRaceTimerCheck, new EventArgs());
@@ -245,6 +255,7 @@ namespace CTGP7.UI
                 missionFlags.ForceBackwards = forceBackwardsCheck.Checked;
                 missionFlags.FinishOnSection = finishRaceSectionCheck.Checked;
                 missionFlags.GivePointOnHit = givePointHitCheck.Checked;
+                missionFlags.BlockCoinSpawnWhenHit = blockSpawnCoinHitCheck.Checked;
                 missionFlags.RespawnCoins = coinRespawnCheck.Checked;
                 missionFlags.RespawnCoinsTimer = coinRespawnTimer.Time;
                 missionFlags.CompleteCondition1 = (byte)completeCondition1Combo.SelectedIndex;

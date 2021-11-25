@@ -281,6 +281,7 @@ namespace CTGP7
 			public bool CoinCounterHidden { get { return GetBit(Flags, 7); } set { Flags = ChangeBit(Flags, 7, value); } }
 			public bool LapCounterVisible { get { return GetBit(Flags, 8); } set { Flags = ChangeBit(Flags, 8, value); } }
 			public bool GivePointOnHit { get { return GetBit(Flags, 9); } set { Flags = ChangeBit(Flags, 9, value); } }
+			public bool BlockCoinSpawnWhenHit { get { return GetBit(Flags, 10); } set { Flags = ChangeBit(Flags, 10, value); } }
 
 			public MissionFlagsSection()
 			{
