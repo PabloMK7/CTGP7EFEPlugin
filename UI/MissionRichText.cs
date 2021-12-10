@@ -15,7 +15,7 @@ namespace CTGP7.UI
     public partial class MissionRichText : UserControl
     {
         [Browsable(true)]
-        [Description("Invoked when the selected course changes")]
+        [Description("Invoked when the text changes")]
         public event EventHandler RichTextChanged;
         private bool allowEvent = true;
         public MissionRichText()

@@ -465,7 +465,7 @@ namespace CTGP7.UI
                     removeTextEntryButton.Enabled = true;
 
                 langCodeText.Text = (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).langCode;
-                langTitleText.Text = (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).title;
+                langTitleText.Text = Encoding.UTF8.GetString((textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).title);
                 langDescriptionText.RichText = (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).description;
             } else
             {
@@ -491,7 +491,7 @@ namespace CTGP7.UI
         private void langTitleText_TextChanged(object sender, EventArgs e)
         {
             if (textEntryList.SelectedIndex != -1)
-                (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).title = langTitleText.Text;
+                (textEntryList.Items[textEntryList.SelectedIndex] as CMSN.TextSection.LanguageEntry).title = Encoding.UTF8.GetBytes(langTitleText.Text);
         }
 
         private void langDescriptionText_RichTextChanged(object sender, EventArgs e)

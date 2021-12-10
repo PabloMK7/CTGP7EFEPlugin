@@ -641,14 +641,14 @@ namespace CTGP7
 			public class LanguageEntry
 			{
 				public string langCode;
-				public string title;
+				public byte[] title;
 				public byte[] description;
 				public byte descriptionNewlines;
 
 				public LanguageEntry()
 				{
 					langCode = "ENG";
-					title = "Mission title";
+					title = Encoding.UTF8.GetBytes("Mission title");
 					description = Encoding.UTF8.GetBytes("Mission description.");
 					descriptionNewlines = 0;
 				}
@@ -656,7 +656,8 @@ namespace CTGP7
 				public LanguageEntry(LanguageEntry other)
                 {
 					langCode = other.langCode;
-					title = other.title;
+					title = new byte[other.title.Length];
+					other.title.CopyTo(title, 0);
 					description = new byte[other.description.Length];
 					other.description.CopyTo(description, 0);
 					descriptionNewlines = other.descriptionNewlines;
@@ -672,12 +673,23 @@ namespace CTGP7
 
 					er.BaseStream.Position = basepos + langOffset;
 					langCode = er.ReadStringNT(Encoding.UTF8);
+
+					MemoryStream tmpStream2 = new MemoryStream();
 					er.BaseStream.Position = basepos + titleOffset;
-					title = er.ReadStringNT(Encoding.UTF8);
+					byte b;
+
+					while (true)
+					{
+						b = er.ReadByte();
+						if (b != 0)
+							tmpStream2.WriteByte(b);
+						else
+							break;
+					}
+					title = tmpStream2.ToArray();
 
 					MemoryStream tmpStream = new MemoryStream();
 					er.BaseStream.Position = basepos + descriptionOffset;
-					byte b;
 
 					while (true)
                     {
@@ -701,7 +713,8 @@ namespace CTGP7
 					lastpos = tmpWritter.BaseStream.Position;
 
 					ew.Write((ushort)(offset + lastpos));
-					tmpWritter.Write(title, Encoding.UTF8, true);
+					tmpWritter.Write(title, 0, title.Length);
+					tmpWritter.Write((byte)0);
 					lastpos = tmpWritter.BaseStream.Position;
 
 					ew.Write((ushort)(offset + lastpos));
