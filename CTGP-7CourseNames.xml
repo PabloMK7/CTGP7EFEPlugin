@@ -96,4 +96,20 @@
   <Entry szsName="Gn64_BansheeBoard" humanName="N64 Banshee Boardwalk" courseID="5F" courseType="CustomRace" />
   <Entry szsName="Ctgp_GCNMarioCirc" humanName="GCN Mario Circuit" courseID="60" courseType="CustomRace" />
   <Entry szsName="Ctgp_RainbowRdDX" humanName="Rainbow Road DX" courseID="61" courseType="CustomRace" />
+  <Entry szsName="Ctgp_StarGSumm" humanName="Stargaze Summit" courseID="62" courseType="CustomRace" />
+  <Entry szsName="Ctgp_SunsetRacewa" humanName="Sunset Raceway" courseID="63" courseType="CustomRace" />
+  <Entry szsName="Ctgp_GBABroknPier" humanName="GBA Broken Pier" courseID="64" courseType="CustomRace" />
+  <Entry szsName="Ctgp_GlacrMine" humanName="Glacier Mine" courseID="65" courseType="CustomRace" />
+  <Entry szsName="Ctgp_FlowerBFort" humanName="Flowerbed Fortress" courseID="66" courseType="CustomRace" />
+  <Entry szsName="Ctgp_SeasidePalace" humanName="Seaside Palace" courseID="67" courseType="CustomRace" />
+  <Entry szsName="Ctgp_DKRStaCi" humanName="DKR Star City" courseID="68" courseType="CustomRace" />
+  <Entry szsName="Ctgp_MushroomMount" humanName="Mushroom Mountain" courseID="69" courseType="CustomRace" />
+  <Entry szsName="Ctgp_N64ShbLnd" humanName="N64 Sherbet Land" courseID="6A" courseType="CustomRace" />
+  <Entry szsName="Ctgp_BlockIslandd" humanName="Block Island" courseID="6B" courseType="CustomRace" />
+  <Entry szsName="Ctgp_DSBowserCastle" humanName="DS Bowser Castle" courseID="6C" courseType="CustomRace" />
+  <Entry szsName="Ctgp_DKRJunFa" humanName="DKR Jungle Falls" courseID="6D" courseType="CustomRace" />
+  <Entry szsName="Ctgp_RetroRaceway" humanName="Retro Raceway" courseID="6E" courseType="CustomRace" />
+  <Entry szsName="Ctgp_FrzGrotto" humanName="Frozen Grotto" courseID="6F" courseType="CustomRace" />
+  <Entry szsName="Ctgp_GBALksdPrk" humanName="GBA Lakeside Park" courseID="70" courseType="CustomRace" />
+  <Entry szsName="Ctgp_DrgnBGrounds" humanName="Dragon Burial Grounds" courseID="71" courseType="CustomRace" />
 </NameInfo>
