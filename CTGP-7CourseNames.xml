@@ -26,7 +26,7 @@
   <Entry szsName="Gds_WaluigiPinball" humanName="DS Waluigi Pinball" courseID="17" courseType="OriginalRace" />
   <Entry szsName="Ggc_DinoDinoJungle" humanName="GCN Dino Dino Jungle" courseID="18" courseType="OriginalRace" />
   <Entry szsName="Ggc_DaisyCruiser" humanName="GCN Daisy Cruiser" courseID="19" courseType="OriginalRace" />
-  <Entry szsName="Gn64_LuigiCircuit" humanName="N64 Luigi Circuit" courseID="1A" courseType="OriginalRace" />
+  <Entry szsName="Gn64_LuigiCircuit" humanName="N64 Luigi Raceway" courseID="1A" courseType="OriginalRace" />
   <Entry szsName="Gn64_KalimariDesert" humanName="N64 Kalimari Desert" courseID="1B" courseType="OriginalRace" />
   <Entry szsName="Gn64_KoopaTroopaBeach" humanName="N64 Koopa Troopa Beach" courseID="1C" courseType="OriginalRace" />
   <Entry szsName="Gagb_BowserCastle1" humanName="GBA Bowser Castle 1" courseID="1D" courseType="OriginalRace" />
@@ -51,7 +51,7 @@
   <Entry szsName="Ctgp_EvGre" humanName="Evergreen Crossing" courseID="32" courseType="CustomRace" />
   <Entry szsName="Ctgp_CrashCov" humanName="CTR Crash Cove" courseID="33" courseType="CustomRace" />
   <Entry szsName="Ctgp_ArchipAvenue" humanName="Archipelago Avenue" courseID="34" courseType="CustomRace" />
-  <Entry szsName="Ctgp_FrapeSnow" humanName="Frappe Snowland" courseID="35" courseType="CustomRace" />
+  <Entry szsName="Ctgp_FrapeSnow" humanName="N64 Frappe Snowland" courseID="35" courseType="CustomRace" />
   <Entry szsName="Ctgp_MoooMoooFarm" humanName="N64 Moo Moo Farm" courseID="36" courseType="CustomRace" />
   <Entry szsName="Ctgp_BanshBoardT" humanName="Banshee Boardwalk 2" courseID="37" courseType="CustomRace" />
   <Entry szsName="Ctgp_CortexCastleeee" humanName="CTR Cortex Castle" courseID="38" courseType="CustomRace" />
