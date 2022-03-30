@@ -7,11 +7,11 @@
   <Entry szsName="Gctr_ToadCircuit" humanName="Toad Circuit" courseID="4" courseType="OriginalRace" />
   <Entry szsName="Gctr_SandTown" humanName="Shy Guy Bazaar" courseID="5" courseType="OriginalRace" />
   <Entry szsName="Gctr_AdvancedCircuit" humanName="Neo Bowser City" courseID="6" courseType="OriginalRace" />
-  <Entry szsName="Gctr_DKJungle" humanName="Donkey Kong Jungle" courseID="7" courseType="OriginalRace" />
+  <Entry szsName="Gctr_DKJungle" humanName="DK Jungle" courseID="7" courseType="OriginalRace" />
   <Entry szsName="Gctr_WuhuIsland1" humanName="Wuhu Loop" courseID="8" courseType="OriginalRace" />
   <Entry szsName="Gctr_WuhuIsland2" humanName="Maka Wuhu" courseID="9" courseType="OriginalRace" />
-  <Entry szsName="Gctr_IceSlider" humanName="Rosalina Ice World" courseID="A" courseType="OriginalRace" />
-  <Entry szsName="Gctr_BowserCastle" humanName="Bowser Castle" courseID="B" courseType="OriginalRace" />
+  <Entry szsName="Gctr_IceSlider" humanName="Rosalina's Ice World" courseID="A" courseType="OriginalRace" />
+  <Entry szsName="Gctr_BowserCastle" humanName="Bowser's Castle" courseID="B" courseType="OriginalRace" />
   <Entry szsName="Gctr_UnderGround" humanName="Piranha Plant Slide" courseID="C" courseType="OriginalRace" />
   <Entry szsName="Gctr_RainbowRoad" humanName="Rainbow Road" courseID="D" courseType="OriginalRace" />
   <Entry szsName="Gctr_WarioShip" humanName="Wario Shipyard" courseID="E" courseType="OriginalRace" />
@@ -22,14 +22,14 @@
   <Entry szsName="Gwii_MushroomGorge" humanName="Wii Mushroom Gorge" courseID="13" courseType="OriginalRace" />
   <Entry szsName="Gds_LuigisMansion" humanName="DS Luigi's Mansion" courseID="14" courseType="OriginalRace" />
   <Entry szsName="Gds_AirshipFortress" humanName="DS Airship Fortress" courseID="15" courseType="OriginalRace" />
-  <Entry szsName="Gds_DKPass" humanName="DS Donkey Kong Pass" courseID="16" courseType="OriginalRace" />
+  <Entry szsName="Gds_DKPass" humanName="DS DK Pass" courseID="16" courseType="OriginalRace" />
   <Entry szsName="Gds_WaluigiPinball" humanName="DS Waluigi Pinball" courseID="17" courseType="OriginalRace" />
   <Entry szsName="Ggc_DinoDinoJungle" humanName="GCN Dino Dino Jungle" courseID="18" courseType="OriginalRace" />
   <Entry szsName="Ggc_DaisyCruiser" humanName="GCN Daisy Cruiser" courseID="19" courseType="OriginalRace" />
   <Entry szsName="Gn64_LuigiCircuit" humanName="N64 Luigi Circuit" courseID="1A" courseType="OriginalRace" />
   <Entry szsName="Gn64_KalimariDesert" humanName="N64 Kalimari Desert" courseID="1B" courseType="OriginalRace" />
   <Entry szsName="Gn64_KoopaTroopaBeach" humanName="N64 Koopa Troopa Beach" courseID="1C" courseType="OriginalRace" />
-  <Entry szsName="Gagb_BowserCastle1" humanName="GBA Boweser Castle 1" courseID="1D" courseType="OriginalRace" />
+  <Entry szsName="Gagb_BowserCastle1" humanName="GBA Bowser Castle 1" courseID="1D" courseType="OriginalRace" />
   <Entry szsName="Gsfc_MarioCircuit2" humanName="SNES Mario Circuit 2" courseID="1E" courseType="OriginalRace" />
   <Entry szsName="Gsfc_RainbowRoad" humanName="SNES Rainbow Road" courseID="1F" courseType="OriginalRace" />
   
@@ -47,7 +47,7 @@
   <Entry szsName="Ctgp_AutumnForest" humanName="Autumn Forest" courseID="2E" courseType="CustomRace" />
   <Entry szsName="Gn64_ChocoMountainn" humanName="N64 Choco Mountain" courseID="2F" courseType="CustomRace" />
   <Entry szsName="Ctgp_DSShroomRidge" humanName="DS Shroom Ridge" courseID="30" courseType="CustomRace" />
-  <Entry szsName="Ctgp_BowserCastle3" humanName="GBA Boweser Castle 3" courseID="31" courseType="CustomRace" />
+  <Entry szsName="Ctgp_BowserCastle3" humanName="GBA Bowser Castle 3" courseID="31" courseType="CustomRace" />
   <Entry szsName="Ctgp_EvGre" humanName="Evergreen Crossing" courseID="32" courseType="CustomRace" />
   <Entry szsName="Ctgp_CrashCov" humanName="CTR Crash Cove" courseID="33" courseType="CustomRace" />
   <Entry szsName="Ctgp_ArchipAvenue" humanName="Archipelago Avenue" courseID="34" courseType="CustomRace" />
@@ -55,8 +55,8 @@
   <Entry szsName="Ctgp_MoooMoooFarm" humanName="N64 Moo Moo Farm" courseID="36" courseType="CustomRace" />
   <Entry szsName="Ctgp_BanshBoardT" humanName="Banshee Boardwalk 2" courseID="37" courseType="CustomRace" />
   <Entry szsName="Ctgp_CortexCastleeee" humanName="CTR Cortex Castle" courseID="38" courseType="CustomRace" />
-  <Entry szsName="Ctgp_GhostValleyT" humanName="GBA Ghost Valley 2" courseID="39" courseType="CustomRace" />
-  <Entry szsName="Ctgp_MelodSanc" humanName="Melody Sanctuum" courseID="3A" courseType="CustomRace" />
+  <Entry szsName="Ctgp_GhostValleyT" humanName="SNES Ghost Valley 2" courseID="39" courseType="CustomRace" />
+  <Entry szsName="Ctgp_MelodSanc" humanName="Melody Sanctum" courseID="3A" courseType="CustomRace" />
   <Entry szsName="Ctgp_MarioRacewa" humanName="N64 Mario Raceway" courseID="3B" courseType="CustomRace" />
   <Entry szsName="Gds_DokkanCourse" humanName="DS Dokan Course" courseID="3C" courseType="CustomRace" />
   <Entry szsName="Gsfc_ChocoIsland" humanName="SNES Choco Island 2" courseID="3D" courseType="CustomRace" />
@@ -74,7 +74,7 @@
   <Entry szsName="Ctgp_MikuBirtSpe" humanName="Miku's Birthday Spectacular" courseID="49" courseType="CustomRace" />
   <Entry szsName="Ctgp_SandCastle" humanName="Sandcastle Park" courseID="4A" courseType="CustomRace" />
   <Entry szsName="Ctgp_MarioCircuit" humanName="DS Mario Circuit" courseID="4B" courseType="CustomRace" />
-  <Entry szsName="Gcn_LuigiCircuit" humanName="GCN Mario Circuit" courseID="4C" courseType="CustomRace" />
+  <Entry szsName="Gcn_LuigiCircuit" humanName="GCN Luigi Circuit" courseID="4C" courseType="CustomRace" />
   <Entry szsName="Ctgp_VolcanoBeachRuins" humanName="Volcano Beach Ruins" courseID="4D" courseType="CustomRace" />
   <Entry szsName="Gcn_YoshiCircuit" humanName="GCN Yoshi Circuit" courseID="4E" courseType="CustomRace" />
   <Entry szsName="Gagb_PeachCircuitt" humanName="GBA Peach Circuit" courseID="4F" courseType="CustomRace" />
@@ -82,8 +82,8 @@
   <Entry szsName="Ctgp_GBALuigiCirc" humanName="GBA Luigi Circuit" courseID="51" courseType="CustomRace" />
   <Entry szsName="Ctgp_SMORCChallen" humanName="SMO RC Challenge" courseID="52" courseType="CustomRace" />
   <Entry szsName="Gagb_BowserCastle4" humanName="GBA Bowser Castle 4" courseID="53" courseType="CustomRace" />
-  <Entry szsName="Gsfc_DonutPlainsThree" humanName="SNES Donut Plains 3" courseID="54" courseType="CustomRace" />
-  <Entry szsName="Gn64_SecretSl" humanName="N64 Secret Slide" courseID="55" courseType="CustomRace" />
+  <Entry szsName="Gsfc_DonutPlainsThree" humanName="SNES Donut Plains 1" courseID="54" courseType="CustomRace" />
+  <Entry szsName="Gn64_SecretSl" humanName="Secret Slide" courseID="55" courseType="CustomRace" />
   <Entry szsName="Gds_WarioStad" humanName="DS Wario Stadium" courseID="56" courseType="CustomRace" />
   <Entry szsName="Ctgp_ErmiiCir" humanName="Ermii Circuit" courseID="57" courseType="CustomRace" />
   <Entry szsName="Ggcn_BabyParkNin" humanName="GCN Baby Park" courseID="58" courseType="CustomRace" />
