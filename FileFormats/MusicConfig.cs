@@ -35,7 +35,7 @@ namespace CTGP7
                 else szsNameInner = info.NameEntryFromHumanName(value).szsName;
             }
         }
-        public string MusicName { get; set; }
+        public string MusicFileName { get; set; }
 
         [Browsable(false)]
         public string MusicModeInner;
@@ -141,28 +141,63 @@ namespace CTGP7
             }
         }
 
-        public MusicConfigEntry(CTGP7CourseList list, string courseName, string musicName, string musicMode, byte normalBPM, byte fastBPM, uint normalOffset, uint fastOffset) 
+        public string MusicName { get; set; }
+
+        [Browsable(false)]
+        public List<string> MusicAuthorsInner;
+
+        public string MusicAuthors
+        {
+            get
+            {
+                string ret = "";
+                if (MusicAuthorsInner.Count == 0)
+                    return ret;
+                ret = MusicAuthorsInner[0];
+                for (int i = 1; i < MusicAuthorsInner.Count; i++)
+                {
+                    ret += ", " + MusicAuthorsInner[i];
+                }
+                return ret;
+            }
+
+            set
+            {
+                string[] parts = value.Split(',');
+                MusicAuthorsInner.Clear();
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    MusicAuthorsInner.Add(parts[i].Trim());
+                }
+            }
+        }
+
+        public MusicConfigEntry(CTGP7CourseList list, string courseName, string musicFileName, string musicMode, byte normalBPM, byte fastBPM, uint normalOffset, uint fastOffset) 
         {
             info = list;
             szsNameInner = courseName;
-            MusicName = musicName;
+            MusicFileName = musicFileName;
             MusicModeInner = musicMode;
             NormalBPMInner = normalBPM;
             FastBPMInner = fastBPM;
             NormalOffsetInner = normalOffset;
             FastOffsetInner = fastOffset;
+            MusicName = "";
+            MusicAuthorsInner = new List<string>();
         }
 
         public MusicConfigEntry(CTGP7CourseList list)
         {
             info = list;
             szsNameInner = list.NameEntryFromID(0).szsName;
-            MusicName = "";
+            MusicFileName = "";
             MusicMode = "";
             NormalBPMInner = 0;
             FastBPMInner = 0;
             NormalOffsetInner = 0;
             FastOffsetInner = 0;
+            MusicName = "";
+            MusicAuthorsInner = new List<string>();
         }
     }
     public class MusicConfigFile : FileFormat<MusicConfigFile.MCFIdentifier>, IViewable, IEmptyCreatable, IWriteable
@@ -183,7 +218,7 @@ namespace CTGP7
             {
                 if (line.StartsWith("#")) continue;
                 string[] elements = line.Split(new string[] { "::" }, StringSplitOptions.RemoveEmptyEntries);
-                if (elements.Length != 7) continue;
+                if (elements.Length < 7) continue;
                 for (int i = 0; i < elements.Length; i++)
                 {
                     elements[i] = elements[i].Trim();
@@ -191,6 +226,13 @@ namespace CTGP7
                 try
                 {
                     Entries.Add(new MusicConfigEntry(TranslateList, elements[0], elements[1], elements[2], Byte.Parse(elements[3]), Byte.Parse(elements[5]), UInt32.Parse(elements[4]), UInt32.Parse(elements[6])));
+                    for (int i = 7; i < elements.Length; i++)
+                    {
+                        if (i == 7)
+                            Entries.Last().MusicName = elements[i];
+                        else
+                            Entries.Last().MusicAuthorsInner.Add(elements[i]);
+                    }
                 }
                 catch (Exception)
                 {
@@ -206,7 +248,16 @@ namespace CTGP7
             foreach(var entry in Entries)
             {
                 if (entry.CourseName == "") continue;
-                output.WriteLine(entry.szsNameInner + " :: " + entry.MusicName + " :: " + entry.MusicModeInner + " :: " + entry.NormalBPMInner + " :: " + entry.NormalOffsetInner + " :: " + entry.FastBPMInner + " :: " + entry.FastOffsetInner);
+                string line = entry.szsNameInner + " :: " + entry.MusicFileName + " :: " + entry.MusicModeInner + " :: " + entry.NormalBPMInner + " :: " + entry.NormalOffsetInner + " :: " + entry.FastBPMInner + " :: " + entry.FastOffsetInner;
+                if (entry.MusicName != "")
+                {
+                    line += " :: " + entry.MusicName;
+                    for (int i = 0; i < entry.MusicAuthorsInner.Count; i++)
+                    {
+                        line +=  " :: " + entry.MusicAuthorsInner[i];
+                    }
+                }
+                output.WriteLine(line);
             }
             output.Flush();
             return (output.BaseStream as MemoryStream).ToArray();

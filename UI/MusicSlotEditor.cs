@@ -33,13 +33,15 @@ namespace CTGP7.UI
             dataIsChanging = true;
             MusicConfigEntry currEntry = MusicConfig.Entries[dataGrid.SelectedRows[0].Index];
             currEntry.szsNameInner = courseSelector.SelectedCourseNameEntry.szsName;
-            currEntry.MusicName = musicFileBox.Text;
+            currEntry.MusicFileName = musicFileBox.Text;
             updateNameLabel();
             currEntry.MusicMode = musicModeBox.Text;
             currEntry.NormalBPM = bpmNormalBox.Text;
             currEntry.FastBPM = bpmFastBox.Text;
             currEntry.NormalOffset = offsetNormalBox.Text;
             currEntry.FastOffset = offsetFastBox.Text;
+            currEntry.MusicName = musicNameBox.Text;
+            currEntry.MusicAuthors = musicAuthorBox.Text;
             dataGrid.DataSource = MusicConfig.Entries;
             dataIsChanging = false;
             dataGrid.Refresh();
@@ -53,13 +55,15 @@ namespace CTGP7.UI
             MusicConfigEntry currEntry = MusicConfig.Entries[dataGrid.SelectedRows[0].Index];
             CTGP7CourseList.NameEntry entry = TranslateList.NameEntryFromSzsName(currEntry.szsNameInner);
             courseSelector.SelectedCourseNameEntry = entry;
-            musicFileBox.Text = currEntry.MusicName;
+            musicFileBox.Text = currEntry.MusicFileName;
             updateNameLabel();
             musicModeBox.Text = currEntry.MusicMode;
             bpmNormalBox.Text = currEntry.NormalBPM;
             bpmFastBox.Text = currEntry.FastBPM;
             offsetNormalBox.Text = currEntry.NormalOffset;
             offsetFastBox.Text = currEntry.FastOffset;
+            musicNameBox.Text = currEntry.MusicName;
+            musicAuthorBox.Text = currEntry.MusicAuthors;
             dataGrid.DataSource = MusicConfig.Entries;
             dataIsChanging = false;
         }
@@ -86,6 +90,8 @@ namespace CTGP7.UI
             offsetNormalBox.Enabled = !disable;
             offsetFastBox.Enabled = !disable;
             deleteButton.Enabled = !disable;
+            musicNameBox.Enabled = !disable;
+            musicAuthorBox.Enabled = !disable;
             if (disable)
             {
                 musicFileBox.Text = "";
@@ -94,6 +100,8 @@ namespace CTGP7.UI
                 bpmFastBox.Text = "";
                 offsetNormalBox.Text = "";
                 offsetFastBox.Text = "";
+                musicNameBox.Text = "";
+                musicAuthorBox.Text = "";
             }
         }
 
