@@ -58,7 +58,7 @@
   <Entry szsName="Ctgp_GhostValleyT" humanName="SNES Ghost Valley 2" courseID="39" courseType="CustomRace" />
   <Entry szsName="Ctgp_MelodSanc" humanName="Melody Sanctum" courseID="3A" courseType="CustomRace" />
   <Entry szsName="Ctgp_MarioRacewa" humanName="N64 Mario Raceway" courseID="3B" courseType="CustomRace" />
-  <Entry szsName="Gds_DokkanCourse" humanName="DS Dokan Course" courseID="3C" courseType="CustomRace" />
+  <Entry szsName="Ctgp_WarpPipeIsland" humanName="Warp Pipe Island" courseID="3C" courseType="CustomRace" />
   <Entry szsName="Gsfc_ChocoIsland" humanName="SNES Choco Island 2" courseID="3D" courseType="CustomRace" />
   <Entry szsName="Ctgp_ElementalCave" humanName="Elemental Cave" courseID="3E" courseType="CustomRace" />
   <Entry szsName="Ctgp_YoshFalls" humanName="DS Yoshi Falls" courseID="3F" courseType="CustomRace" />
@@ -112,4 +112,12 @@
   <Entry szsName="Ctgp_FrzGrotto" humanName="Frozen Grotto" courseID="6F" courseType="CustomRace" />
   <Entry szsName="Ctgp_GBALksdPrk" humanName="GBA Lakeside Park" courseID="70" courseType="CustomRace" />
   <Entry szsName="Ctgp_DrgnBGrounds" humanName="Dragon Burial Grounds" courseID="71" courseType="CustomRace" />
+  <Entry szsName="Ctgp_RMXSFCRbwRd" humanName="RMX Rainbow Road 1" courseID="72" courseType="CustomRace" />
+  <Entry szsName="Ctgp_NeoMetropolisss" humanName="Neo Metropolis" courseID="73" courseType="CustomRace" />
+  <Entry szsName="Ctgp_FrostyHeights" humanName="Frosty Heights" courseID="74" courseType="CustomRace" />
+  <Entry szsName="Ctgp_GnsGnoLair" humanName="Gnasty Gnorc's Lair" courseID="75" courseType="CustomRace" />
+  <Entry szsName="Ctgp_VaLkO" humanName="RMX Vanilla Lake 1" courseID="76" courseType="CustomRace" />
+  <Entry szsName="Ctgp_CliffCircuit" humanName="Cliffside Circuit" courseID="77" courseType="CustomRace" />
+  <Entry szsName="Ctgp_InterstellarLabb" humanName="Interstellar Laboratory" courseID="78" courseType="CustomRace" />
+  <Entry szsName="Ctgp_DarkMatterFortress" humanName="Dark Matter Fortress" courseID="79" courseType="CustomRace" />
 </NameInfo>
