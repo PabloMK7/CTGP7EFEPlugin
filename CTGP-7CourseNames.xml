@@ -70,7 +70,7 @@
   <Entry szsName="Ctgp_CastlOfTime" humanName="Castle Of Time" courseID="45" courseType="CustomRace" />
   <Entry szsName="Ctgp_N64RainbowR" humanName="N64 Rainbow Road" courseID="46" courseType="CustomRace" />
   <Entry szsName="Gagb_RainbowRoad" humanName="GBA Rainbow Road" courseID="47" courseType="CustomRace" />
-  <Entry szsName="Ctgp_SpeiceRouad" humanName="Space Road" courseID="48" courseType="CustomRace" />
+  <Entry szsName="Ctgp_GCBowserCastle" humanName="GCN Bowser Castle" courseID="48" courseType="CustomRace" />
   <Entry szsName="Ctgp_MikuBirtSpe" humanName="Miku's Birthday Spectacular" courseID="49" courseType="CustomRace" />
   <Entry szsName="Ctgp_SandCastle" humanName="Sandcastle Park" courseID="4A" courseType="CustomRace" />
   <Entry szsName="Ctgp_MarioCircuit" humanName="DS Mario Circuit" courseID="4B" courseType="CustomRace" />
