@@ -35,6 +35,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="3DS">
+      <HintPath>..\3DS\bin\Debug\3DS.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,6 +55,7 @@
     <Compile Include="Common\CourseTranslateNames.cs" />
     <Compile Include="Common\ExtendedUTF8.cs" />
     <Compile Include="Common\MK7Timer.cs" />
+    <Compile Include="CTGP-7Plugin.cs" />
     <Compile Include="FileFormats\CMSN.cs" />
     <Compile Include="FileFormats\MusicConfig.cs" />
     <Compile Include="MenuImages.Designer.cs">
